@@ -14,7 +14,7 @@ The framework is designed to be **scalable and applicable across U.S. supply cha
 
 ---
 
-## 🎯 Motivation & National Interest Relevance (NIW Context)
+## 🎯 Motivation & National Interest Relevance
 Efficient logistics and warehouse operations are critical to:
 - Supply chain resilience
 - Cost reduction in distribution networks
