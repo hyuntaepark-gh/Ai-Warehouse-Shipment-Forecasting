@@ -1,5 +1,16 @@
 # AI-Driven Shipment Forecasting for Warehouse Operations Optimization
 
+![Python](https://img.shields.io/badge/Python-AI%20Forecasting-3776AB?logo=python&logoColor=white)
+![XGBoost](https://img.shields.io/badge/XGBoost-ML%20Model-F7931E)
+![LightGBM](https://img.shields.io/badge/LightGBM-Gradient%20Boosting-9ACD32)
+![Time Series](https://img.shields.io/badge/Time--Series-Forecasting-6A1B9A)
+![Supply Chain](https://img.shields.io/badge/Supply%20Chain-Analytics-0A66C2)
+![Warehouse Ops](https://img.shields.io/badge/Warehouse-Operations-2E7D32)
+![Operational Risk](https://img.shields.io/badge/Operational-Risk%20Modeling-00897B)
+![Cost Simulation](https://img.shields.io/badge/Cost-Simulation-795548)
+![Decision Intelligence](https://img.shields.io/badge/Decision-Intelligence-FF7043)
+![AI Optimization](https://img.shields.io/badge/AI-Optimization-232F3E)
+
 ## 📌 Project Overview
 This project develops an **AI-driven shipment (outbound volume) forecasting system** designed to support
 **warehouse and logistics operations decision-making**.
