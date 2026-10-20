@@ -1,0 +1,2788 @@
+[
+  {
+    "file": "figures/full_year_wape_comparison.png",
+    "bytes": 75337,
+    "type": ".png",
+    "evaluation_period": "Unverified"
+  },
+  {
+    "file": "figures/future_12_week_warehouse_forecast.png",
+    "bytes": 135762,
+    "type": ".png",
+    "evaluation_period": "Unverified"
+  },
+  {
+    "file": "figures/m5_external_validation_wape.png",
+    "bytes": 33410,
+    "type": ".png",
+    "evaluation_period": "Unverified"
+  },
+  {
+    "file": "figures/multi_year_backtest_wape.png",
+    "bytes": 45492,
+    "type": ".png",
+    "evaluation_period": "Unverified"
+  },
+  {
+    "file": "figures/quarterly_forecast_performance.png",
+    "bytes": 80631,
+    "type": ".png",
+    "evaluation_period": "Unverified"
+  },
+  {
+    "file": "figures/timesfm_2016_monthly_demand_totals.png",
+    "bytes": 288363,
+    "type": ".png",
+    "evaluation_period": "Unverified"
+  },
+  {
+    "file": "figures/timesfm_cross_year_quarterly_wape.png",
+    "bytes": 110864,
+    "type": ".png",
+    "evaluation_period": "Unverified"
+  },
+  {
+    "file": "figures/timesfm_historical_backtesting_wape.png",
+    "bytes": 84590,
+    "type": ".png",
+    "evaluation_period": "Unverified"
+  },
+  {
+    "file": "figures/timesfm_historical_monthly_wape_heatmap.png",
+    "bytes": 241605,
+    "type": ".png",
+    "evaluation_period": "Unverified"
+  },
+  {
+    "file": "figures/timesfm_historical_pooled_quarterly_wape.png",
+    "bytes": 85007,
+    "type": ".png",
+    "evaluation_period": "Unverified"
+  },
+  {
+    "file": "figures/warehouse_scenario_alerts.png",
+    "bytes": 55447,
+    "type": ".png",
+    "evaluation_period": "Unverified"
+  },
+  {
+    "file": "README_summary.md",
+    "bytes": 15798,
+    "type": ".md",
+    "evaluation_period": "Unverified"
+  },
+  {
+    "file": "tables/artifact_manifest.csv",
+    "bytes": 3836,
+    "type": ".csv",
+    "evaluation_period": "Mixed or not applicable; see individual metric/statement",
+    "evaluation_context": {
+      "family": "Cross-experiment summary / documentation",
+      "period": "Mixed or not applicable; see individual metric/statement",
+      "evidence": "Table contents; summary labels may identify subsets but do not supply row-level predictions.",
+      "caution": "Do not treat summary rows as one evaluation cohort. Exported leakage PASS checks are not independent verification."
+    },
+    "rows": 86,
+    "columns": {
+      "File": "object",
+      "Size_KB": "float64"
+    },
+    "null_counts": {
+      "File": 0,
+      "Size_KB": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/automated_model_test.csv",
+    "bytes": 96,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 1,
+    "columns": {
+      "Selected_Model": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Selected_Model": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/automated_model_validation.csv",
+    "bytes": 223,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 3,
+    "columns": {
+      "Model": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "XGBoost",
+        "Random Forest",
+        "Naive"
+      ]
+    }
+  },
+  {
+    "file": "tables/capacity_optimization.csv",
+    "bytes": 158,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 2,
+    "columns": {
+      "Policy": "object",
+      "Total_Expected_Loss": "float64",
+      "Average_Planned_Capacity": "float64"
+    },
+    "null_counts": {
+      "Policy": 0,
+      "Total_Expected_Loss": 0,
+      "Average_Planned_Capacity": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/category_model_comparison.csv",
+    "bytes": 165,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 2,
+    "columns": {
+      "Model": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Seasonal Naive",
+        "XGBoost"
+      ]
+    }
+  },
+  {
+    "file": "tables/cold_start_comparison.csv",
+    "bytes": 767,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 8,
+    "columns": {
+      "Held_Out_Warehouse": "object",
+      "Model": "object",
+      "Observations": "int64",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Held_Out_Warehouse": 0,
+      "Model": 0,
+      "Observations": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Calendar XGBoost",
+        "Cross-Warehouse Seasonal Mean"
+      ],
+      "Observations": [
+        52
+      ]
+    }
+  },
+  {
+    "file": "tables/common_model_comparison.csv",
+    "bytes": 762,
+    "type": ".csv",
+    "evaluation_period": "2016-01-10 to 2016-12-25; 51 weeks (dated exports and research_conclusions.csv)",
+    "evaluation_context": {
+      "family": "2016 common-period / reconciliation subset",
+      "period": "2016-01-10 to 2016-12-25; 51 weeks (dated exports and research_conclusions.csv)",
+      "evidence": "hierarchical_warehouse_forecasts.csv, model_monitoring_2016.csv; research_conclusions.csv 51-week common-period statement.",
+      "caution": "Never combine with 52-week full-year errors; ensemble is separately evaluated."
+    },
+    "rows": 9,
+    "columns": {
+      "Model": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Warehouse XGBoost - Aggregated",
+        "Warehouse RF - Aggregated",
+        "Overall SARIMA Refined - Rolling",
+        "Overall Random Forest",
+        "Overall XGBoost",
+        "Overall ARIMA - Rolling",
+        "Overall SARIMA Initial - Rolling",
+        "Overall Seasonal Naive",
+        "Overall Naive"
+      ]
+    }
+  },
+  {
+    "file": "tables/dashboard_performance_summary.csv",
+    "bytes": 1008,
+    "type": ".csv",
+    "evaluation_period": "2016; 52 test weeks for A/C/S; 51 for J in dashboard_performance_summary",
+    "evaluation_context": {
+      "family": "2016 warehouse rolling forecasts",
+      "period": "2016; 52 test weeks for A/C/S; 51 for J in dashboard_performance_summary",
+      "evidence": "Original HTML dashboard trace timestamps and Test_Weeks; README_summary.md distinguishes warehouse rolling evaluation.",
+      "caution": "Within-warehouse comparisons only; different grain and information set from aggregate year-ahead forecasts."
+    },
+    "rows": 12,
+    "columns": {
+      "Warehouse": "object",
+      "Model": "object",
+      "Test_Weeks": "int64",
+      "Forecast_High_Demand_Alerts": "int64",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Warehouse": 0,
+      "Model": 0,
+      "Test_Weeks": 0,
+      "Forecast_High_Demand_Alerts": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Warehouse": [
+        "Whse_A",
+        "Whse_C",
+        "Whse_J",
+        "Whse_S"
+      ],
+      "Model": [
+        "Naive",
+        "Random Forest",
+        "XGBoost"
+      ],
+      "Test_Weeks": [
+        52,
+        51
+      ]
+    }
+  },
+  {
+    "file": "tables/data_disruption_robustness.csv",
+    "bytes": 397,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 4,
+    "columns": {
+      "Scenario": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64",
+      "WAPE_Change_pp": "float64"
+    },
+    "null_counts": {
+      "Scenario": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0,
+      "WAPE_Change_pp": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/data_leakage_audit.csv",
+    "bytes": 314,
+    "type": ".csv",
+    "evaluation_period": "Mixed or not applicable; see individual metric/statement",
+    "evaluation_context": {
+      "family": "Cross-experiment summary / documentation",
+      "period": "Mixed or not applicable; see individual metric/statement",
+      "evidence": "Table contents; summary labels may identify subsets but do not supply row-level predictions.",
+      "caution": "Do not treat summary rows as one evaluation cohort. Exported leakage PASS checks are not independent verification."
+    },
+    "rows": 8,
+    "columns": {
+      "Check": "object",
+      "Status": "object",
+      "Details": "float64"
+    },
+    "null_counts": {
+      "Check": 0,
+      "Status": 0,
+      "Details": 8
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/data_quality_impact.csv",
+    "bytes": 528,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 5,
+    "columns": {
+      "Scenario": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64",
+      "WAPE_Change_pp": "float64"
+    },
+    "null_counts": {
+      "Scenario": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0,
+      "WAPE_Change_pp": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/demand_level_performance.csv",
+    "bytes": 718,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 9,
+    "columns": {
+      "Demand_Level": "object",
+      "Model": "object",
+      "Observations": "int64",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Demand_Level": 0,
+      "Model": 0,
+      "Observations": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Naive",
+        "Random Forest",
+        "XGBoost"
+      ],
+      "Observations": [
+        74,
+        82,
+        51
+      ]
+    }
+  },
+  {
+    "file": "tables/ensemble_aggregate_comparison.csv",
+    "bytes": 236,
+    "type": ".csv",
+    "evaluation_period": "2016-01-10 to 2016-12-25; 51 weeks (dated exports and research_conclusions.csv)",
+    "evaluation_context": {
+      "family": "2016 common-period / reconciliation subset",
+      "period": "2016-01-10 to 2016-12-25; 51 weeks (dated exports and research_conclusions.csv)",
+      "evidence": "hierarchical_warehouse_forecasts.csv, model_monitoring_2016.csv; research_conclusions.csv 51-week common-period statement.",
+      "caution": "Never combine with 52-week full-year errors; ensemble is separately evaluated."
+    },
+    "rows": 3,
+    "columns": {
+      "Model": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Random Forest",
+        "XGBoost",
+        "Weighted Ensemble"
+      ]
+    }
+  },
+  {
+    "file": "tables/ensemble_comparison.csv",
+    "bytes": 230,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 3,
+    "columns": {
+      "Model": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Random Forest",
+        "XGBoost",
+        "Weighted Ensemble"
+      ]
+    }
+  },
+  {
+    "file": "tables/ensemble_validation_weights.csv",
+    "bytes": 452,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 11,
+    "columns": {
+      "XGB_Weight": "float64",
+      "RF_Weight": "float64",
+      "Validation_WAPE_Pct": "float64"
+    },
+    "null_counts": {
+      "XGB_Weight": 0,
+      "RF_Weight": 0,
+      "Validation_WAPE_Pct": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/ets_sarima_comparison.csv",
+    "bytes": 166,
+    "type": ".csv",
+    "evaluation_period": "2016-01-03 to 2016-12-25; 52 weekly timestamps",
+    "evaluation_context": {
+      "family": "2016 aggregate full-year holdout",
+      "period": "2016-01-03 to 2016-12-25; 52 weekly timestamps",
+      "evidence": "README_summary.md: Additional Full-Year Forecasting Results; weekly predictions corroborate dates for ETS, TimesFM and Seasonal Naive.",
+      "caution": "Aggregate year-ahead forecasts; later comparisons are exploratory, not independent post-selection validation."
+    },
+    "rows": 2,
+    "columns": {
+      "Model": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Refined SARIMA",
+        "ETS(A,N,A)"
+      ]
+    }
+  },
+  {
+    "file": "tables/ets_validation_results.csv",
+    "bytes": 482,
+    "type": ".csv",
+    "evaluation_period": "2014-01-05 to 2014-12-28 and 2015-01-04 to 2015-12-27; 104 pooled weeks",
+    "evaluation_context": {
+      "family": "2014\u20132015 retrospective year-ahead diagnostics",
+      "period": "2014-01-05 to 2014-12-28 and 2015-01-04 to 2015-12-27; 104 pooled weeks",
+      "evidence": "README_summary.md: TimesFM Historical Year-Ahead Backtesting; ETS validation table Year values.",
+      "caution": "ETS configuration selected on the same folds. ets_validation_summary reports fold means, not pooled error metrics."
+    },
+    "rows": 6,
+    "columns": {
+      "Model": "object",
+      "Year": "int64",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "Year": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "ETS(A,N,A)",
+        "ETS(A,A,A)",
+        "ETS(A,Ad,A)"
+      ],
+      "Year": [
+        2014,
+        2015
+      ]
+    }
+  },
+  {
+    "file": "tables/ets_validation_summary.csv",
+    "bytes": 257,
+    "type": ".csv",
+    "evaluation_period": "2014-01-05 to 2014-12-28 and 2015-01-04 to 2015-12-27; 104 pooled weeks",
+    "evaluation_context": {
+      "family": "2014\u20132015 retrospective year-ahead diagnostics",
+      "period": "2014-01-05 to 2014-12-28 and 2015-01-04 to 2015-12-27; 104 pooled weeks",
+      "evidence": "README_summary.md: TimesFM Historical Year-Ahead Backtesting; ETS validation table Year values.",
+      "caution": "ETS configuration selected on the same folds. ets_validation_summary reports fold means, not pooled error metrics."
+    },
+    "rows": 3,
+    "columns": {
+      "Model": "object",
+      "Folds": "int64",
+      "Mean_MAE": "float64",
+      "Mean_RMSE": "float64",
+      "Mean_WAPE": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "Folds": 0,
+      "Mean_MAE": 0,
+      "Mean_RMSE": 0,
+      "Mean_WAPE": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "ETS(A,N,A)",
+        "ETS(A,A,A)",
+        "ETS(A,Ad,A)"
+      ]
+    }
+  },
+  {
+    "file": "tables/final_metrics_summary.csv",
+    "bytes": 753,
+    "type": ".csv",
+    "evaluation_period": "Mixed or not applicable; see individual metric/statement",
+    "evaluation_context": {
+      "family": "Cross-experiment summary / documentation",
+      "period": "Mixed or not applicable; see individual metric/statement",
+      "evidence": "Table contents; summary labels may identify subsets but do not supply row-level predictions.",
+      "caution": "Do not treat summary rows as one evaluation cohort. Exported leakage PASS checks are not independent verification."
+    },
+    "rows": 16,
+    "columns": {
+      "Metric": "object",
+      "Value": "float64"
+    },
+    "null_counts": {
+      "Metric": 0,
+      "Value": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/final_presentation_outline.csv",
+    "bytes": 435,
+    "type": ".csv",
+    "evaluation_period": "Mixed or not applicable; see individual metric/statement",
+    "evaluation_context": {
+      "family": "Cross-experiment summary / documentation",
+      "period": "Mixed or not applicable; see individual metric/statement",
+      "evidence": "Table contents; summary labels may identify subsets but do not supply row-level predictions.",
+      "caution": "Do not treat summary rows as one evaluation cohort. Exported leakage PASS checks are not independent verification."
+    },
+    "rows": 14,
+    "columns": {
+      "Slide": "int64",
+      "Topic": "object"
+    },
+    "null_counts": {
+      "Slide": 0,
+      "Topic": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/final_report_outline.csv",
+    "bytes": 546,
+    "type": ".csv",
+    "evaluation_period": "Mixed or not applicable; see individual metric/statement",
+    "evaluation_context": {
+      "family": "Cross-experiment summary / documentation",
+      "period": "Mixed or not applicable; see individual metric/statement",
+      "evidence": "Table contents; summary labels may identify subsets but do not supply row-level predictions.",
+      "caution": "Do not treat summary rows as one evaluation cohort. Exported leakage PASS checks are not independent verification."
+    },
+    "rows": 19,
+    "columns": {
+      "Section": "object"
+    },
+    "null_counts": {
+      "Section": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/forecast_bias_quarterly.csv",
+    "bytes": 893,
+    "type": ".csv",
+    "evaluation_period": "2016; 52 test weeks for A/C/S; 51 for J in dashboard_performance_summary",
+    "evaluation_context": {
+      "family": "2016 warehouse rolling forecasts",
+      "period": "2016; 52 test weeks for A/C/S; 51 for J in dashboard_performance_summary",
+      "evidence": "Original HTML dashboard trace timestamps and Test_Weeks; README_summary.md distinguishes warehouse rolling evaluation.",
+      "caution": "Within-warehouse comparisons only; different grain and information set from aggregate year-ahead forecasts."
+    },
+    "rows": 16,
+    "columns": {
+      "Warehouse": "object",
+      "Quarter": "object",
+      "Mean_Signed_Error": "float64",
+      "Underforecast_Rate_Pct": "float64"
+    },
+    "null_counts": {
+      "Warehouse": 0,
+      "Quarter": 0,
+      "Mean_Signed_Error": 0,
+      "Underforecast_Rate_Pct": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Warehouse": [
+        "Whse_A",
+        "Whse_C",
+        "Whse_J",
+        "Whse_S"
+      ]
+    }
+  },
+  {
+    "file": "tables/forecast_bias_summary.csv",
+    "bytes": 687,
+    "type": ".csv",
+    "evaluation_period": "2016; 52 test weeks for A/C/S; 51 for J in dashboard_performance_summary",
+    "evaluation_context": {
+      "family": "2016 warehouse rolling forecasts",
+      "period": "2016; 52 test weeks for A/C/S; 51 for J in dashboard_performance_summary",
+      "evidence": "Original HTML dashboard trace timestamps and Test_Weeks; README_summary.md distinguishes warehouse rolling evaluation.",
+      "caution": "Within-warehouse comparisons only; different grain and information set from aggregate year-ahead forecasts."
+    },
+    "rows": 4,
+    "columns": {
+      "Warehouse": "object",
+      "Observations": "int64",
+      "Total_Demand": "float64",
+      "Total_Signed_Error": "float64",
+      "Mean_Signed_Error": "float64",
+      "MAE": "float64",
+      "Underforecast_Rate": "float64",
+      "Bias_Pct": "float64",
+      "Underforecast_Rate_Pct": "float64",
+      "Longest_Underforecast_Streak": "int64"
+    },
+    "null_counts": {
+      "Warehouse": 0,
+      "Observations": 0,
+      "Total_Demand": 0,
+      "Total_Signed_Error": 0,
+      "Mean_Signed_Error": 0,
+      "MAE": 0,
+      "Underforecast_Rate": 0,
+      "Bias_Pct": 0,
+      "Underforecast_Rate_Pct": 0,
+      "Longest_Underforecast_Streak": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Warehouse": [
+        "Whse_A",
+        "Whse_C",
+        "Whse_J",
+        "Whse_S"
+      ],
+      "Observations": [
+        52,
+        51
+      ]
+    }
+  },
+  {
+    "file": "tables/forecast_calibration.csv",
+    "bytes": 336,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 4,
+    "columns": {
+      "Target_Coverage": "float64",
+      "Observations": "int64",
+      "Covered": "int64",
+      "Total_Width": "float64",
+      "Observed_Coverage": "float64",
+      "Average_Width": "float64"
+    },
+    "null_counts": {
+      "Target_Coverage": 0,
+      "Observations": 0,
+      "Covered": 0,
+      "Total_Width": 0,
+      "Observed_Coverage": 0,
+      "Average_Width": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Observations": [
+        207
+      ]
+    }
+  },
+  {
+    "file": "tables/forecast_error_summary.csv",
+    "bytes": 339,
+    "type": ".csv",
+    "evaluation_period": "2016; 52 test weeks for A/C/S; 51 for J in dashboard_performance_summary",
+    "evaluation_context": {
+      "family": "2016 warehouse rolling forecasts",
+      "period": "2016; 52 test weeks for A/C/S; 51 for J in dashboard_performance_summary",
+      "evidence": "Original HTML dashboard trace timestamps and Test_Weeks; README_summary.md distinguishes warehouse rolling evaluation.",
+      "caution": "Within-warehouse comparisons only; different grain and information set from aggregate year-ahead forecasts."
+    },
+    "rows": 4,
+    "columns": {
+      "Warehouse": "object",
+      "Observations": "int64",
+      "Mean_Signed_Error": "float64",
+      "MAE": "float64",
+      "Underforecast_Rate_Pct": "float64"
+    },
+    "null_counts": {
+      "Warehouse": 0,
+      "Observations": 0,
+      "Mean_Signed_Error": 0,
+      "MAE": 0,
+      "Underforecast_Rate_Pct": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Warehouse": [
+        "Whse_A",
+        "Whse_C",
+        "Whse_J",
+        "Whse_S"
+      ],
+      "Observations": [
+        52,
+        51
+      ]
+    }
+  },
+  {
+    "file": "tables/forecast_significance_test.csv",
+    "bytes": 169,
+    "type": ".csv",
+    "evaluation_period": "51 observations; exact dates and target level not encoded in this export",
+    "evaluation_context": {
+      "family": "Statistical comparison \u2014 exact evaluation dates unverified",
+      "period": "51 observations; exact dates and target level not encoded in this export",
+      "evidence": "Comparison, Weeks, Mean_Loss_Difference, HAC_p_value and 95% interval columns only.",
+      "caution": "Do not borrow dates from another 51-week table. Named test, statistic, loss definition and HAC settings are not exported; non-significance is not proof of equality."
+    },
+    "rows": 1,
+    "columns": {
+      "Comparison": "object",
+      "Weeks": "int64",
+      "Mean_Loss_Difference": "float64",
+      "HAC_p_value": "float64",
+      "CI_95_Lower": "float64",
+      "CI_95_Upper": "float64"
+    },
+    "null_counts": {
+      "Comparison": 0,
+      "Weeks": 0,
+      "Mean_Loss_Difference": 0,
+      "HAC_p_value": 0,
+      "CI_95_Lower": 0,
+      "CI_95_Upper": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Weeks": [
+        51
+      ]
+    }
+  },
+  {
+    "file": "tables/forecast_value_added.csv",
+    "bytes": 543,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 6,
+    "columns": {
+      "Evaluation_Level": "object",
+      "Model": "object",
+      "WAPE (%)": "float64",
+      "Baseline_WAPE (%)": "float64",
+      "FVA_Improvement (%)": "float64"
+    },
+    "null_counts": {
+      "Evaluation_Level": 0,
+      "Model": 0,
+      "WAPE (%)": 0,
+      "Baseline_WAPE (%)": 0,
+      "FVA_Improvement (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Naive",
+        "Random Forest",
+        "XGBoost"
+      ]
+    }
+  },
+  {
+    "file": "tables/full_year_model_comparison.csv",
+    "bytes": 556,
+    "type": ".csv",
+    "evaluation_period": "2016-01-03 to 2016-12-25; 52 weekly timestamps",
+    "evaluation_context": {
+      "family": "2016 aggregate full-year holdout",
+      "period": "2016-01-03 to 2016-12-25; 52 weekly timestamps",
+      "evidence": "README_summary.md: Additional Full-Year Forecasting Results; weekly predictions corroborate dates for ETS, TimesFM and Seasonal Naive.",
+      "caution": "Aggregate year-ahead forecasts; later comparisons are exploratory, not independent post-selection validation."
+    },
+    "rows": 8,
+    "columns": {
+      "Model": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "TimesFM 3.0",
+        "ETS",
+        "SARIMAX",
+        "Refined SARIMA",
+        "Seasonal Naive",
+        "Prophet",
+        "N-BEATS",
+        "N-HiTS"
+      ]
+    }
+  },
+  {
+    "file": "tables/future_4_8_12_week_summary.csv",
+    "bytes": 658,
+    "type": ".csv",
+    "evaluation_period": "Origin 2016-12-25; forecasts 2017-01-01 to 2017-03-19",
+    "evaluation_context": {
+      "family": "Archived future forecasts",
+      "period": "Origin 2016-12-25; forecasts 2017-01-01 to 2017-03-19",
+      "evidence": "Forecast_Origin and Week in future_warehouse_weekly_forecasts.csv; 4/8/12-week summaries.",
+      "caution": "No observed 2017 outcomes. Risk categories and planning considerations are illustrative; P90 is not physical capacity."
+    },
+    "rows": 12,
+    "columns": {
+      "Warehouse": "object",
+      "Projected_Total_Demand": "float64",
+      "Average_Weekly_Demand": "float64",
+      "Peak_Weekly_Demand": "float64",
+      "Horizon_Weeks": "int64"
+    },
+    "null_counts": {
+      "Warehouse": 0,
+      "Projected_Total_Demand": 0,
+      "Average_Weekly_Demand": 0,
+      "Peak_Weekly_Demand": 0,
+      "Horizon_Weeks": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Warehouse": [
+        "Whse_A",
+        "Whse_C",
+        "Whse_J",
+        "Whse_S"
+      ],
+      "Horizon_Weeks": [
+        4,
+        8,
+        12
+      ]
+    }
+  },
+  {
+    "file": "tables/future_operational_decision_summary.csv",
+    "bytes": 2262,
+    "type": ".csv",
+    "evaluation_period": "Origin 2016-12-25; forecasts 2017-01-01 to 2017-03-19",
+    "evaluation_context": {
+      "family": "Archived future forecasts",
+      "period": "Origin 2016-12-25; forecasts 2017-01-01 to 2017-03-19",
+      "evidence": "Forecast_Origin and Week in future_warehouse_weekly_forecasts.csv; 4/8/12-week summaries.",
+      "caution": "No observed 2017 outcomes. Risk categories and planning considerations are illustrative; P90 is not physical capacity."
+    },
+    "rows": 12,
+    "columns": {
+      "Warehouse": "object",
+      "Horizon_Weeks": "int64",
+      "Projected_Total_Demand": "float64",
+      "Average_Weekly_Demand": "float64",
+      "Peak_Weekly_Demand": "float64",
+      "Recent_4Week_Mean_Observed": "float64",
+      "Change_vs_Recent_4Week_Pct": "float64",
+      "Weeks_Above_Historical_P90": "int64",
+      "Max_Demand_to_P90_Ratio": "float64",
+      "Illustrative_Risk_Level": "object",
+      "Planning_Consideration": "object"
+    },
+    "null_counts": {
+      "Warehouse": 0,
+      "Horizon_Weeks": 0,
+      "Projected_Total_Demand": 0,
+      "Average_Weekly_Demand": 0,
+      "Peak_Weekly_Demand": 0,
+      "Recent_4Week_Mean_Observed": 0,
+      "Change_vs_Recent_4Week_Pct": 0,
+      "Weeks_Above_Historical_P90": 0,
+      "Max_Demand_to_P90_Ratio": 0,
+      "Illustrative_Risk_Level": 0,
+      "Planning_Consideration": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Warehouse": [
+        "Whse_A",
+        "Whse_C",
+        "Whse_J",
+        "Whse_S"
+      ],
+      "Horizon_Weeks": [
+        4,
+        8,
+        12
+      ]
+    }
+  },
+  {
+    "file": "tables/future_warehouse_weekly_forecasts.csv",
+    "bytes": 4216,
+    "type": ".csv",
+    "evaluation_period": "Origin 2016-12-25; forecasts 2017-01-01 to 2017-03-19",
+    "evaluation_context": {
+      "family": "Archived future forecasts",
+      "period": "Origin 2016-12-25; forecasts 2017-01-01 to 2017-03-19",
+      "evidence": "Forecast_Origin and Week in future_warehouse_weekly_forecasts.csv; 4/8/12-week summaries.",
+      "caution": "No observed 2017 outcomes. Risk categories and planning considerations are illustrative; P90 is not physical capacity."
+    },
+    "rows": 48,
+    "columns": {
+      "Warehouse": "object",
+      "Forecast_Origin": "object",
+      "Week": "object",
+      "Horizon_Week": "int64",
+      "Predicted_Demand": "float64",
+      "Historical_P90": "float64",
+      "Demand_to_P90_Ratio": "float64",
+      "Illustrative_Risk_Level": "object"
+    },
+    "null_counts": {
+      "Warehouse": 0,
+      "Forecast_Origin": 0,
+      "Week": 0,
+      "Horizon_Week": 0,
+      "Predicted_Demand": 0,
+      "Historical_P90": 0,
+      "Demand_to_P90_Ratio": 0,
+      "Illustrative_Risk_Level": 0
+    },
+    "observed_date_spans": {
+      "Forecast_Origin": {
+        "start": "2016-12-25",
+        "end": "2016-12-25"
+      },
+      "Week": {
+        "start": "2017-01-01",
+        "end": "2017-03-19"
+      }
+    },
+    "exported_context": {
+      "Warehouse": [
+        "Whse_A",
+        "Whse_C",
+        "Whse_J",
+        "Whse_S"
+      ],
+      "Forecast_Origin": [
+        "2016-12-25"
+      ]
+    }
+  },
+  {
+    "file": "tables/global_local_comparison.csv",
+    "bytes": 651,
+    "type": ".csv",
+    "evaluation_period": "2016; 52 test weeks for A/C/S; 51 for J in dashboard_performance_summary",
+    "evaluation_context": {
+      "family": "2016 warehouse rolling forecasts",
+      "period": "2016; 52 test weeks for A/C/S; 51 for J in dashboard_performance_summary",
+      "evidence": "Original HTML dashboard trace timestamps and Test_Weeks; README_summary.md distinguishes warehouse rolling evaluation.",
+      "caution": "Within-warehouse comparisons only; different grain and information set from aggregate year-ahead forecasts."
+    },
+    "rows": 8,
+    "columns": {
+      "Warehouse": "object",
+      "Model": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Warehouse": 0,
+      "Model": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Warehouse": [
+        "Whse_A",
+        "Whse_C",
+        "Whse_J",
+        "Whse_S"
+      ],
+      "Model": [
+        "Global XGBoost",
+        "Local XGBoost"
+      ]
+    }
+  },
+  {
+    "file": "tables/hierarchical_reconciliation.csv",
+    "bytes": 263,
+    "type": ".csv",
+    "evaluation_period": "2016-01-10 to 2016-12-25; 51 weeks (dated exports and research_conclusions.csv)",
+    "evaluation_context": {
+      "family": "2016 common-period / reconciliation subset",
+      "period": "2016-01-10 to 2016-12-25; 51 weeks (dated exports and research_conclusions.csv)",
+      "evidence": "hierarchical_warehouse_forecasts.csv, model_monitoring_2016.csv; research_conclusions.csv 51-week common-period statement.",
+      "caution": "Never combine with 52-week full-year errors; ensemble is separately evaluated."
+    },
+    "rows": 3,
+    "columns": {
+      "Forecast": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Forecast": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/hierarchical_warehouse_comparison.csv",
+    "bytes": 180,
+    "type": ".csv",
+    "evaluation_period": "2016-01-10 to 2016-12-25; 51 weeks (dated exports and research_conclusions.csv)",
+    "evaluation_context": {
+      "family": "2016 common-period / reconciliation subset",
+      "period": "2016-01-10 to 2016-12-25; 51 weeks (dated exports and research_conclusions.csv)",
+      "evidence": "hierarchical_warehouse_forecasts.csv, model_monitoring_2016.csv; research_conclusions.csv 51-week common-period statement.",
+      "caution": "Never combine with 52-week full-year errors; ensemble is separately evaluated."
+    },
+    "rows": 2,
+    "columns": {
+      "Forecast": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Forecast": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/hierarchical_warehouse_forecasts.csv",
+    "bytes": 18392,
+    "type": ".csv",
+    "evaluation_period": "2016-01-10 to 2016-12-25; 51 weeks (dated exports and research_conclusions.csv)",
+    "evaluation_context": {
+      "family": "2016 common-period / reconciliation subset",
+      "period": "2016-01-10 to 2016-12-25; 51 weeks (dated exports and research_conclusions.csv)",
+      "evidence": "hierarchical_warehouse_forecasts.csv, model_monitoring_2016.csv; research_conclusions.csv 51-week common-period statement.",
+      "caution": "Never combine with 52-week full-year errors; ensemble is separately evaluated."
+    },
+    "rows": 204,
+    "columns": {
+      "Week": "object",
+      "Warehouse": "object",
+      "Demand": "float64",
+      "XGBoost": "float64",
+      "Original_Nonnegative": "float64",
+      "Scale": "float64",
+      "Reconciled_Forecast": "float64"
+    },
+    "null_counts": {
+      "Week": 0,
+      "Warehouse": 0,
+      "Demand": 0,
+      "XGBoost": 0,
+      "Original_Nonnegative": 0,
+      "Scale": 0,
+      "Reconciled_Forecast": 0
+    },
+    "observed_date_spans": {
+      "Week": {
+        "start": "2016-01-10",
+        "end": "2016-12-25"
+      }
+    },
+    "exported_context": {
+      "Warehouse": [
+        "Whse_A",
+        "Whse_C",
+        "Whse_J",
+        "Whse_S"
+      ]
+    }
+  },
+  {
+    "file": "tables/illustrative_cost_simulation.csv",
+    "bytes": 969,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 9,
+    "columns": {
+      "Scenario": "object",
+      "Model": "object",
+      "Warehouse_Weeks": "int64",
+      "Underforecast_Units": "float64",
+      "Overforecast_Units": "float64",
+      "Total_Planning_Loss_Units": "float64",
+      "Loss_per_1000_Demand_Units": "float64"
+    },
+    "null_counts": {
+      "Scenario": 0,
+      "Model": 0,
+      "Warehouse_Weeks": 0,
+      "Underforecast_Units": 0,
+      "Overforecast_Units": 0,
+      "Total_Planning_Loss_Units": 0,
+      "Loss_per_1000_Demand_Units": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Naive",
+        "Random Forest",
+        "XGBoost"
+      ]
+    }
+  },
+  {
+    "file": "tables/lightgbm_comparison.csv",
+    "bytes": 263,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 2,
+    "columns": {
+      "Model": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64",
+      "Training_Time_ms": "float64",
+      "Prediction_Time_ms": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0,
+      "Training_Time_ms": 0,
+      "Prediction_Time_ms": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "XGBoost",
+        "LightGBM"
+      ]
+    }
+  },
+  {
+    "file": "tables/lstm_gru_comparison.csv",
+    "bytes": 218,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 3,
+    "columns": {
+      "Model": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Refined SARIMA",
+        "LSTM",
+        "GRU"
+      ]
+    }
+  },
+  {
+    "file": "tables/lstm_gru_training_summary.csv",
+    "bytes": 99,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 2,
+    "columns": {
+      "Model": "object",
+      "Selected_Epochs": "int64",
+      "Best_Validation_Loss": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "Selected_Epochs": 0,
+      "Best_Validation_Loss": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "LSTM",
+        "GRU"
+      ]
+    }
+  },
+  {
+    "file": "tables/m5_external_validation.csv",
+    "bytes": 164,
+    "type": ".csv",
+    "evaluation_period": "Exact test dates not exported",
+    "evaluation_context": {
+      "family": "External M5 validation",
+      "period": "Exact test dates not exported",
+      "evidence": "README_summary.md: External Validation; separate M5 retail dataset.",
+      "caution": "Different dataset and demand scale. Excluded from primary-data model rankings."
+    },
+    "rows": 2,
+    "columns": {
+      "Model": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Seasonal Naive",
+        "XGBoost"
+      ]
+    }
+  },
+  {
+    "file": "tables/model_complexity_comparison.csv",
+    "bytes": 436,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 3,
+    "columns": {
+      "Model": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64",
+      "Training_Time_s": "float64",
+      "Prediction_Time_ms": "float64",
+      "Serialized_Size_KB": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0,
+      "Training_Time_s": 0,
+      "Prediction_Time_ms": 0,
+      "Serialized_Size_KB": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Random Forest",
+        "XGBoost",
+        "LightGBM"
+      ]
+    }
+  },
+  {
+    "file": "tables/model_monitoring_2016.csv",
+    "bytes": 3885,
+    "type": ".csv",
+    "evaluation_period": "2016-01-10 to 2016-12-25; 51 weeks (dated exports and research_conclusions.csv)",
+    "evaluation_context": {
+      "family": "2016 common-period / reconciliation subset",
+      "period": "2016-01-10 to 2016-12-25; 51 weeks (dated exports and research_conclusions.csv)",
+      "evidence": "hierarchical_warehouse_forecasts.csv, model_monitoring_2016.csv; research_conclusions.csv 51-week common-period statement.",
+      "caution": "Never combine with 52-week full-year errors; ensemble is separately evaluated."
+    },
+    "rows": 51,
+    "columns": {
+      "Week": "object",
+      "Demand": "float64",
+      "Forecast": "float64",
+      "Absolute_Error": "float64",
+      "Rolling_WAPE_Pct": "float64",
+      "Warning": "bool",
+      "Persistent_Warning": "bool"
+    },
+    "null_counts": {
+      "Week": 0,
+      "Demand": 0,
+      "Forecast": 0,
+      "Absolute_Error": 0,
+      "Rolling_WAPE_Pct": 7,
+      "Warning": 0,
+      "Persistent_Warning": 0
+    },
+    "observed_date_spans": {
+      "Week": {
+        "start": "2016-01-10",
+        "end": "2016-12-25"
+      }
+    },
+    "exported_context": {}
+  },
+  {
+    "file": "tables/multi_horizon_comparison.csv",
+    "bytes": 665,
+    "type": ".csv",
+    "evaluation_period": "2016-03-27 to 2016-12-25; 40 test weeks per horizon",
+    "evaluation_context": {
+      "family": "2016 matched multi-horizon samples",
+      "period": "2016-03-27 to 2016-12-25; 40 test weeks per horizon",
+      "evidence": "Week and Horizon_Weeks in prediction export; Test_Weeks in comparison.",
+      "caution": "Compare models within one horizon only; not equivalent to full-year or recursive evaluation."
+    },
+    "rows": 8,
+    "columns": {
+      "Horizon_Weeks": "int64",
+      "Model": "object",
+      "Test_Observations": "int64",
+      "Test_Weeks": "int64",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Horizon_Weeks": 0,
+      "Model": 0,
+      "Test_Observations": 0,
+      "Test_Weeks": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Horizon_Weeks": [
+        1,
+        4,
+        8,
+        12
+      ],
+      "Model": [
+        "XGBoost",
+        "Seasonal Naive"
+      ],
+      "Test_Weeks": [
+        40
+      ]
+    }
+  },
+  {
+    "file": "tables/multi_horizon_predictions.csv",
+    "bytes": 34522,
+    "type": ".csv",
+    "evaluation_period": "2016-03-27 to 2016-12-25; 40 test weeks per horizon",
+    "evaluation_context": {
+      "family": "2016 matched multi-horizon samples",
+      "period": "2016-03-27 to 2016-12-25; 40 test weeks per horizon",
+      "evidence": "Week and Horizon_Weeks in prediction export; Test_Weeks in comparison.",
+      "caution": "Compare models within one horizon only; not equivalent to full-year or recursive evaluation."
+    },
+    "rows": 640,
+    "columns": {
+      "Week": "object",
+      "Warehouse": "object",
+      "Demand": "float64",
+      "Horizon_Weeks": "int64",
+      "XGBoost": "float64",
+      "Seasonal_Naive": "float64"
+    },
+    "null_counts": {
+      "Week": 0,
+      "Warehouse": 0,
+      "Demand": 0,
+      "Horizon_Weeks": 0,
+      "XGBoost": 0,
+      "Seasonal_Naive": 0
+    },
+    "observed_date_spans": {
+      "Week": {
+        "start": "2016-03-27",
+        "end": "2016-12-25"
+      }
+    },
+    "exported_context": {
+      "Warehouse": [
+        "Whse_A",
+        "Whse_C",
+        "Whse_J",
+        "Whse_S"
+      ],
+      "Horizon_Weeks": [
+        1,
+        4,
+        8,
+        12
+      ]
+    }
+  },
+  {
+    "file": "tables/nbeats_nhits_comparison.csv",
+    "bytes": 224,
+    "type": ".csv",
+    "evaluation_period": "2016-01-03 to 2016-12-25; 52 weekly timestamps",
+    "evaluation_context": {
+      "family": "2016 aggregate full-year holdout",
+      "period": "2016-01-03 to 2016-12-25; 52 weekly timestamps",
+      "evidence": "README_summary.md: Additional Full-Year Forecasting Results; weekly predictions corroborate dates for ETS, TimesFM and Seasonal Naive.",
+      "caution": "Aggregate year-ahead forecasts; later comparisons are exploratory, not independent post-selection validation."
+    },
+    "rows": 3,
+    "columns": {
+      "Model": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "N-BEATS",
+        "N-HiTS",
+        "Refined SARIMA"
+      ]
+    }
+  },
+  {
+    "file": "tables/prophet_comparison.csv",
+    "bytes": 161,
+    "type": ".csv",
+    "evaluation_period": "2016-01-03 to 2016-12-25; 52 weekly timestamps",
+    "evaluation_context": {
+      "family": "2016 aggregate full-year holdout",
+      "period": "2016-01-03 to 2016-12-25; 52 weekly timestamps",
+      "evidence": "README_summary.md: Additional Full-Year Forecasting Results; weekly predictions corroborate dates for ETS, TimesFM and Seasonal Naive.",
+      "caution": "Aggregate year-ahead forecasts; later comparisons are exploratory, not independent post-selection validation."
+    },
+    "rows": 2,
+    "columns": {
+      "Model": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Refined SARIMA",
+        "Prophet"
+      ]
+    }
+  },
+  {
+    "file": "tables/quantile_comparison.csv",
+    "bytes": 169,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 2,
+    "columns": {
+      "Method": "object",
+      "Coverage (%)": "float64",
+      "Average_Width": "float64"
+    },
+    "null_counts": {
+      "Method": 0,
+      "Coverage (%)": 0,
+      "Average_Width": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/quantile_warehouse_results.csv",
+    "bytes": 301,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 4,
+    "columns": {
+      "Warehouse": "object",
+      "Coverage": "float64",
+      "Average_Width": "float64",
+      "Coverage (%)": "float64"
+    },
+    "null_counts": {
+      "Warehouse": 0,
+      "Coverage": 0,
+      "Average_Width": 0,
+      "Coverage (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Warehouse": [
+        "Whse_A",
+        "Whse_C",
+        "Whse_J",
+        "Whse_S"
+      ]
+    }
+  },
+  {
+    "file": "tables/quarterly_forecast_performance.csv",
+    "bytes": 918,
+    "type": ".csv",
+    "evaluation_period": "2016-01-03 to 2016-12-25; 52 weekly timestamps",
+    "evaluation_context": {
+      "family": "2016 aggregate full-year holdout",
+      "period": "2016-01-03 to 2016-12-25; 52 weekly timestamps",
+      "evidence": "README_summary.md: Additional Full-Year Forecasting Results; weekly predictions corroborate dates for ETS, TimesFM and Seasonal Naive.",
+      "caution": "Aggregate year-ahead forecasts; later comparisons are exploratory, not independent post-selection validation."
+    },
+    "rows": 12,
+    "columns": {
+      "Quarter": "object",
+      "Model": "object",
+      "Weeks": "int64",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Quarter": 0,
+      "Model": 0,
+      "Weeks": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Refined SARIMA",
+        "ETS",
+        "TimesFM 3.0"
+      ],
+      "Weeks": [
+        13
+      ]
+    }
+  },
+  {
+    "file": "tables/random_seed_stability.csv",
+    "bytes": 731,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 10,
+    "columns": {
+      "Model": "object",
+      "Random_Seed": "int64",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "Random_Seed": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Random Forest",
+        "XGBoost"
+      ]
+    }
+  },
+  {
+    "file": "tables/random_seed_stability_summary.csv",
+    "bytes": 310,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 2,
+    "columns": {
+      "Model": "object",
+      "Mean_MAE": "float64",
+      "Mean_RMSE": "float64",
+      "Mean_WAPE": "float64",
+      "Std_WAPE": "float64",
+      "Min_WAPE": "float64",
+      "Max_WAPE": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "Mean_MAE": 0,
+      "Mean_RMSE": 0,
+      "Mean_WAPE": 0,
+      "Std_WAPE": 0,
+      "Min_WAPE": 0,
+      "Max_WAPE": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Random Forest",
+        "XGBoost"
+      ]
+    }
+  },
+  {
+    "file": "tables/recursive_12_week_backtest_predictions.csv",
+    "bytes": 1916,
+    "type": ".csv",
+    "evaluation_period": "2016-01-03 to 2016-03-20; cumulative 4/8/12-week windows",
+    "evaluation_context": {
+      "family": "Early-2016 recursive backtest",
+      "period": "2016-01-03 to 2016-03-20; cumulative 4/8/12-week windows",
+      "evidence": "Dated prediction rows and README_summary.md: Historical Recursive Forecast Validation; origin at end of 2015.",
+      "caution": "Three eligible warehouses; J excluded. Retrospective recursive diagnostic, not the annual holdout task."
+    },
+    "rows": 36,
+    "columns": {
+      "Warehouse": "object",
+      "Week": "object",
+      "Horizon_Week": "int64",
+      "Recursive_XGBoost": "float64",
+      "Seasonal_Naive": "float64",
+      "Demand": "float64"
+    },
+    "null_counts": {
+      "Warehouse": 0,
+      "Week": 0,
+      "Horizon_Week": 0,
+      "Recursive_XGBoost": 0,
+      "Seasonal_Naive": 0,
+      "Demand": 0
+    },
+    "observed_date_spans": {
+      "Week": {
+        "start": "2016-01-03",
+        "end": "2016-03-20"
+      }
+    },
+    "exported_context": {
+      "Warehouse": [
+        "Whse_A",
+        "Whse_C",
+        "Whse_S"
+      ]
+    }
+  },
+  {
+    "file": "tables/recursive_12_week_backtest_summary.csv",
+    "bytes": 514,
+    "type": ".csv",
+    "evaluation_period": "2016-01-03 to 2016-03-20; cumulative 4/8/12-week windows",
+    "evaluation_context": {
+      "family": "Early-2016 recursive backtest",
+      "period": "2016-01-03 to 2016-03-20; cumulative 4/8/12-week windows",
+      "evidence": "Dated prediction rows and README_summary.md: Historical Recursive Forecast Validation; origin at end of 2015.",
+      "caution": "Three eligible warehouses; J excluded. Retrospective recursive diagnostic, not the annual holdout task."
+    },
+    "rows": 6,
+    "columns": {
+      "Horizon_Weeks": "int64",
+      "Model": "object",
+      "Observations": "int64",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Horizon_Weeks": 0,
+      "Model": 0,
+      "Observations": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Horizon_Weeks": [
+        4,
+        8,
+        12
+      ],
+      "Model": [
+        "Recursive XGBoost",
+        "Seasonal Naive"
+      ],
+      "Observations": [
+        12,
+        24,
+        36
+      ]
+    }
+  },
+  {
+    "file": "tables/recursive_12_week_warehouse_results.csv",
+    "bytes": 524,
+    "type": ".csv",
+    "evaluation_period": "2016-01-03 to 2016-03-20; cumulative 4/8/12-week windows",
+    "evaluation_context": {
+      "family": "Early-2016 recursive backtest",
+      "period": "2016-01-03 to 2016-03-20; cumulative 4/8/12-week windows",
+      "evidence": "Dated prediction rows and README_summary.md: Historical Recursive Forecast Validation; origin at end of 2015.",
+      "caution": "Three eligible warehouses; J excluded. Retrospective recursive diagnostic, not the annual holdout task."
+    },
+    "rows": 6,
+    "columns": {
+      "Warehouse": "object",
+      "Model": "object",
+      "Observations": "int64",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Warehouse": 0,
+      "Model": 0,
+      "Observations": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Warehouse": [
+        "Whse_A",
+        "Whse_C",
+        "Whse_S"
+      ],
+      "Model": [
+        "Recursive XGBoost",
+        "Seasonal Naive"
+      ],
+      "Observations": [
+        12
+      ]
+    }
+  },
+  {
+    "file": "tables/research_conclusions.csv",
+    "bytes": 1702,
+    "type": ".csv",
+    "evaluation_period": "Mixed or not applicable; see individual metric/statement",
+    "evaluation_context": {
+      "family": "Cross-experiment summary / documentation",
+      "period": "Mixed or not applicable; see individual metric/statement",
+      "evidence": "Table contents; summary labels may identify subsets but do not supply row-level predictions.",
+      "caution": "Do not treat summary rows as one evaluation cohort. Exported leakage PASS checks are not independent verification."
+    },
+    "rows": 11,
+    "columns": {
+      "Conclusion": "object"
+    },
+    "null_counts": {
+      "Conclusion": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/research_limitations.csv",
+    "bytes": 2483,
+    "type": ".csv",
+    "evaluation_period": "Mixed or not applicable; see individual metric/statement",
+    "evaluation_context": {
+      "family": "Cross-experiment summary / documentation",
+      "period": "Mixed or not applicable; see individual metric/statement",
+      "evidence": "Table contents; summary labels may identify subsets but do not supply row-level predictions.",
+      "caution": "Do not treat summary rows as one evaluation cohort. Exported leakage PASS checks are not independent verification."
+    },
+    "rows": 15,
+    "columns": {
+      "Limitation": "object",
+      "Impact": "object"
+    },
+    "null_counts": {
+      "Limitation": 0,
+      "Impact": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/scenario_summary.csv",
+    "bytes": 231,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 3,
+    "columns": {
+      "Scenario": "object",
+      "Average_Risk_Ratio": "float64",
+      "Maximum_Risk_Ratio": "float64",
+      "Threshold_Exceedances": "int64"
+    },
+    "null_counts": {
+      "Scenario": 0,
+      "Average_Risk_Ratio": 0,
+      "Maximum_Risk_Ratio": 0,
+      "Threshold_Exceedances": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/timesfm_historical_monthly_pooled.csv",
+    "bytes": 3553,
+    "type": ".csv",
+    "evaluation_period": "2014-01-05 to 2014-12-28 and 2015-01-04 to 2015-12-27; 104 pooled weeks",
+    "evaluation_context": {
+      "family": "2014\u20132015 retrospective year-ahead diagnostics",
+      "period": "2014-01-05 to 2014-12-28 and 2015-01-04 to 2015-12-27; 104 pooled weeks",
+      "evidence": "README_summary.md: TimesFM Historical Year-Ahead Backtesting; ETS validation table Year values.",
+      "caution": "ETS configuration selected on the same folds. ets_validation_summary reports fold means, not pooled error metrics."
+    },
+    "rows": 36,
+    "columns": {
+      "Month": "int64",
+      "Month_Name": "object",
+      "Model": "object",
+      "Validation_Years": "object",
+      "Weeks": "int64",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Month": 0,
+      "Month_Name": 0,
+      "Model": 0,
+      "Validation_Years": 0,
+      "Weeks": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Seasonal Naive",
+        "ETS",
+        "TimesFM 3.0"
+      ],
+      "Validation_Years": [
+        "2014-2015 (retrospective)"
+      ],
+      "Weeks": [
+        8,
+        10,
+        9
+      ]
+    }
+  },
+  {
+    "file": "tables/timesfm_historical_monthly_results.csv",
+    "bytes": 17206,
+    "type": ".csv",
+    "evaluation_period": "2014, 2015 retrospective; 2016 final holdout reference",
+    "evaluation_context": {
+      "family": "Mixed retrospective / holdout; split by Year and Evaluation",
+      "period": "2014, 2015 retrospective; 2016 final holdout reference",
+      "evidence": "Explicit Year/Evaluation columns and README_summary.md historical analyses.",
+      "caution": "Do not pool 2016 with 2014\u20132015; monthly groups use recorded weekly dates, not daily calendar-month totals."
+    },
+    "rows": 108,
+    "columns": {
+      "Year": "int64",
+      "Month": "int64",
+      "Month_Name": "object",
+      "Evaluation": "object",
+      "Model": "object",
+      "Weeks": "int64",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64",
+      "Actual_Month_Total": "float64",
+      "Predicted_Month_Total": "float64",
+      "Month_Total_Error": "float64",
+      "Month_Total_APE (%)": "float64"
+    },
+    "null_counts": {
+      "Year": 0,
+      "Month": 0,
+      "Month_Name": 0,
+      "Evaluation": 0,
+      "Model": 0,
+      "Weeks": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0,
+      "Actual_Month_Total": 0,
+      "Predicted_Month_Total": 0,
+      "Month_Total_Error": 0,
+      "Month_Total_APE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Year": [
+        2014,
+        2015,
+        2016
+      ],
+      "Evaluation": [
+        "Retrospective validation",
+        "2016 final holdout (reference)"
+      ],
+      "Model": [
+        "Seasonal Naive",
+        "ETS",
+        "TimesFM 3.0"
+      ],
+      "Weeks": [
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "file": "tables/timesfm_historical_pooled_summary.csv",
+    "bytes": 289,
+    "type": ".csv",
+    "evaluation_period": "2014-01-05 to 2014-12-28 and 2015-01-04 to 2015-12-27; 104 pooled weeks",
+    "evaluation_context": {
+      "family": "2014\u20132015 retrospective year-ahead diagnostics",
+      "period": "2014-01-05 to 2014-12-28 and 2015-01-04 to 2015-12-27; 104 pooled weeks",
+      "evidence": "README_summary.md: TimesFM Historical Year-Ahead Backtesting; ETS validation table Year values.",
+      "caution": "ETS configuration selected on the same folds. ets_validation_summary reports fold means, not pooled error metrics."
+    },
+    "rows": 3,
+    "columns": {
+      "Model": "object",
+      "Validation_Years": "object",
+      "Weeks": "int64",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "Validation_Years": 0,
+      "Weeks": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "ETS",
+        "TimesFM 3.0",
+        "Seasonal Naive"
+      ],
+      "Validation_Years": [
+        "2014-2015"
+      ],
+      "Weeks": [
+        104
+      ]
+    }
+  },
+  {
+    "file": "tables/timesfm_historical_quarterly_pooled.csv",
+    "bytes": 1051,
+    "type": ".csv",
+    "evaluation_period": "2014-01-05 to 2014-12-28 and 2015-01-04 to 2015-12-27; 104 pooled weeks",
+    "evaluation_context": {
+      "family": "2014\u20132015 retrospective year-ahead diagnostics",
+      "period": "2014-01-05 to 2014-12-28 and 2015-01-04 to 2015-12-27; 104 pooled weeks",
+      "evidence": "README_summary.md: TimesFM Historical Year-Ahead Backtesting; ETS validation table Year values.",
+      "caution": "ETS configuration selected on the same folds. ets_validation_summary reports fold means, not pooled error metrics."
+    },
+    "rows": 12,
+    "columns": {
+      "Quarter": "object",
+      "Model": "object",
+      "Validation_Years": "object",
+      "Weeks": "int64",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Quarter": 0,
+      "Model": 0,
+      "Validation_Years": 0,
+      "Weeks": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Seasonal Naive",
+        "ETS",
+        "TimesFM 3.0"
+      ],
+      "Validation_Years": [
+        "2014-2015"
+      ],
+      "Weeks": [
+        26
+      ]
+    }
+  },
+  {
+    "file": "tables/timesfm_historical_quarterly_results.csv",
+    "bytes": 3817,
+    "type": ".csv",
+    "evaluation_period": "2014, 2015 retrospective; 2016 final holdout reference",
+    "evaluation_context": {
+      "family": "Mixed retrospective / holdout; split by Year and Evaluation",
+      "period": "2014, 2015 retrospective; 2016 final holdout reference",
+      "evidence": "Explicit Year/Evaluation columns and README_summary.md historical analyses.",
+      "caution": "Do not pool 2016 with 2014\u20132015; monthly groups use recorded weekly dates, not daily calendar-month totals."
+    },
+    "rows": 36,
+    "columns": {
+      "Year": "int64",
+      "Quarter": "object",
+      "Evaluation": "object",
+      "Model": "object",
+      "Weeks": "int64",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Year": 0,
+      "Quarter": 0,
+      "Evaluation": 0,
+      "Model": 0,
+      "Weeks": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Year": [
+        2014,
+        2015,
+        2016
+      ],
+      "Evaluation": [
+        "Retrospective validation",
+        "2016 final holdout (reference)"
+      ],
+      "Model": [
+        "TimesFM 3.0",
+        "Seasonal Naive",
+        "ETS"
+      ],
+      "Weeks": [
+        13
+      ]
+    }
+  },
+  {
+    "file": "tables/timesfm_historical_weekly_predictions.csv",
+    "bytes": 43081,
+    "type": ".csv",
+    "evaluation_period": "2014, 2015 retrospective; 2016 final holdout reference",
+    "evaluation_context": {
+      "family": "Mixed retrospective / holdout; split by Year and Evaluation",
+      "period": "2014, 2015 retrospective; 2016 final holdout reference",
+      "evidence": "Explicit Year/Evaluation columns and README_summary.md historical analyses.",
+      "caution": "Do not pool 2016 with 2014\u20132015; monthly groups use recorded weekly dates, not daily calendar-month totals."
+    },
+    "rows": 468,
+    "columns": {
+      "Year": "int64",
+      "Evaluation": "object",
+      "Date": "object",
+      "Model": "object",
+      "Actual": "float64",
+      "Prediction": "float64",
+      "Error": "float64"
+    },
+    "null_counts": {
+      "Year": 0,
+      "Evaluation": 0,
+      "Date": 0,
+      "Model": 0,
+      "Actual": 0,
+      "Prediction": 0,
+      "Error": 0
+    },
+    "observed_date_spans": {
+      "Date": {
+        "start": "2014-01-05",
+        "end": "2016-12-25"
+      }
+    },
+    "exported_context": {
+      "Year": [
+        2014,
+        2015,
+        2016
+      ],
+      "Evaluation": [
+        "Retrospective validation",
+        "2016 final holdout (reference)"
+      ],
+      "Model": [
+        "TimesFM 3.0",
+        "ETS",
+        "Seasonal Naive"
+      ]
+    }
+  },
+  {
+    "file": "tables/timesfm_historical_yearly_results.csv",
+    "bytes": 1025,
+    "type": ".csv",
+    "evaluation_period": "2014, 2015 retrospective; 2016 final holdout reference",
+    "evaluation_context": {
+      "family": "Mixed retrospective / holdout; split by Year and Evaluation",
+      "period": "2014, 2015 retrospective; 2016 final holdout reference",
+      "evidence": "Explicit Year/Evaluation columns and README_summary.md historical analyses.",
+      "caution": "Do not pool 2016 with 2014\u20132015; monthly groups use recorded weekly dates, not daily calendar-month totals."
+    },
+    "rows": 9,
+    "columns": {
+      "Year": "int64",
+      "Evaluation": "object",
+      "Model": "object",
+      "Train_Weeks": "int64",
+      "Forecast_Weeks": "int64",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Year": 0,
+      "Evaluation": 0,
+      "Model": 0,
+      "Train_Weeks": 0,
+      "Forecast_Weeks": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Year": [
+        2014,
+        2015,
+        2016
+      ],
+      "Evaluation": [
+        "Retrospective validation",
+        "2016 final holdout (reference)"
+      ],
+      "Model": [
+        "TimesFM 3.0",
+        "ETS",
+        "Seasonal Naive"
+      ],
+      "Forecast_Weeks": [
+        52
+      ]
+    }
+  },
+  {
+    "file": "tables/timesfm_monthly_lowest_wape_models.csv",
+    "bytes": 2548,
+    "type": ".csv",
+    "evaluation_period": "2014, 2015 retrospective; 2016 final holdout reference",
+    "evaluation_context": {
+      "family": "Mixed retrospective / holdout; split by Year and Evaluation",
+      "period": "2014, 2015 retrospective; 2016 final holdout reference",
+      "evidence": "Explicit Year/Evaluation columns and README_summary.md historical analyses.",
+      "caution": "Do not pool 2016 with 2014\u20132015; monthly groups use recorded weekly dates, not daily calendar-month totals."
+    },
+    "rows": 36,
+    "columns": {
+      "Year": "int64",
+      "Month": "int64",
+      "Month_Name": "object",
+      "Evaluation": "object",
+      "Lowest_WAPE_Model": "object",
+      "Weeks": "int64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Year": 0,
+      "Month": 0,
+      "Month_Name": 0,
+      "Evaluation": 0,
+      "Lowest_WAPE_Model": 0,
+      "Weeks": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Year": [
+        2014,
+        2015,
+        2016
+      ],
+      "Evaluation": [
+        "Retrospective validation",
+        "2016 final holdout (reference)"
+      ],
+      "Weeks": [
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "file": "tables/timesfm_monthly_stability_summary.csv",
+    "bytes": 421,
+    "type": ".csv",
+    "evaluation_period": "2014-01-05 to 2014-12-28 and 2015-01-04 to 2015-12-27; 104 pooled weeks",
+    "evaluation_context": {
+      "family": "2014\u20132015 retrospective year-ahead diagnostics",
+      "period": "2014-01-05 to 2014-12-28 and 2015-01-04 to 2015-12-27; 104 pooled weeks",
+      "evidence": "README_summary.md: TimesFM Historical Year-Ahead Backtesting; ETS validation table Year values.",
+      "caution": "ETS configuration selected on the same folds. ets_validation_summary reports fold means, not pooled error metrics."
+    },
+    "rows": 3,
+    "columns": {
+      "Model": "object",
+      "Validation_Years": "object",
+      "Pooled_Monthly_WAPE_Min": "float64",
+      "Pooled_Monthly_WAPE_Max": "float64",
+      "Pooled_Monthly_WAPE_Range_pp": "float64",
+      "Lowest_WAPE_Year_Month_Count_of_24": "int64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "Validation_Years": 0,
+      "Pooled_Monthly_WAPE_Min": 0,
+      "Pooled_Monthly_WAPE_Max": 0,
+      "Pooled_Monthly_WAPE_Range_pp": 0,
+      "Lowest_WAPE_Year_Month_Count_of_24": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "ETS",
+        "Seasonal Naive",
+        "TimesFM 3.0"
+      ],
+      "Validation_Years": [
+        "2014-2015 (retrospective)"
+      ]
+    }
+  },
+  {
+    "file": "tables/timesfm_quarterly_lowest_wape_models.csv",
+    "bytes": 843,
+    "type": ".csv",
+    "evaluation_period": "2014, 2015 retrospective; 2016 final holdout reference",
+    "evaluation_context": {
+      "family": "Mixed retrospective / holdout; split by Year and Evaluation",
+      "period": "2014, 2015 retrospective; 2016 final holdout reference",
+      "evidence": "Explicit Year/Evaluation columns and README_summary.md historical analyses.",
+      "caution": "Do not pool 2016 with 2014\u20132015; monthly groups use recorded weekly dates, not daily calendar-month totals."
+    },
+    "rows": 12,
+    "columns": {
+      "Year": "int64",
+      "Quarter": "object",
+      "Evaluation": "object",
+      "Lowest_WAPE_Model": "object",
+      "Weeks": "int64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Year": 0,
+      "Quarter": 0,
+      "Evaluation": 0,
+      "Lowest_WAPE_Model": 0,
+      "Weeks": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Year": [
+        2014,
+        2015,
+        2016
+      ],
+      "Evaluation": [
+        "Retrospective validation",
+        "2016 final holdout (reference)"
+      ],
+      "Weeks": [
+        13
+      ]
+    }
+  },
+  {
+    "file": "tables/timesfm_quarterly_stability_summary.csv",
+    "bytes": 384,
+    "type": ".csv",
+    "evaluation_period": "2014-01-05 to 2014-12-28 and 2015-01-04 to 2015-12-27; 104 pooled weeks",
+    "evaluation_context": {
+      "family": "2014\u20132015 retrospective year-ahead diagnostics",
+      "period": "2014-01-05 to 2014-12-28 and 2015-01-04 to 2015-12-27; 104 pooled weeks",
+      "evidence": "README_summary.md: TimesFM Historical Year-Ahead Backtesting; ETS validation table Year values.",
+      "caution": "ETS configuration selected on the same folds. ets_validation_summary reports fold means, not pooled error metrics."
+    },
+    "rows": 3,
+    "columns": {
+      "Model": "object",
+      "Historical_Validation_Years": "object",
+      "Pooled_Quarterly_WAPE_Min": "float64",
+      "Pooled_Quarterly_WAPE_Max": "float64",
+      "Pooled_Quarterly_WAPE_Range_pp": "float64",
+      "Best_Year_Quarter_Count_of_8": "int64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "Historical_Validation_Years": 0,
+      "Pooled_Quarterly_WAPE_Min": 0,
+      "Pooled_Quarterly_WAPE_Max": 0,
+      "Pooled_Quarterly_WAPE_Range_pp": 0,
+      "Best_Year_Quarter_Count_of_8": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Seasonal Naive",
+        "ETS",
+        "TimesFM 3.0"
+      ],
+      "Historical_Validation_Years": [
+        "2014-2015"
+      ]
+    }
+  },
+  {
+    "file": "tables/timesfm_zero_shot_results.csv",
+    "bytes": 104,
+    "type": ".csv",
+    "evaluation_period": "2016-01-03 to 2016-12-25; 52 weekly timestamps",
+    "evaluation_context": {
+      "family": "2016 aggregate full-year holdout",
+      "period": "2016-01-03 to 2016-12-25; 52 weekly timestamps",
+      "evidence": "README_summary.md: Additional Full-Year Forecasting Results; weekly predictions corroborate dates for ETS, TimesFM and Seasonal Naive.",
+      "caution": "Aggregate year-ahead forecasts; later comparisons are exploratory, not independent post-selection validation."
+    },
+    "rows": 1,
+    "columns": {
+      "Model": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "TimesFM 3.0 Zero-Shot"
+      ]
+    }
+  },
+  {
+    "file": "tables/warehouse_characteristics.csv",
+    "bytes": 712,
+    "type": ".csv",
+    "evaluation_period": "2016; 52 test weeks for A/C/S; 51 for J in dashboard_performance_summary",
+    "evaluation_context": {
+      "family": "2016 warehouse rolling forecasts",
+      "period": "2016; 52 test weeks for A/C/S; 51 for J in dashboard_performance_summary",
+      "evidence": "Original HTML dashboard trace timestamps and Test_Weeks; README_summary.md distinguishes warehouse rolling evaluation.",
+      "caution": "Within-warehouse comparisons only; different grain and information set from aggregate year-ahead forecasts."
+    },
+    "rows": 4,
+    "columns": {
+      "Warehouse": "object",
+      "Mean_Demand": "float64",
+      "Demand_Std": "float64",
+      "Training_Weeks": "int64",
+      "CV": "float64",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64",
+      "Demand_Scale": "object",
+      "Volatility_Level": "object"
+    },
+    "null_counts": {
+      "Warehouse": 0,
+      "Mean_Demand": 0,
+      "Demand_Std": 0,
+      "Training_Weeks": 0,
+      "CV": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0,
+      "Demand_Scale": 0,
+      "Volatility_Level": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Warehouse": [
+        "Whse_A",
+        "Whse_C",
+        "Whse_J",
+        "Whse_S"
+      ]
+    }
+  },
+  {
+    "file": "tables/warehouse_model_comparison.csv",
+    "bytes": 223,
+    "type": ".csv",
+    "evaluation_period": "2016; 52 test weeks for A/C/S; 51 for J in dashboard_performance_summary",
+    "evaluation_context": {
+      "family": "2016 warehouse rolling forecasts",
+      "period": "2016; 52 test weeks for A/C/S; 51 for J in dashboard_performance_summary",
+      "evidence": "Original HTML dashboard trace timestamps and Test_Weeks; README_summary.md distinguishes warehouse rolling evaluation.",
+      "caution": "Within-warehouse comparisons only; different grain and information set from aggregate year-ahead forecasts."
+    },
+    "rows": 3,
+    "columns": {
+      "Model": "object",
+      "MAE": "float64",
+      "RMSE": "float64",
+      "WAPE (%)": "float64"
+    },
+    "null_counts": {
+      "Model": 0,
+      "MAE": 0,
+      "RMSE": 0,
+      "WAPE (%)": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {
+      "Model": [
+        "Naive",
+        "Random Forest",
+        "XGBoost"
+      ]
+    }
+  },
+  {
+    "file": "tables/week10_robustness.csv",
+    "bytes": 248,
+    "type": ".csv",
+    "evaluation_period": "Mixed or not applicable; see individual metric/statement",
+    "evaluation_context": {
+      "family": "Cross-experiment summary / documentation",
+      "period": "Mixed or not applicable; see individual metric/statement",
+      "evidence": "Table contents; summary labels may identify subsets but do not supply row-level predictions.",
+      "caution": "Do not treat summary rows as one evaluation cohort. Exported leakage PASS checks are not independent verification."
+    },
+    "rows": 7,
+    "columns": {
+      "Metric": "object",
+      "Value": "object"
+    },
+    "null_counts": {
+      "Metric": 0,
+      "Value": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/week7_uncertainty.csv",
+    "bytes": 174,
+    "type": ".csv",
+    "evaluation_period": "Unverified",
+    "evaluation_context": {
+      "family": "Supplementary experiment \u2014 exact evaluation window unverified",
+      "period": "No exact dates in this export; not admitted to overview rankings",
+      "evidence": "CSV schema and contents inspected; source notebook / explicit split metadata not included in bundle.",
+      "caution": "May describe validation, stress tests, uncertainty, timing or illustrative scenarios. Do not infer test dates or compatibility from similar scores."
+    },
+    "rows": 1,
+    "columns": {
+      "Target Coverage (%)": "float64",
+      "Observed Coverage (%)": "float64",
+      "Average Interval Width": "float64",
+      "Point Forecast MAE": "float64",
+      "Actual Above Upper Bound": "int64"
+    },
+    "null_counts": {
+      "Target Coverage (%)": 0,
+      "Observed Coverage (%)": 0,
+      "Average Interval Width": 0,
+      "Point Forecast MAE": 0,
+      "Actual Above Upper Bound": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "tables/week9_interpretation.csv",
+    "bytes": 217,
+    "type": ".csv",
+    "evaluation_period": "Mixed or not applicable; see individual metric/statement",
+    "evaluation_context": {
+      "family": "Cross-experiment summary / documentation",
+      "period": "Mixed or not applicable; see individual metric/statement",
+      "evidence": "Table contents; summary labels may identify subsets but do not supply row-level predictions.",
+      "caution": "Do not treat summary rows as one evaluation cohort. Exported leakage PASS checks are not independent verification."
+    },
+    "rows": 6,
+    "columns": {
+      "Metric": "object",
+      "Value": "object"
+    },
+    "null_counts": {
+      "Metric": 0,
+      "Value": 0
+    },
+    "observed_date_spans": {},
+    "exported_context": {}
+  },
+  {
+    "file": "warehouse_forecasting_dashboard.html",
+    "bytes": 4873997,
+    "type": ".html",
+    "evaluation_period": "Unverified"
+  }
+]
