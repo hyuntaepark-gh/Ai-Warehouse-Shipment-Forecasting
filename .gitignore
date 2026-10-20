@@ -1,0 +1,37 @@
+# Python / environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Local settings / credentials
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+*.pem
+*.key
+
+# Local research inputs (not required to run the dashboard)
+raw_data/
+private_data/
+calendar.zip
+Historical Product Demand.csv
+sales_train_evaluation.csv
+calendar.csv
+sell_prices.csv
+MITA_Capstone_Week_15.ipynb
+
+# Local work products
+.ui_backup/
+runtime/
+*.log
+*.zip
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

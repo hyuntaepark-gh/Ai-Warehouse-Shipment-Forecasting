@@ -1,0 +1,17 @@
+{
+  "tables": {
+    "holdout": "tables/full_year_model_comparison.csv",
+    "weekly": "tables/timesfm_historical_weekly_predictions.csv",
+    "yearly": "tables/timesfm_historical_yearly_results.csv",
+    "pooled": "tables/timesfm_historical_pooled_summary.csv",
+    "quarterly": "tables/quarterly_forecast_performance.csv",
+    "warehouse": "tables/dashboard_performance_summary.csv",
+    "recursive": "tables/recursive_12_week_warehouse_results.csv",
+    "recursive_summary": "tables/recursive_12_week_backtest_summary.csv",
+    "recursive_predictions": "tables/recursive_12_week_backtest_predictions.csv",
+    "future": "tables/future_warehouse_weekly_forecasts.csv",
+    "planning": "tables/future_operational_decision_summary.csv",
+    "limitations": "tables/research_limitations.csv",
+    "conclusions": "tables/research_conclusions.csv"
+  }
+}
