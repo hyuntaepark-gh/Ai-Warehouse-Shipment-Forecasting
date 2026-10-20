@@ -1,0 +1,16 @@
+﻿Limitation,Impact
+No true shipment quantity variable,The project forecasts order demand rather than confirmed shipments
+No physical warehouse capacity data,Operational thresholds are historical demand references rather than actual capacity
+No staffing or labor-cost data,Staffing recommendations cannot be converted into exact headcount
+Negative demand meaning is undocumented,Negative observations cannot be interpreted with certainty
+Demand is highly concentrated in Category_019,Aggregate results are heavily influenced by one category
+Some category-week observations are missing,Some detailed category comparisons use reduced samples
+Historical data ends before recent market conditions,Results may not reflect current structural demand changes
+Forecast intervals are empirical rather than formal probabilistic intervals,Coverage should be interpreted as empirical forecast uncertainty
+Retrospective model selection,"The 2016 holdout was used for model comparison and framework selection, so the reported performance is not an independent post-selection estimate."
+Low alert precision,"The interval-based warning system generated many alerts despite high recall, requiring further threshold calibration."
+Different forecast horizons,Full-year forecasts and rolling one-step forecasts have different information sets and must not be ranked as equivalent prediction tasks.
+Exploratory model expansion,Multiple later analyses examined the 2016 holdout. These comparisons are exploratory rather than independent post-selection validation.
+Limited sequence length for neural models,Deep learning results reflect a short historical weekly series and may be sensitive to tuning or initialization.
+Hypothetical planning assumptions,Capacity and cost scenarios rely on illustrative weights rather than observed operational costs or physical limits.
+Recursive future forecasting uncertainty,"The historical 12-week recursive backtest achieved 59.39% WAPE across three eligible warehouses, compared with 70.62% for the seasonal naive benchmark. However, XGBoost reached 103.20% WAPE for Whse_A, showing substantial warehouse-level performance variation. Whse_J was excluded due to incomplete historical coverage. The 2017 forecasts cannot be directly validated because observed outcomes are unavailable. Recursive forecasting may accumulate errors across prediction horizons, and the historical backtest is exploratory rather than independent post-selection validation."

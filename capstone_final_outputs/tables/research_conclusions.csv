@@ -1,0 +1,12 @@
+﻿Conclusion
+Warehouse-level XGBoost achieved the lowest aggregate RMSE in the 51-week common-period comparison. The separately evaluated weighted ensemble had a marginally lower WAPE (12.47% versus 12.48%). Category-level XGBoost outperformed its seasonal naive baseline.
+Historical annual demand patterns provide important predictive information.
+Demand spikes remain a major forecasting risk.
+Forecast uncertainty should be considered together with point forecasts.
+The forecasting system is best treated as a decision-support framework rather than a fully optimized operations system.
+"TimesFM 3.0 achieved the lowest WAPE among the tested 2016 full-year forecasting models, followed by ETS."
+Quarterly performance varied across models. TimesFM did not achieve the lowest error in every quarter.
+Additional 2014-2015 quarterly retrospective diagnostics show how model performance varies by calendar quarter. The 2016 quarterly results are kept separate as a holdout reference; these quarter-level comparisons are descriptive and do not establish statistical superiority.
+The historical monthly analysis reuses existing weekly year-ahead predictions and groups them by the recorded weekly timestamp. Monthly weekly-WAPE and summed-month demand error measure different aspects of accuracy; short monthly windows are descriptive rather than new independent validation.
+The full-year overall demand results should not be directly compared with warehouse-level rolling forecasts.
+"In the retrospective 2014-2015 year-ahead folds, ETS had the lowest pooled WAPE (12.79%). ETS configuration was selected using these same years, so this comparison is exploratory, not independent validation."

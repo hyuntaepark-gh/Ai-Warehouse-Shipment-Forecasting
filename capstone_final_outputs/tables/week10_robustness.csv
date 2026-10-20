@@ -1,0 +1,8 @@
+﻿Metric,Value
+Backtest years,3
+Years XGBoost beat Seasonal Naive,2
+Mean XGBoost WAPE (%),19.11
+Worst XGBoost WAPE (%),19.79
+Mean Seasonal Naive WAPE (%),20.68
+Largest performance degradation,Without lag_52
+WAPE increase vs Full (%),10.63

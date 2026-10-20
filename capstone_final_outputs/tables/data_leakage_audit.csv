@@ -1,0 +1,9 @@
+Check,Status,Details
+Warehouse Train/Test Separation,PASS,
+Category Train/Test Separation,PASS,
+M5 Train/Test Separation,PASS,
+Lag-1 Historical Alignment,PASS,
+Rolling Mean Uses Past Demand,PASS,
+Warehouse Feature Completeness,PASS,
+Historical Category Eligibility,PASS,
+Backtesting Time Separation,PASS,

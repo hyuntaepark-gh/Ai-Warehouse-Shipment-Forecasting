@@ -1,0 +1,37 @@
+Year,Month,Month_Name,Evaluation,Lowest_WAPE_Model,Weeks,WAPE (%)
+2014,1,Jan,Retrospective validation,Seasonal Naive,4,10.9613030101574
+2014,2,Feb,Retrospective validation,TimesFM 3.0,4,10.441808849299768
+2014,3,Mar,Retrospective validation,TimesFM 3.0,5,9.179874018967736
+2014,4,Apr,Retrospective validation,TimesFM 3.0,4,8.165138762314001
+2014,5,May,Retrospective validation,TimesFM 3.0,4,9.960000605498745
+2014,6,Jun,Retrospective validation,TimesFM 3.0,5,8.874711513511402
+2014,7,Jul,Retrospective validation,TimesFM 3.0,4,6.2635479749695575
+2014,8,Aug,Retrospective validation,Seasonal Naive,5,9.292340116996375
+2014,9,Sep,Retrospective validation,TimesFM 3.0,4,7.08837352004222
+2014,10,Oct,Retrospective validation,ETS,4,10.144516816583634
+2014,11,Nov,Retrospective validation,ETS,5,3.4644238808170282
+2014,12,Dec,Retrospective validation,ETS,4,11.936232855654847
+2015,1,Jan,Retrospective validation,Seasonal Naive,4,11.342982072746075
+2015,2,Feb,Retrospective validation,TimesFM 3.0,4,9.46505598518925
+2015,3,Mar,Retrospective validation,TimesFM 3.0,5,11.027749407521345
+2015,4,Apr,Retrospective validation,ETS,4,7.266671603940022
+2015,5,May,Retrospective validation,Seasonal Naive,5,6.489910153613232
+2015,6,Jun,Retrospective validation,ETS,4,4.953820342281823
+2015,7,Jul,Retrospective validation,Seasonal Naive,4,11.705735008823861
+2015,8,Aug,Retrospective validation,ETS,5,15.074179450390513
+2015,9,Sep,Retrospective validation,ETS,4,15.737428654975066
+2015,10,Oct,Retrospective validation,ETS,4,7.214877815371751
+2015,11,Nov,Retrospective validation,TimesFM 3.0,5,17.19214362780469
+2015,12,Dec,Retrospective validation,TimesFM 3.0,4,10.013214081056562
+2016,1,Jan,2016 final holdout (reference),TimesFM 3.0,5,7.971941562767448
+2016,2,Feb,2016 final holdout (reference),ETS,4,20.5272662160596
+2016,3,Mar,2016 final holdout (reference),TimesFM 3.0,4,12.089290152557744
+2016,4,Apr,2016 final holdout (reference),TimesFM 3.0,4,6.851971094237823
+2016,5,May,2016 final holdout (reference),ETS,5,11.645766910061507
+2016,6,Jun,2016 final holdout (reference),ETS,4,12.690144983284366
+2016,7,Jul,2016 final holdout (reference),TimesFM 3.0,5,13.767264500984519
+2016,8,Aug,2016 final holdout (reference),TimesFM 3.0,4,10.931730601563372
+2016,9,Sep,2016 final holdout (reference),ETS,4,11.377648601396476
+2016,10,Oct,2016 final holdout (reference),TimesFM 3.0,5,9.625051305764455
+2016,11,Nov,2016 final holdout (reference),ETS,4,6.015229384029891
+2016,12,Dec,2016 final holdout (reference),ETS,4,5.322099073934421

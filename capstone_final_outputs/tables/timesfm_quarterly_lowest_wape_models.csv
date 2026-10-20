@@ -1,0 +1,13 @@
+Year,Quarter,Evaluation,Lowest_WAPE_Model,Weeks,WAPE (%)
+2014,Q1,Retrospective validation,TimesFM 3.0,13,15.913511676581155
+2014,Q2,Retrospective validation,TimesFM 3.0,13,8.968063650653068
+2014,Q3,Retrospective validation,TimesFM 3.0,13,11.080795646438094
+2014,Q4,Retrospective validation,ETS,13,8.07167731554036
+2015,Q1,Retrospective validation,ETS,13,13.207382928916262
+2015,Q2,Retrospective validation,ETS,13,6.677614630131588
+2015,Q3,Retrospective validation,ETS,13,14.53864008597824
+2015,Q4,Retrospective validation,TimesFM 3.0,13,12.507694065575887
+2016,Q1,2016 final holdout (reference),TimesFM 3.0,13,15.02801837837847
+2016,Q2,2016 final holdout (reference),ETS,13,11.391238589700325
+2016,Q3,2016 final holdout (reference),TimesFM 3.0,13,13.489580892652262
+2016,Q4,2016 final holdout (reference),ETS,13,7.600674607806235

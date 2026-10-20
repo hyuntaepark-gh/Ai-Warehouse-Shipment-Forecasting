@@ -1,0 +1,20 @@
+Section
+1. Introduction
+2. Business Problem
+3. Data
+4. Data Quality Analysis
+5. Forecasting Methodology
+6. Statistical Model Results
+7. Foundation Model and Historical Backtesting Results
+8. Cross-Year Quarterly Forecast Stability
+9. Monthly Forecast Error and Demand Patterns
+10. Machine-Learning Results
+11. Warehouse-Level Forecasting
+12. Category-Level Forecasting
+13. Forecast Uncertainty
+14. Explainability
+15. Temporal Robustness
+16. External Validation
+17. Operational Scenario Analysis
+18. Limitations
+19. Conclusion

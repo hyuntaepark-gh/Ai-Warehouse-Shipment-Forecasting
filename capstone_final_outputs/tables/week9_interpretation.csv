@@ -1,0 +1,7 @@
+﻿Metric,Value
+Number of model features,51
+Top gain feature,Category_Category_019
+Top SHAP feature,lag_52
+Gain-SHAP rank correlation,0.9919
+2016 high-demand observations,75
+Driver stability correlation,0.9984

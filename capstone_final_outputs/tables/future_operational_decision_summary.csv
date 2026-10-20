@@ -1,0 +1,13 @@
+Warehouse,Horizon_Weeks,Projected_Total_Demand,Average_Weekly_Demand,Peak_Weekly_Demand,Recent_4Week_Mean_Observed,Change_vs_Recent_4Week_Pct,Weeks_Above_Historical_P90,Max_Demand_to_P90_Ratio,Illustrative_Risk_Level,Planning_Consideration
+Whse_A,4,2711918.375,677979.59375,684235.3125,512895.25,32.18675621386629,0,0.9262775696174977,Watch,Review the short-term capacity buffer and monitor demand weekly
+Whse_C,4,10541501.5,2635375.375,2920035.75,3273727.5,-19.49924436288604,0,0.8125283859716349,Normal,Maintain the illustrative base plan and update weekly forecasts
+Whse_J,4,45453259.5,11363314.875,13184194.0,15233746.75,-25.40695955182529,0,0.8100829909947427,Normal,Maintain the illustrative base plan and update weekly forecasts
+Whse_S,4,10543659.0,2635914.75,2765597.5,2249123.5,17.197421573337344,0,0.44967211514127026,Normal,Maintain the illustrative base plan and update weekly forecasts
+Whse_A,8,5448859.625,681107.453125,684235.3125,512895.25,32.7965999148949,0,0.9262775696174977,Watch,Review the short-term capacity buffer and monitor demand weekly
+Whse_C,8,20640512.0,2580064.0,2920035.75,3273727.5,-21.18879778478814,0,0.8125283859716349,Normal,Maintain the illustrative base plan and update weekly forecasts
+Whse_J,8,98149491.5,12268686.4375,14797373.0,15233746.75,-19.463762665609497,0,0.909202350838045,Watch,Review the short-term capacity buffer and monitor demand weekly
+Whse_S,8,21164239.5,2645529.9375,3075639.25,2249123.5,17.624929778200272,0,0.5000833298985157,Normal,Maintain the illustrative base plan and update weekly forecasts
+Whse_A,12,8185800.875,682150.0729166666,684235.3125,512895.25,32.999881148571106,0,0.9262775696174977,Watch,Review the short-term capacity buffer and monitor demand weekly
+Whse_C,12,31608976.0,2634081.3333333335,2920035.75,3273727.5,-19.53877244415323,0,0.8125283859716349,Normal,Maintain the illustrative base plan and update weekly forecasts
+Whse_J,12,152152053.5,12679337.791666666,14974562.0,15233746.75,-16.768093892156465,0,0.9200894627154467,Watch,Review the short-term capacity buffer and monitor demand weekly
+Whse_S,12,31773720.5,2647810.0416666665,3075639.25,2249123.5,17.726307233314074,0,0.5000833298985157,Normal,Maintain the illustrative base plan and update weekly forecasts

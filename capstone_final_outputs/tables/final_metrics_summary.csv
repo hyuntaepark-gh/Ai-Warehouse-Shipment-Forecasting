@@ -1,0 +1,17 @@
+﻿Metric,Value
+"Warehouse XGBoost aggregated WAPE (51 weeks, %)",12.48
+Category XGBoost WAPE (%),19.79
+Observed forecast range coverage (%),90.82
+Mean multi-year XGBoost WAPE (%),19.11
+Mean multi-year seasonal naive WAPE (%),20.68
+M5 XGBoost WAPE (%),4.57
+M5 seasonal naive WAPE (%),10.99
+Best full-year model WAPE (%),12.35
+ETS full-year WAPE (%),12.87
+Refined SARIMA full-year WAPE (%),14.08
+TimesFM retrospective 2014-2015 pooled WAPE (%),13.43
+ETS retrospective 2014-2015 pooled WAPE (%),12.79
+Seasonal Naive retrospective 2014-2015 pooled WAPE (%),13.61
+"TimesFM pooled monthly WAPE range (2014-2015, pp)",21.96
+"ETS pooled monthly WAPE range (2014-2015, pp)",9.44
+"Seasonal Naive pooled monthly WAPE range (2014-2015, pp)",12.28
