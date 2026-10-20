@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "primary": {
+    "records": 1048575,
+    "dated_records": 1037336,
+    "missing_dates": 11239,
+    "invalid_dates": 0,
+    "warehouses": 4,
+    "products": 2160,
+    "categories": 33,
+    "date_start": "2011-01-08",
+    "date_end": "2017-01-09",
+    "observed_days": 1729,
+    "span_days": 2194,
+    "no_record_days": 465,
+    "repeated_rows": 122423,
+    "negative_records": 10469,
+    "zero_records": 28681,
+    "modeling_records": 1036643,
+    "weekly_source_records": 1034979,
+    "weekly_observations": 260,
+    "weekly_start": "2012-01-08",
+    "weekly_end": "2016-12-25",
+    "weekly_total": 5086934773.0,
+    "excluded_edge_records": 1664,
+    "records_2017": 53,
+    "dates_2017": 6,
+    "warehouses_2017": [
+      "Whse_C",
+      "Whse_J",
+      "Whse_S"
+    ],
+    "products_2017": 45,
+    "excel_row_limit_match": true,
+    "last_record": {
+      "Product_Code": "Product_0704",
+      "Warehouse": "Whse_J",
+      "Product_Category": "Category_001",
+      "Date": "2016/6/27",
+      "Order_Demand": "4 "
+    }
+  },
+  "m5": {
+    "series": 30490,
+    "items": 3049,
+    "stores": 10,
+    "categories": 3,
+    "departments": 7,
+    "states": 3,
+    "sales_days": 1941,
+    "sales_start": "2011-01-29",
+    "sales_end": "2016-05-22",
+    "sales_missing_cells": 0,
+    "sales_negative_cells": 0,
+    "sales_zero_cells": 40241819,
+    "repeated_series_keys": 0,
+    "calendar_records": 1969,
+    "calendar_start": "2011-01-29",
+    "calendar_end": "2016-06-19",
+    "calendar_missing": {
+      "date": 0,
+      "wm_yr_wk": 0,
+      "weekday": 0,
+      "wday": 0,
+      "month": 0,
+      "year": 0,
+      "d": 0,
+      "event_name_1": 1807,
+      "event_type_1": 1807,
+      "event_name_2": 1964,
+      "event_type_2": 1964,
+      "snap_CA": 0,
+      "snap_TX": 0,
+      "snap_WI": 0
+    },
+    "calendar_duplicate_days": 0,
+    "complete_weeks": 277,
+    "weekly_store_observations": 2770,
+    "first_week": "2011-02-06",
+    "last_week": "2016-05-22",
+    "reconstructed_test_start": "2015-05-31",
+    "reconstructed_test_end": "2016-05-22",
+    "reconstructed_train_weeks": 173,
+    "reconstructed_test_weeks": 52,
+    "feature_warmup_weeks": 52,
+    "price_records": 6841121,
+    "price_missing_cells": 0,
+    "price_nonpositive": 0,
+    "price_min": 0.01,
+    "price_max": 107.32,
+    "price_repeated_keys": 0,
+    "price_stores": 10,
+    "price_items": 3049,
+    "price_used_in_notebook_features": false
+  },
+  "source_files": {
+    "Historical Product Demand.csv": {
+      "bytes": 51253380,
+      "sha256": "114dfeb43a971d3e0efa7c941fc3614116fce101456708e0ce909989cc509de3"
+    },
+    "sales_train_evaluation.csv": {
+      "bytes": 121736518,
+      "sha256": "4b4a47c44c38380d2a9168216fea8c9ff2f31b1ddb772f8a0995952a038b8aa0"
+    },
+    "calendar.csv": {
+      "bytes": 103469,
+      "sha256": "d12b5914ef03e66649adf5dd9e996e6602251c22b7a6af8f1f7e3aa12f8860f5"
+    },
+    "sell_prices.csv": {
+      "bytes": 203395785,
+      "sha256": "9da3ad1f8b8ccacdbdc70612191dd375ec24a4ac6625c24b75b3bc60b0bed2ef"
+    }
+  },
+  "notebook": {
+    "name": "MITA_Capstone_Week_15.ipynb",
+    "sha256": "145474cf317122c31bef29db380e38a4b7223e0b684d753f4b80fe16a2fbbdf4",
+    "cells": 1019,
+    "index_base": 0,
+    "evidence": [
+      {
+        "cell_index": 7,
+        "source": "df[\"Date\"] = pd.to_datetime(df[\"Date\"], errors=\"coerce\")\n\ndef convert_demand(x):\n    x = str(x).strip()\n\n    if x.startswith(\"(\") and x.endswith(\")\"):\n        return -float(x[1:-1])\n\n    return float(x)\n\ndf[\"Order_Demand_Numeric\"] = df[\"Order_Demand\"].apply(convert_demand)"
+      },
+      {
+        "cell_index": 26,
+        "source": "analysis_df = df.dropna(subset=[\"Date\"]).copy()\n\nprint(\"Original rows:\", len(df))\nprint(\"Analysis rows:\", len(analysis_df))\nprint(\"Removed because of missing date:\", len(df) - len(analysis_df))"
+      },
+      {
+        "cell_index": 40,
+        "source": "**Repeated Record Decision**\n\nRepeated rows were not automatically removed because the dataset does not include a unique transaction identifier, so identical-looking records cannot be confirmed as duplicate errors."
+      },
+      {
+        "cell_index": 48,
+        "source": "| Issue | Observation | Current Decision |\n|---|---|---|\n| Missing Date | 11,239 records | Exclude from time-series analysis |\n| Negative Demand | Negative values exist, meaning not documented | Run sensitivity analysis; final treatment is determined in Section 18 |\n| Zero Demand | Valid zero-demand periods may be meaningful | Keep as valid observations |\n| Repeated Records | Large number of identical-looking rows | Keep because they cannot be confirmed as duplicate errors |\n| Partial Years | 2011 and 2017 have incomplete coverage | Use 2012\u20132016 for modeling and forecasting |"
+      },
+      {
+        "cell_index": 54,
+        "source": "**Finalize Negative Demand Treatment**\n\nThe sensitivity analysis showed only a small difference in total demand across the treatment options. Since the meaning of negative demand is not documented, the original values were retained rather than removed or replaced."
+      },
+      {
+        "cell_index": 55,
+        "source": "# Use complete years only\nmodeling_df = analysis_df[\n    (analysis_df[\"Date\"] >= \"2012-01-01\") &\n    (analysis_df[\"Date\"] < \"2017-01-01\")\n].copy()\n\n# Negative demand treatment\n# Options: \"keep\", \"exclude\", \"clip_zero\"\nnegative_policy = \"keep\"\n\nif negative_policy == \"exclude\":\n    modeling_df = modeling_df[\n        modeling_df[\"Order_Demand_Numeric\"] >= 0\n    ].copy()\n\nelif negative_policy == \"clip_zero\":\n    modeling_df[\"Order_Demand_Numeric\"] = (\n        modeling_df[\"Order_Demand_Numeric\"]\n        .clip(lower=0)\n    )\n\nprint(\"Negative policy:\", negative_policy)\nprint(\"Modeling rows:\", len(modeling_df))\nprint(\"Date range:\", modeling_df[\"Date\"].min(), \"to\", modeling_df[\"Date\"].max())"
+      },
+      {
+        "cell_index": 66,
+        "source": "weekly_source = modeling_df[\n    (modeling_df[\"Date\"] >= \"2012-01-02\") &\n    (modeling_df[\"Date\"] <= \"2016-12-25\")\n].copy()\n\nweekly_demand = (\n    weekly_source\n    .set_index(\"Date\")[\"Order_Demand_Numeric\"]\n    .resample(\"W-SUN\")\n    .sum()\n)\n\nplt.figure(figsize=(12, 5))\n\nplt.plot(\n    weekly_demand.index,\n    weekly_demand.values\n)\n\nplt.title(\"Weekly Order Demand (2012\u20132016)\")\nplt.xlabel(\"Date\")\nplt.ylabel(\"Total Order Demand\")\nplt.tight_layout()\nplt.show()\n\nprint(\"Weekly observations:\", len(weekly_demand))\nprint(\"Start:\", weekly_demand.index.min())\nprint(\"End:\", weekly_demand.index.max())"
+      },
+      {
+        "cell_index": 110,
+        "source": "# Rebuild a consistent weekly dataset using complete weeks only\nweek4_source = modeling_df[\n    (modeling_df[\"Date\"] >= \"2012-01-02\") &\n    (modeling_df[\"Date\"] <= \"2016-12-25\")\n].copy()\n\nweek4_weekly = (\n    week4_source\n    .set_index(\"Date\")[\"Order_Demand_Numeric\"]\n    .resample(\"W-SUN\")\n    .sum()\n)\n\nprint(\"Raw modeling records:\", len(week4_source))\nprint(\"Weekly observations:\", len(week4_weekly))\nprint(\"Weekly start:\", week4_weekly.index.min())\nprint(\"Weekly end:\", week4_weekly.index.max())\n\nreduction_ratio = (\n    1 - len(week4_weekly) / len(week4_source)\n) * 100\n\nprint(\n    \"Reduction from raw records to weekly observations:\",\n    f\"{reduction_ratio:.2f}%\"\n)"
+      },
+      {
+        "cell_index": 878,
+        "source": "m5_header = pd.read_csv(\n    M5_SALES_PATH,\n    nrows=0\n)\n\nm5_day_columns = [\n    column\n    for column in m5_header.columns\n    if column.startswith(\n        \"d_\"\n    )\n]\n\nm5_sales = pd.read_csv(\n    M5_SALES_PATH,\n    usecols=[\n        \"store_id\"\n    ]\n    +\n    m5_day_columns\n)\n\nm5_calendar = pd.read_csv(\n    M5_CALENDAR_PATH,\n    usecols=[\n        \"d\",\n        \"date\"\n    ]\n)\n\nm5_calendar[\n    \"date\"\n] = pd.to_datetime(\n    m5_calendar[\n        \"date\"\n    ]\n)\n\nprint(\n    \"Daily periods:\",\n    len(\n        m5_day_columns\n    )\n)\n\nprint(\n    \"Stores:\",\n    m5_sales[\n        \"store_id\"\n    ].nunique()\n)"
+      },
+      {
+        "cell_index": 880,
+        "source": "m5_store_daily_wide = (\n    m5_sales\n    .groupby(\n        \"store_id\"\n    )[\n        m5_day_columns\n    ]\n    .sum()\n)\n\nm5_store_daily = (\n    m5_store_daily_wide\n    .T\n    .reset_index()\n    .rename(\n        columns={\n            \"index\": \"d\"\n        }\n    )\n    .melt(\n        id_vars=[\n            \"d\"\n        ],\n        var_name=\"Store\",\n        value_name=\"Demand\"\n    )\n)\n\nm5_store_daily = (\n    m5_store_daily\n    .merge(\n        m5_calendar,\n        on=\"d\",\n        how=\"left\"\n    )\n)\n\nm5_store_daily.head()"
+      },
+      {
+        "cell_index": 882,
+        "source": "m5_store_daily[\n    \"Week\"\n] = (\n    m5_store_daily[\n        \"date\"\n    ]\n    .dt.to_period(\n        \"W-SUN\"\n    )\n    .dt.end_time\n    .dt.normalize()\n)\n\nm5_week_day_counts = (\n    m5_calendar[\n        m5_calendar[\n            \"d\"\n        ]\n        .isin(\n            m5_day_columns\n        )\n    ]\n    .assign(\n        Week=lambda x:\n            x[\n                \"date\"\n            ]\n            .dt.to_period(\n                \"W-SUN\"\n            )\n            .dt.end_time\n            .dt.normalize()\n    )\n    .groupby(\n        \"Week\"\n    )\n    .size()\n)\n\nm5_complete_weeks = (\n    m5_week_day_counts[\n        m5_week_day_counts\n        == 7\n    ]\n    .index\n)\n\nm5_weekly = (\n    m5_store_daily[\n        m5_store_daily[\n            \"Week\"\n        ]\n        .isin(\n            m5_complete_weeks\n        )\n    ]\n    .groupby(\n        [\n            \"Store\",\n            \"Week\"\n        ],\n        as_index=False\n    )[\n        \"Demand\"\n    ]\n    .sum()\n)\n\nprint(\n    \"Stores:\",\n    m5_weekly[\n        \"Store\"\n    ].nunique()\n)\n\nprint(\n    \"Complete weeks:\",\n    m5_weekly[\n        \"Week\"\n    ].nunique()\n)\n\nprint(\n    \"Store-week observations:\",\n    len(\n        m5_weekly\n    )\n)"
+      },
+      {
+        "cell_index": 884,
+        "source": "m5_ml = (\n    m5_weekly\n    .sort_values(\n        [\n            \"Store\",\n            \"Week\"\n        ]\n    )\n    .copy()\n)\n\nm5_lags = [\n    1,\n    2,\n    4,\n    8,\n    13,\n    26,\n    52\n]\n\nfor lag in m5_lags:\n\n    m5_ml[\n        f\"lag_{lag}\"\n    ] = (\n        m5_ml\n        .groupby(\n            \"Store\"\n        )[\n            \"Demand\"\n        ]\n        .shift(\n            lag\n        )\n    )"
+      },
+      {
+        "cell_index": 885,
+        "source": "for window in [\n    4,\n    8,\n    13\n]:\n\n    m5_ml[\n        f\"rolling_mean_{window}\"\n    ] = (\n        m5_ml\n        .groupby(\n            \"Store\"\n        )[\n            \"Demand\"\n        ]\n        .transform(\n            lambda x:\n                x.shift(1)\n                .rolling(\n                    window\n                )\n                .mean()\n        )\n    )\n\n    m5_ml[\n        f\"rolling_std_{window}\"\n    ] = (\n        m5_ml\n        .groupby(\n            \"Store\"\n        )[\n            \"Demand\"\n        ]\n        .transform(\n            lambda x:\n                x.shift(1)\n                .rolling(\n                    window\n                )\n                .std()\n        )\n    )"
+      },
+      {
+        "cell_index": 886,
+        "source": "m5_ml[\n    \"change_1_week\"\n] = (\n    m5_ml[\n        \"lag_1\"\n    ]\n    -\n    m5_ml[\n        \"lag_2\"\n    ]\n)\n\nm5_ml[\n    \"change_4_week\"\n] = (\n    m5_ml[\n        \"lag_1\"\n    ]\n    -\n    m5_ml[\n        \"lag_4\"\n    ]\n)\n\nm5_ml[\n    \"month\"\n] = (\n    m5_ml[\n        \"Week\"\n    ].dt.month\n)\n\nm5_ml[\n    \"quarter\"\n] = (\n    m5_ml[\n        \"Week\"\n    ].dt.quarter\n)\n\nm5_ml[\n    \"week_of_year\"\n] = (\n    m5_ml[\n        \"Week\"\n    ]\n    .dt.isocalendar()\n    .week\n    .astype(int)\n)\n\nm5_store_dummies = pd.get_dummies(\n    m5_ml[\n        \"Store\"\n    ],\n    prefix=\"Store\",\n    dtype=int\n)\n\nm5_ml = pd.concat(\n    [\n        m5_ml,\n        m5_store_dummies\n    ],\n    axis=1\n)\n\nm5_store_dummy_columns = (\n    m5_store_dummies\n    .columns\n    .tolist()\n)\n\nm5_feature_columns = [\n    \"lag_1\",\n    \"lag_2\",\n    \"lag_4\",\n    \"lag_8\",\n    \"lag_13\",\n    \"lag_26\",\n    \"lag_52\",\n    \"rolling_mean_4\",\n    \"rolling_mean_8\",\n    \"rolling_mean_13\",\n    \"rolling_std_4\",\n    \"rolling_std_8\",\n    \"rolling_std_13\",\n    \"change_1_week\",\n    \"change_4_week\",\n    \"month\",\n    \"quarter\",\n    \"week_of_year\"\n] + m5_store_dummy_columns\n\nm5_ml_model = (\n    m5_ml\n    .dropna(\n        subset=[\n            \"Demand\"\n        ]\n        +\n        m5_feature_columns\n    )\n    .copy()\n)\n\nprint(\n    \"Usable observations:\",\n    len(\n        m5_ml_model\n    )\n)"
+      },
+      {
+        "cell_index": 888,
+        "source": "m5_available_weeks = sorted(\n    m5_ml_model[\n        \"Week\"\n    ]\n    .unique()\n)\n\nm5_test_weeks = (\n    m5_available_weeks[\n        -52:\n    ]\n)\n\nm5_test_start = (\n    m5_test_weeks[\n        0\n    ]\n)\n\nm5_train = (\n    m5_ml_model[\n        m5_ml_model[\n            \"Week\"\n        ]\n        <\n        m5_test_start\n    ]\n    .copy()\n)\n\nm5_test = (\n    m5_ml_model[\n        m5_ml_model[\n            \"Week\"\n        ]\n        >=\n        m5_test_start\n    ]\n    .copy()\n)\n\nX_train_m5 = (\n    m5_train[\n        m5_feature_columns\n    ]\n)\n\ny_train_m5 = (\n    m5_train[\n        \"Demand\"\n    ]\n)\n\nX_test_m5 = (\n    m5_test[\n        m5_feature_columns\n    ]\n)\n\ny_test_m5 = (\n    m5_test[\n        \"Demand\"\n    ]\n)\n\nprint(\n    \"Training observations:\",\n    len(\n        m5_train\n    )\n)\n\nprint(\n    \"Test observations:\",\n    len(\n        m5_test\n    )\n)\n\nprint(\n    \"Test weeks:\",\n    m5_test[\n        \"Week\"\n    ].nunique()\n)"
+      },
+      {
+        "cell_index": 889,
+        "source": "**Forecasting Horizon Note**\n\nThe M5 evaluation uses a rolling one-week-ahead setting, where previously observed demand is available for lag-based features.\n\nThe 52-week test period does not represent a single 52-week-ahead forecast."
+      }
+    ]
+  },
+  "archive": {
+    "sha256": "769ca5a5a561fa5ace2eaeb6553f41abb25e0f4458161ac9e3bb07741a8a5571",
+    "members": [
+      {
+        "name": "Historical Product Demand.csv",
+        "bytes": 51253380,
+        "sha256": "114dfeb43a971d3e0efa7c941fc3614116fce101456708e0ce909989cc509de3"
+      },
+      {
+        "name": "sales_train_evaluation.csv",
+        "bytes": 121736518,
+        "sha256": "4b4a47c44c38380d2a9168216fea8c9ff2f31b1ddb772f8a0995952a038b8aa0"
+      },
+      {
+        "name": "calendar.csv",
+        "bytes": 103469,
+        "sha256": "d12b5914ef03e66649adf5dd9e996e6602251c22b7a6af8f1f7e3aa12f8860f5"
+      },
+      {
+        "name": "sell_prices.csv",
+        "bytes": 203395785,
+        "sha256": "9da3ad1f8b8ccacdbdc70612191dd375ec24a4ac6625c24b75b3bc60b0bed2ef"
+      }
+    ]
+  },
+  "archived_actual_reconciliation": {
+    "weeks": 156,
+    "max_absolute_difference": 0.0,
+    "status": "matched"
+  },
+  "summary_files": {
+    "annual.csv": {
+      "bytes": 461,
+      "sha256": "f157fd5f7bcd5362f823574fe799b6fe492d0af346617497cf8f878b4a9ded98"
+    },
+    "categories.csv": {
+      "bytes": 1009,
+      "sha256": "e7b081ac1d4e2c716c422096751987b909679b97812c357dc33271b83ace71fb"
+    },
+    "daily.csv": {
+      "bytes": 49589,
+      "sha256": "a76711137e351a87b5bacf0d76127777797d0f8062d73a0f02e7008c74ba83a8"
+    },
+    "m5_composition.csv": {
+      "bytes": 683,
+      "sha256": "4287ae952f3df33298fd0f93b4b97cf67792d4bfd9b41d44dc17bf70eea9987f"
+    },
+    "m5_weekly.csv": {
+      "bytes": 69258,
+      "sha256": "178f3354aeda320adfc159441708c761f64376244f99d16a64caaa010dcfe812"
+    },
+    "missingness.csv": {
+      "bytes": 136,
+      "sha256": "2512d4224ee262a353c4eeea0c4ca9a2699008ece0d2a0c54947fc0ffa29b9f2"
+    },
+    "monthly.csv": {
+      "bytes": 2058,
+      "sha256": "381b352d176d8ab129764b1a8cb8731ae179f1298d33ac866a404f89fdbf3cd2"
+    },
+    "observations_2017.csv": {
+      "bytes": 247,
+      "sha256": "3aa441d4e5c2e2b742b05f3c420a38ec1722b887f9dbd49dd630148289e41471"
+    },
+    "products.csv": {
+      "bytes": 79630,
+      "sha256": "e729ac60036b8aef04560822848cdbaa77cbf7cce81413b8234332b2708a0ef5"
+    },
+    "warehouse_categories.csv": {
+      "bytes": 3120,
+      "sha256": "7d64ae11c361b3dff08d8ef2b75d0fdbcc309217deac90f460c38c0f1ac6f29b"
+    },
+    "warehouses.csv": {
+      "bytes": 158,
+      "sha256": "2ceafa27f0418b7fd8d14dcb13310403fe2942991fa91888749574dc1015e537"
+    },
+    "weekly.csv": {
+      "bytes": 5472,
+      "sha256": "637aadb5a5f8f8459d20d9fb15d3cee32c4e7a6b844fdf1925f6ad83fd2a326b"
+    }
+  }
+}

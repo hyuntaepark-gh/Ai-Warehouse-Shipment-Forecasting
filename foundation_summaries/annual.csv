@@ -1,0 +1,8 @@
+Year,Records,Calendar_Days,Observed_Days,No_Record_Days,Window
+2011,640,365,42,323,Sparse boundary year
+2012,203635,366,338,28,Modeling year; completeness unverified
+2013,218298,365,345,20,Modeling year; completeness unverified
+2014,216404,365,349,16,Modeling year; completeness unverified
+2015,209661,365,328,37,Modeling year; completeness unverified
+2016,188645,366,321,45,Modeling year; completeness unverified
+2017,53,365,6,359,Sparse boundary year
