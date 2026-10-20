@@ -1,0 +1,26 @@
+[
+  {
+    "file": "before_1440.jpg",
+    "format": "JPEG",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "file": "after_1440.jpg",
+    "format": "JPEG",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "file": "mobile_390.jpg",
+    "format": "JPEG",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "mobile_charts_390.jpg",
+    "format": "JPEG",
+    "width": 390,
+    "height": 844
+  }
+]
