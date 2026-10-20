@@ -1,0 +1,22 @@
+{
+  "source_files": 87,
+  "unchanged_source_hashes": 87,
+  "unchanged_calculation_modules": 8,
+  "unchanged_specialist_renderers": [
+    "historical.py",
+    "model_comparison.py",
+    "warehouse.py",
+    "model_validation.py",
+    "future_forecasting.py"
+  ],
+  "screenshots": {
+    "sidebar_desktop_1440.jpg": [
+      1440,
+      1000
+    ],
+    "sidebar_mobile_390.jpg": [
+      390,
+      844
+    ]
+  }
+}
