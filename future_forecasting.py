@@ -1,6 +1,6 @@
 """Archived December 2016 projections; never current forecasts or future accuracy."""
 from ui_controls import choice
-from product_layout import insights, mini_cards, panel
+from product_layout import boundary, insights, mini_cards, panel
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
@@ -42,7 +42,7 @@ def reliability_context(directory):
 
 def render_future():
     directory = source_directory()
-    st.warning("These are historical forward-looking projections originating on December 25, 2016—not current forecasts. Complete 2017 warehouse-week outcomes are unavailable (the raw source has only 53 sparse January records), so no forecast accuracy is calculated for the projected period.")
+    boundary("Archived projections from 25 December 2016. Complete 2017 warehouse-week outcomes and valid forecast bounds are unavailable.")
     try:
         archive = load_archive(directory)
     except (DataIssue, OSError, ValueError, KeyError) as exc:
@@ -50,14 +50,11 @@ def render_future():
         st.caption("Forecast totals are withheld until origin, dates, complete warehouse coverage and exported summaries pass validation. No missing projections are filled.")
         return
     weekly, checks = archive["weekly"], archive["checks"]
-    time_area, location_area, view_area = st.columns([1, 1.5, 1], gap="medium")
-    with time_area:
-        horizon = choice("Forecast horizon (weeks)", HORIZONS, index=2, horizontal=True, key="future_horizon", persist_state="session")
-    with location_area:
-        with filters('Options', 'future_forecasting_outlook_warehouses'):
+    with st.container(horizontal=True, gap="xsmall", vertical_alignment="bottom"):
+        horizon = choice("Forecast horizon (weeks)", HORIZONS, index=2, horizontal=True, key="future_horizon", persist_state="session", width=152)
+        view = choice("Projection view", ["Weekly", "Cumulative"], horizontal=True, key="future_view", persist_state="session", width=150)
+        with filters('Warehouses', 'future_forecasting_outlook_warehouses'):
             selected = st.multiselect("Forecast warehouses", WAREHOUSES, default=WAREHOUSES, key="future_selected", persist_state="session")
-    with view_area:
-        view = choice("Projection view", ["Weekly", "Cumulative"], horizontal=True, key="future_view", persist_state="session")
     if not selected:
         st.info("Select at least one warehouse to view archived projections.")
         return
@@ -66,14 +63,10 @@ def render_future():
     totals = combined_summaries(weekly, selected)
     current = summaries.loc[summaries.Horizon_Weeks.eq(horizon)]
     selected_total = totals.loc[totals.Horizon_Weeks.eq(horizon)].iloc[0]
-    a, b, c, d = st.columns(4)
-    for column, window in zip([a, b, c], HORIZONS):
-        total = totals.loc[totals.Horizon_Weeks.eq(window)].iloc[0]
-        column.metric(f"Projected total · {window} weeks", compact_units(total.Projected_Total_Demand))
-        column.caption("Selected warehouses · cumulative window")
-    d.metric("Selected forecast coverage", f"{len(detail)} records")
-    d.caption(f"{len(selected)} warehouse(s) × {horizon} weeks · {combined.Week.min():%d %b} – {combined.Week.max():%d %b %Y}")
-    st.caption("Forecast quantities are summed from validated Predicted_Demand records; they are not observed order demand.")
+    mini_cards([
+        (f"Projected total · {horizon} weeks", compact_units(selected_total.Projected_Total_Demand), "Cumulative projection · selected warehouses"),
+        ("Selected forecast coverage", f"{len(detail)} records", f"{len(selected)} warehouse(s) × {horizon} weeks"),
+    ])
 
     with st.container(key="wiq_hero_row"):
         projection_panel, contribution_panel = st.columns([1.7, 1], gap="medium")

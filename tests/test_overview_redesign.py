@@ -1,11 +1,11 @@
-from navigation import ROUTES, LABELS
+from navigation import WAREHOUSE_ROUTES, LABELS
 """Overview pilot: source-derived storytelling, scoped styling and retained interaction."""
 import json
 import unittest
 from unittest.mock import patch
 
 import pandas as pd
-from streamlit.testing.v1 import AppTest
+from app_test_support import warehouse_app
 
 from data_loading import ROOT, read_csv, source_directory
 from display_formatting import compact_units
@@ -55,14 +55,14 @@ class OverviewDesignDataTests(unittest.TestCase):
         for color in set(MODEL_COLORS.values()) | set(WAREHOUSE_COLORS.values()) | {MUTED}:
             self.assertGreaterEqual(1.05 / (luminance(color) + .05), 3)
         self.assertIn("@media(max-width:700px)", CSS)
-        self.assertIn("grid-template-columns:1fr", CSS)
+        self.assertIn("grid-template-columns:repeat(2,minmax(0,1fr))", CSS)
         self.assertIn("focus-visible", CSS)
         self.assertIn(".st-key-executive_pilot", CSS)
 
 
 class OverviewDesignAppTests(unittest.TestCase):
     def app(self):
-        return AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
+        return warehouse_app()
 
     def test_headlines_and_four_primary_kpis_are_source_derived(self):
         app = self.app()
@@ -76,7 +76,7 @@ class OverviewDesignAppTests(unittest.TestCase):
         summary = next(m.value for m in app.markdown if '<div class="exec-summary">' in m.value)
         self.assertIn(kpi["best_model"], summary)
         self.assertIn(f"{kpi['best_wape']:.2f}%", summary)
-        self.assertTrue(any("not independent post-selection" in m.value for m in app.markdown))
+        self.assertTrue(any("revisited for exploratory framework selection" in m.value for m in app.markdown))
         self.assertFalse(any("PHASE 1" in c.value for c in app.caption))
 
     def test_observations_default_and_saved_prediction_filters_remain(self):
@@ -112,7 +112,7 @@ class OverviewDesignAppTests(unittest.TestCase):
 
     def test_every_deep_link_reaches_correct_page_and_overview_css_is_removed(self):
         app = self.app()
-        for destination in [r for r in ROUTES if r != "Executive Overview"]:
+        for destination in [r for r in WAREHOUSE_ROUTES if r != "Executive Overview"]:
             next(b for b in app.button if b.key == "exec_nav_" + destination).click().run(timeout=30)
             self.assertFalse(app.exception)
             self.assertEqual(app.session_state["navigation"], destination)

@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "authorization_state": "pending_human",
+  "approved_data_files": [],
+  "exclusion": "All 18 blocked candidates, unrelated raw records, prediction traces, notebooks, screenshots and private receipts.",
+  "profiles": {
+    "horizons": {
+      "enabled_after_approval_and_runtime_validation": [
+        "Forecast Horizons"
+      ],
+      "files": {
+        "final_research_exports/tables/horizon_scores.csv": {
+          "sha256": "049a914ad08ef40bd84b311fd3529cc40c4703ffcddeb469d7a66ba923d53571",
+          "bytes": 1715
+        },
+        "final_research_exports/tables/origin_counts.csv": {
+          "sha256": "7ba1157efa483597fcce0a159cc19d6be2875badb417abccbedafb9f89170173",
+          "bytes": 209
+        },
+        "research_overview_sources.json": {
+          "sha256": "67c81d47682549f96d7d13e1cea1cb979e26702f567cea3f634410d75e913944",
+          "bytes": 1376
+        }
+      },
+      "download_scopes": {
+        "Forecast Horizons/forecast_horizons_m5.csv": "c223a1c36e362e06bab7871e2bfdf0e9563513406483bba31afc6f517d31f974",
+        "Forecast Horizons/forecast_horizons_favorita.csv": "50b3ba70ed6425ef47200edfcc9ada75924ef4d1fca24d8a6fa2bb5ab628a7f2"
+      },
+      "default_csv_policy": "deny_unless_separately_authorized"
+    },
+    "final_research": {
+      "enabled_after_approval_and_runtime_validation": [
+        "Research Overview",
+        "Forecast Horizons",
+        "Numerical Stability",
+        "Model Strategies",
+        "Research Validation"
+      ],
+      "files": {
+        "final_research_exports/tables/horizon_scores.csv": {
+          "sha256": "049a914ad08ef40bd84b311fd3529cc40c4703ffcddeb469d7a66ba923d53571",
+          "bytes": 1715
+        },
+        "final_research_exports/tables/origin_counts.csv": {
+          "sha256": "7ba1157efa483597fcce0a159cc19d6be2875badb417abccbedafb9f89170173",
+          "bytes": 209
+        },
+        "final_research_exports/tables/matched_stability.csv": {
+          "sha256": "d2c7e88a6b7f074dd7b3cd64a3a9265770994de8f2884257fda29e5fbd4a2ef4",
+          "bytes": 2097
+        },
+        "final_research_exports/tables/component_ablations.csv": {
+          "sha256": "fc28b7f4dbebbe4cb9bae8c778d496306088038646d0bf32349596cd2c0c0279",
+          "bytes": 12622
+        },
+        "final_research_exports/tables/meta_scores.csv": {
+          "sha256": "aa6dbb4b4eb9e15452fe99ec45d61b208917458277f8641d0727a4533401a970",
+          "bytes": 4234
+        },
+        "final_research_exports/tables/meta_coverage.csv": {
+          "sha256": "aec8c93bd910152e55f01afefb20484c56d384973584296c1f7311632dcb1d68",
+          "bytes": 701
+        },
+        "final_research_exports/tables/model_strategies.csv": {
+          "sha256": "9a11e3dcf45bcd3dc91ceab727922b9de014deb092c40556e567673e8e665c11",
+          "bytes": 1027
+        },
+        "final_research_exports/tables/v3_inference.csv": {
+          "sha256": "66ccb2779b2b3462a3b587cb58161290da4209ec8241e0e243df71dca2dc7637",
+          "bytes": 27194
+        },
+        "final_research_exports/tables/r19_inference.csv": {
+          "sha256": "ab4b6c3e5728afd2d9aa62303a9869c5a5d076f6b63d6507d6b30923bff1233b",
+          "bytes": 25932
+        },
+        "final_research_exports/validation_evidence.json": {
+          "sha256": "1604bf1573cb93cc043c58f007f307370662098d5740198efffe2849b2ee1ab0",
+          "bytes": 362
+        },
+        "research_overview_sources.json": {
+          "sha256": "d6c1c020e9a4196b554022d3016c130517c44925d9db5705f9c31eebf3784ec3",
+          "bytes": 7901
+        }
+      },
+      "download_scopes": {
+        "Forecast Horizons/forecast_horizons_m5.csv": "c223a1c36e362e06bab7871e2bfdf0e9563513406483bba31afc6f517d31f974",
+        "Forecast Horizons/forecast_horizons_favorita.csv": "50b3ba70ed6425ef47200edfcc9ada75924ef4d1fca24d8a6fa2bb5ab628a7f2",
+        "Numerical Stability/favorita_52wk_DirectRidge_ablations.csv": "b1d299991178171feac68104cab621359c631b1150be7fed6cfc32fed830cd54",
+        "Numerical Stability/favorita_52wk_DirectRidge_correction.csv": "3f64a5f2252883a27e6718a7ae122616e51543005cd766389bafed58a7576b49",
+        "Numerical Stability/m5_1wk_DirectRidge_ablations.csv": "d25923d3c66aa16c03c47de5a45023f91501b4ee3998002eed4b870276c59b18",
+        "Numerical Stability/m5_1wk_DirectRidge_correction.csv": "c83098bc6cbc2cde48d29be3a8cea1715fa99f9644085a842a8281e7bc43afaf",
+        "Numerical Stability/m5_4wk_DirectRidge_ablations.csv": "58aa977827b6c9d40a893dcf57ebb7c112ff2250d3e11b0f58816fafd97697ae",
+        "Numerical Stability/m5_4wk_DirectRidge_correction.csv": "af9947ad96a3622e380edd151ed3dd91b6c14b6b74ef7225b3c8bdd79ff4d1f8",
+        "Numerical Stability/m5_12wk_DirectRidge_ablations.csv": "5e5134db287e3f2c44fbfb5aed84c0f60c1b660c03bb88b87d57742cd24dc6e4",
+        "Numerical Stability/m5_12wk_DirectRidge_correction.csv": "3198a7f00f28e88bf511ad32fd5dc27444c99b32ac36ed2e6e6b4a52b920f508",
+        "Numerical Stability/m5_26wk_DirectRidge_ablations.csv": "7302bce8ff5c58789721300971efdb63aab7fe73abc343c6870b770012a0958c",
+        "Numerical Stability/m5_26wk_DirectRidge_correction.csv": "2f6924422ee98ad0d7430816dc84e52efbdbc113ec232a28060433a708c09529",
+        "Numerical Stability/m5_52wk_DirectRidge_ablations.csv": "43f4a15740006a65a6383d11f7b9f1845ee62d8bc1cc7fdbc1ae754e7f8f2d11",
+        "Numerical Stability/m5_52wk_DirectRidge_correction.csv": "05bb18080fc8409d88c820a938265c5651de50ac87e1549edc90997a6d8ed11e",
+        "Numerical Stability/m5_1wk_RecursiveRidge_ablations.csv": "f574d297c95bc60899388f3705d9ea8e1d2d99ed5fa8a772627effa72dd64923",
+        "Numerical Stability/m5_1wk_RecursiveRidge_correction.csv": "dd4158df8387e6a107006db067ef81ed0a709935faa6584f4aff84c32e157bdc",
+        "Numerical Stability/m5_4wk_RecursiveRidge_ablations.csv": "a869538a5bdb115fd2a1aef169fd70007e7b133b28d4ad92fc6aec2c4a649f04",
+        "Numerical Stability/m5_4wk_RecursiveRidge_correction.csv": "725ea2216ab222c1c663128a52a5fb44a71b404bd3d5f4922983b268f4457990",
+        "Numerical Stability/m5_12wk_RecursiveRidge_ablations.csv": "b695813e9346db28e66cc388bb5e4ae61ff340e747afd8f9848b606414c48731",
+        "Numerical Stability/m5_12wk_RecursiveRidge_correction.csv": "a89c2dd5c874b7e87f77935b2936cf5a07a196ff41734034049098c41f6277ad",
+        "Numerical Stability/m5_26wk_RecursiveRidge_ablations.csv": "5aeebe8dda8876a539ccf252102fc53aabacace1b41819a4c1df77ffb36641e4",
+        "Numerical Stability/m5_26wk_RecursiveRidge_correction.csv": "c15a40b803627ba738a3961c8a280aeb227cde39b09e2a8cc4fa14c0b330c130",
+        "Numerical Stability/m5_52wk_RecursiveRidge_ablations.csv": "e99695a2f622e299df47ba93c1dc8a5252ca18713521aa4d1352387ae6f67713",
+        "Numerical Stability/m5_52wk_RecursiveRidge_correction.csv": "3c44ba2199a69ef0235d613066c30d2538029ddf05b9765922c46d5cbbdb1bfd",
+        "Numerical Stability/favorita_1wk_DirectRidge_ablations.csv": "3191a8f5b33142a69f3f93b782b2e70220248d6811bef37dfeb2ee95ae0bc2b7",
+        "Numerical Stability/favorita_1wk_DirectRidge_correction.csv": "62afbfeb9a79ffcf934ba8397a8648381a7c82c360d7127036993265978bd75b",
+        "Numerical Stability/favorita_4wk_DirectRidge_ablations.csv": "2017768f40752a9663707e7ba7f91cac2b34cfb5dc1e106f24cb660e3a69b87f",
+        "Numerical Stability/favorita_4wk_DirectRidge_correction.csv": "d37577a94bed310e4e2982b9426e85eb2e81234f82e05687e94039e56071f1ca",
+        "Numerical Stability/favorita_12wk_DirectRidge_ablations.csv": "84ff3e9cd4d7466970e3fbab0532d085439d4cc98efafdf4289102afccdca0ab",
+        "Numerical Stability/favorita_12wk_DirectRidge_correction.csv": "4671b42afb040d8926d5fc9cd4ac650448a32ef0436483b8acf84e30a4d90e55",
+        "Numerical Stability/favorita_26wk_DirectRidge_ablations.csv": "2dfffb4ae088fc934f4f6d80ced5cbdac725ae4fc38976c5b980cd7f32a76df5",
+        "Numerical Stability/favorita_26wk_DirectRidge_correction.csv": "2eae41d4c82b928db1603d93fe9d97a0eee8610501bef2e0f27bccebfa723b26",
+        "Numerical Stability/favorita_1wk_RecursiveRidge_ablations.csv": "69884ba75cf04cdfc99e4186ddb2fc5171389e05e59dcb47d58aad4d4c6bfd71",
+        "Numerical Stability/favorita_1wk_RecursiveRidge_correction.csv": "110b4dc5862ec83753bec92c87f201c382654d86038afeab9807b187f89fb180",
+        "Numerical Stability/favorita_4wk_RecursiveRidge_ablations.csv": "d7945bf9e1cf9e157d1f97a290dc8cfdaf516021c1ab93e5f46937f93fa95ffd",
+        "Numerical Stability/favorita_4wk_RecursiveRidge_correction.csv": "b2ae76b3f59770a0d8dbfb10294fe6c0f531f835e9a98dab591f7b2cba9e5eac",
+        "Numerical Stability/favorita_12wk_RecursiveRidge_ablations.csv": "2ccdcf1425ae35c241133cd4e5bce06ddd69383d9e273815129c8ebc83ac5415",
+        "Numerical Stability/favorita_12wk_RecursiveRidge_correction.csv": "1822cdaedb05c87295629118a3599198877e0c3db478dd42f469842409b91333",
+        "Numerical Stability/favorita_26wk_RecursiveRidge_ablations.csv": "a5dab20ea1daf9d132bda9adf5e871eaf0d615bbe0fd04fa3bd169050268f110",
+        "Numerical Stability/favorita_26wk_RecursiveRidge_correction.csv": "2932c67961913b124c77839388f9c54b7b0a8ff41ca58964b6cb104bb1b009e6",
+        "Numerical Stability/favorita_52wk_RecursiveRidge_ablations.csv": "91cefb8d3040839e450b7eae6cab64c54b90c7a3e2a638d2d2f1249c1380573e",
+        "Numerical Stability/favorita_52wk_RecursiveRidge_correction.csv": "ff20fedeea8ded73d9bf53db01416635202816acf9700b0be9530e20365d8203",
+        "Model Strategies/strategy_scores_m5_v3.csv": "cb344f45b7e1744ae261b19d2b30c6b2197277dd507ab49231ab1c0140f3f8d9",
+        "Model Strategies/strategy_scores_m5_r16.csv": "e19ec1096239a88f40e6834390497bb6a4046ab7b139bdae38004a71ca046628",
+        "Model Strategies/strategy_scores_favorita_r16.csv": "f8d59b39e076019f8db00b7f9e815f52a69850e1d2abbbc66f7015d3e979932e",
+        "Model Strategies/strategy_scores_favorita_v3.csv": "5c173cdc0176a539a5851e508f1bd424200e494ff9056f20352636a85a489a3d",
+        "Research Validation/m5_v3_inference.csv": "6afb849fdda36f1a5a0487266b44a909c4883a49298b0d417e3923da38c5dff9",
+        "Research Validation/m5_ridge_origins.csv": "9377421686d7153bd325dda3e0b8057acd3f350d8fe8e6e79451c9ccfd04d1ff",
+        "Research Validation/m5_r19_inference.csv": "72707efb58859856b5863530a94f32d98377143b3ce46a1c3f4f8d17d0f3984b",
+        "Research Validation/favorita_r19_inference.csv": "9a8355ea48acba4a6f5b44923d0cfc6d2bc9cabc5d5dc2b14b9e40a8fbb8e563",
+        "Research Validation/favorita_ridge_origins.csv": "96f52aad2cf8b1b8fd27b340143210a218923aef2ff59f5d554e0fa92d4ca736",
+        "Research Validation/favorita_v3_inference.csv": "3a332fc603458eb275286ace170c024f66a17312b105fdf4d10337e8c21a5ebb"
+      },
+      "default_csv_policy": "deny_unless_separately_authorized"
+    }
+  }
+}

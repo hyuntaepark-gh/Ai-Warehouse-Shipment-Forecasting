@@ -1,6 +1,6 @@
 """Historical Demand Analysis page; all charts represent exported actual observations."""
 from ui_controls import choice
-from product_layout import insights, mini_cards, panel
+from product_layout import boundary, mini_cards, panel, scope as evidence_scope
 import calendar
 
 import plotly.express as px
@@ -19,15 +19,15 @@ PALETTE = MODEL_PALETTE[:4]
 
 
 def render_historical():
-    overview_slot = st.container()
-    with st.columns([1,2])[0]:
-        scope = choice("Historical data scope", list(SOURCES), horizontal=True, key="history_scope", persist_state="session")
-    with filters('Refine view', 'historical_history_filters'):
-        try:
-            history = load_history(source_directory(), scope)
-        except (DataIssue, OSError, ValueError) as exc:
-            st.warning(f"Historical demand data unavailable: {exc}")
-            return
+    with st.container(horizontal=True, gap="xsmall", vertical_alignment="bottom"):
+        scope = choice("Historical data scope", list(SOURCES), horizontal=True, key="history_scope", persist_state="session", width=190)
+        options = filters('Refine view', 'historical_history_filters')
+    try:
+        history = load_history(source_directory(), scope)
+    except (DataIssue, OSError, ValueError) as exc:
+        st.warning(f"Historical demand data unavailable: {exc}")
+        return
+    with options:
         a, b = st.columns(2)
         with a:
             years = st.multiselect("Available years", sorted(history.Year.unique().tolist()),
@@ -42,55 +42,35 @@ def render_historical():
     if scope == "Aggregate demand":
         st.caption("Observed weekly actuals only · 2014–2016 aggregate sample · 2016 holdout reference")
     else:
-        st.warning("Warehouse history is a 51-week common-period sample: 10 Jan–25 Dec 2016 for each warehouse. It is not a full-year warehouse history. January and Q1 have reduced coverage. This sample is separate from the 52-week aggregate export; no missing warehouse weeks are reconstructed.")
+        boundary("Warehouse history is a 51-week sample from 10 Jan–25 Dec 2016. January and Q1 have reduced coverage. The 52-week aggregate export is separate.")
     if selected.empty:
         st.info("Select at least one available year and, for warehouse history, one warehouse.")
         return
 
-    with overview_slot:
-        summary = variability(selected)
-        a, b, c, d = st.columns(4)
-        a.metric("Observed demand sum", compact_units(selected.Demand.sum()))
-        a.caption("Recorded units in the selected sample")
-        b.metric("Weekly observations", f"{len(selected):,}")
-        b.caption("Warehouse-weeks" if scope == "Warehouse sample" else "Distinct weekly actuals")
-        c.metric("Selected series", selected.Series.nunique())
-        c.caption("Each warehouse remains a separate series" if scope == "Warehouse sample" else "Aggregate order demand")
-        d.metric("Observed timestamps", selected.Date.nunique())
-        d.caption(f"{selected.Date.min():%d %b %Y} – {selected.Date.max():%d %b %Y}")
-
-        yearly = selected.groupby("Year")["Demand"].sum()
-        leading_year = int(yearly.idxmax())
-        if len(yearly) > 1:
-            finding(f"{leading_year} has the largest recorded total in the current selection",
-                    f"{compact_units(yearly.max())} observed order-demand units across its exported weekly sample. Comparisons describe available observed weeks, not annualized warehouse totals or forecast accuracy.")
-        else:
-            finding(f"{leading_year}: {compact_units(yearly.iloc[0])} recorded units",
-                    "This is the selected observed-week sample, not a new forecast or an extrapolated full-year estimate.")
-
-    st.subheader("How did observed weekly demand evolve?")
-    grouped = aggregate_history(selected, level)
-    figure = px.line(trend_with_gaps(grouped, level), x="Period", y="Demand", color="Series", markers=True,
-                     color_discrete_sequence=PALETTE, color_discrete_map={**WAREHOUSE_COLORS, "Aggregate actual demand": "#172b4d"}, custom_data=["Observations", "First_Observation", "Last_Observation"],
-                     labels={"Period": "Recorded weekly date" if level == "Weekly" else f"{level} bucket of recorded weekly dates",
-                             "Demand": "Actual order demand (units)" if level == "Weekly" else "Sum of observed weekly actuals (units)"})
-    figure.update_traces(connectgaps=False, hovertemplate="%{x|%Y-%m-%d}<br>%{y:,.0f} units<br>%{customdata[0]} observed weeks<extra>%{fullData.name}</extra>")
-    with panel("demand_trend", "Recorded demand over time", "Missing periods remain gaps; no interpolated values"):
-        chart(figure, "history_trend")
-    with data_section("Trend interpretation & download", 'Methodology'):
-        st.caption(f"{'Actual demand' if level == 'Weekly' else 'Aggregated actual demand'} · {level.lower()} view. Breaks indicate unselected or missing periods; no values are interpolated or zero-filled. Longer buckets contain more weekly observations.")
-        st.caption("Monthly and quarterly buckets assign the whole weekly value to its recorded timestamp. They are not exact calendar-month or calendar-quarter transaction totals. Annual bars likewise summarize the exported weekly sample.")
-        data_download(grouped, "historical_trend")
-
-    insights([
-        ("Key finding", f"{leading_year} leads the selected samples", f"{compact_units(yearly.max())} recorded units; compare alongside observed-week counts."),
-        ("Important caveat", "Observed demand only", "No forecasts are scored here. Warehouse history has 51 weeks, not a complete calendar year."),
-        ("Explore next", "Separate scale from variability", "Compare periods, then inspect monthly weekly means and the distribution."),
+    summary = variability(selected)
+    mini_cards([
+        ("Observed demand", compact_units(selected.Demand.sum()), "Recorded units in the selected sample"),
+        ("Weekly observations", f"{len(selected):,}", "Distinct aggregate weekly timestamps" if scope == "Aggregate demand"
+         else f"{selected.Series.nunique()} series · {selected.Date.nunique()} distinct weeks"),
     ])
+    yearly = selected.groupby("Year")["Demand"].sum()
+    if len(yearly) > 1:
+        evidence_scope(f"{int(yearly.idxmax())} has the largest recorded total in the selection · {compact_units(yearly.max())} units.")
+
     trend_tab, period_tab, season_tab, variable_tab = st.tabs(["Trend", "Period comparison", "Seasonality", "Variability"])
     with trend_tab:
-        mini_cards([(str(year), compact_units(total), "Sum of selected observed weekly demand") for year, total in yearly.items()])
-        st.caption("Annual cards sum exported weekly observations only; no extrapolation or missing weeks.")
+        grouped = aggregate_history(selected, level)
+        figure = px.line(trend_with_gaps(grouped, level), x="Period", y="Demand", color="Series", markers=True,
+                         color_discrete_sequence=PALETTE, color_discrete_map={**WAREHOUSE_COLORS, "Aggregate actual demand": "#172b4d"}, custom_data=["Observations", "First_Observation", "Last_Observation"],
+                         labels={"Period": "Recorded weekly date" if level == "Weekly" else f"{level} bucket of recorded weekly dates",
+                                 "Demand": "Actual order demand (units)" if level == "Weekly" else "Sum of observed weekly actuals (units)"})
+        figure.update_traces(connectgaps=False, hovertemplate="%{x|%Y-%m-%d}<br>%{y:,.0f} units<br>%{customdata[0]} observed weeks<extra>%{fullData.name}</extra>")
+        with panel("demand_trend", "Recorded demand over time", "Missing periods remain gaps"):
+            chart(figure, "history_trend")
+        with data_section("Trend interpretation", 'Methodology'):
+            st.caption(f"{selected.Date.min():%d %b %Y} – {selected.Date.max():%d %b %Y} · {level.lower()} view. "
+                       "Breaks indicate unselected or missing periods. Monthly and quarterly buckets assign the whole weekly value to its recorded timestamp.")
+        data_download(grouped, "historical_trend")
     with period_tab:
         st.subheader("How do the recorded periods compare?")
         comparison_level = choice("Comparison period", ["Annual", "Quarterly", "Monthly"], horizontal=True, persist_state="session", key="bi_historical_comparison_period")
@@ -111,7 +91,6 @@ def render_historical():
         data_download(compared, "historical_period_comparisons")
 
     with season_tab:
-        st.subheader("When was demand higher or more variable?")
         season = seasonal_profile(selected)
         season["Sample"] = season.Series + " · " + season.Year.astype(str)
         means = season.pivot(index="Sample", columns="Month", values="Mean_Weekly_Demand").reindex(columns=range(1, 13))

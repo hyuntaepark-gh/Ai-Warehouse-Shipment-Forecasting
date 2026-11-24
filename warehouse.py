@@ -1,6 +1,6 @@
 """Warehouse Analytics: actual-demand characteristics, scoped scores and deep dive."""
 from ui_controls import choice
-from product_layout import insights, mini_cards, panel
+from product_layout import boundary, insights, mini_cards, panel, scope
 import calendar
 
 import plotly.express as px
@@ -28,7 +28,7 @@ def render_warehouse():
     except (DataIssue, OSError, ValueError) as exc:
         st.warning(f"Warehouse analytics data unavailable: {exc}")
         return
-    st.info("Observed demand covers 10 Jan–25 Dec 2016: 51 exported weeks per warehouse. Totals summarize this sample only; they are not extrapolated into full-year totals. Rolling model scores use separate 52-week samples for A/C/S and 51 weeks for J.")
+    boundary("Observed demand covers 51 weeks from 10 Jan–25 Dec 2016. Rolling scores use 52 weeks for A/C/S and 51 weeks for J.")
     with filters('Filters', 'warehouse_warehouse_filters'):
         selected = st.multiselect("Warehouses to compare", sorted(history.Series.unique()),
                                   default=sorted(history.Series.unique()), key="warehouse_selected", persist_state="session")
@@ -43,8 +43,6 @@ def render_warehouse():
     stats = warehouse_statistics(actual)
     weekly_selected = actual.groupby("Date").Demand.sum()
     mini_cards([(row.Warehouse, compact_units(row.Observed_Sum), f"{int(row.Observed_Weeks)} weeks · {row.Selected_Demand_Share_Pct:.1f}% of selected sample") for row in stats.itertuples()])
-    with st.container(key="wiq_hero_row"):
-        hero_left, hero_right = st.columns([1.5, 1], gap="medium")
     insight_slot = st.container()
     demand_tab, performance_tab, deep_tab = st.tabs(["Demand profile", "Forecast comparison", "Warehouse detail"])
     with demand_tab, data_section("Selected sample KPIs & sources", 'Methodology'):
@@ -61,6 +59,8 @@ def render_warehouse():
 
 
     with demand_tab:
+        with st.container(key="wiq_hero_row"):
+            hero_left, hero_right = st.columns([1.5, 1], gap="medium")
         with hero_left, panel("warehouse_trends", "Demand across the network", "Aligned observed weeks · 10 Jan–25 Dec 2016"):
             grouped = aggregate_history(actual, aggregation)
             figure = px.line(trend_with_gaps(grouped, aggregation), x="Period", y="Demand", color="Series", markers=True,
@@ -73,19 +73,25 @@ def render_warehouse():
             st.caption("Actual demand only. Monthly/quarterly sums assign entire weeks to their recorded timestamp; they are not exact daily calendar-period transaction totals. January and Q1 have reduced coverage. No missing observations are filled.")
             data_download(grouped, "warehouse_actual_trends")
 
-        variation_panel, monthly_panel = st.columns(2)
-        st.markdown("#### Demand scale & variability")
-        with hero_right, panel("warehouse_scale", "Demand scale", "Selected 51-week sample · not full-year totals"):
-            figure = px.bar(stats, x="Warehouse", y="Observed_Sum", color="Warehouse", color_discrete_map=PALETTE,
-                            labels={"Observed_Sum": "Observed sample demand (units)"})
-            figure.update_layout(showlegend=False)
-            comparison_chart(figure, "warehouse_observed_sums", height=310)
-        with variation_panel, panel("warehouse_variability", "Relative weekly variation", "CV describes demand variability, not forecast error"):
-            cv_plot = stats.assign(CV_Percent=stats.CV * 100)
-            figure = px.bar(cv_plot, x="Warehouse", y="CV_Percent", color="Warehouse", color_discrete_map=PALETTE,
-                            labels={"CV_Percent": "Weekly coefficient of variation (%)"})
-            figure.update_layout(showlegend=False)
-            comparison_chart(figure, "warehouse_cv", height=350)
+        monthly = seasonal_profile(actual)
+        with hero_right, panel("warehouse_profile", "Warehouse profile"):
+            detail = st.selectbox("Supporting view", ["Relative variability", "Monthly profile"],
+                                  key="warehouse_profile_view", persist_state="session")
+            if detail == "Relative variability":
+                cv_plot = stats.assign(CV_Percent=stats.CV * 100)
+                figure = px.bar(cv_plot, x="Warehouse", y="CV_Percent", color="Warehouse", color_discrete_map=PALETTE,
+                                labels={"CV_Percent": "Weekly coefficient of variation (%)"})
+                figure.update_layout(showlegend=False)
+                comparison_chart(figure, "warehouse_cv", height=275)
+                st.caption("CV uses observed weekly standard deviation and mean. Different scales affect absolute error comparisons.")
+            else:
+                values = monthly.pivot(index="Series", columns="Month", values="Mean_Weekly_Demand").reindex(columns=range(1, 13))
+                counts = monthly.pivot(index="Series", columns="Month", values="Observed_Weeks").reindex(index=values.index, columns=range(1, 13))
+                figure = go.Figure(go.Heatmap(x=list(calendar.month_abbr)[1:], y=values.index, z=values.to_numpy(),
+                                             customdata=counts.to_numpy(), colorscale="Teal", colorbar=dict(title="Mean units/week"), hoverongaps=False,
+                                             hovertemplate="%{y} · %{x}<br>Mean weekly actual: %{z:,.0f} units<br>%{customdata} observed weeks<extra></extra>"))
+                comparison_chart(figure, "warehouse_monthly_patterns", height=275)
+                st.caption("Mean weekly demand by recorded month. January is partial. Patterns describe this sample.")
         with data_section("Demand statistics & selected-sample shares", 'Full Data Tables'):
             stats_columns = ["Warehouse", "Observed_Sum", "Mean_Weekly_Demand", "Weekly_Std_Dev", "CV", "Observed_Weeks", "Selected_Demand_Share_Pct"]
             st.dataframe(readable_table(stats[stats_columns]), width="stretch", hide_index=True,
@@ -94,26 +100,14 @@ def render_warehouse():
                                         "Weekly_Std_Dev": st.column_config.NumberColumn("Weekly std. dev."),
                                         "Observed_Weeks": st.column_config.NumberColumn("Observed weeks"),
                                         "Selected_Demand_Share_Pct": st.column_config.NumberColumn("Selected sample share (%)", format="%.2f")})
-        st.caption("Weekly mean and sample standard deviation (n−1) are calculated from observed demand. CV = standard deviation / mean; displayed as a percentage and undefined for nonpositive means. Shares refer only to selected warehouses in this 51-week sample. These are demand characteristics, not forecasting accuracy scores.")
-        largest = stats.loc[stats.Observed_Sum.idxmax()]
-        finding(f"{largest.Warehouse} has the largest share of selected observed demand",
-                f"{largest.Selected_Demand_Share_Pct:.1f}% of the selected 51-week warehouse sample. Demand scale varies; use WAPE alongside absolute forecast errors, and do not interpret this share as physical capacity.")
+        with data_section("Demand variability", "Methodology"):
+            st.caption("CV uses sample standard deviation (n−1) divided by the mean and is undefined for nonpositive means. Shares refer to the selected 51-week sample.")
         if stats.CV.notna().any():
             variable = stats.loc[stats.CV.idxmax()]
-            st.caption(f"Highest selected relative weekly variability: {variable.Warehouse} (CV {variable.CV:.1%}). This is observed variation, not a cause of demand changes.")
+            scope(f"Highest relative weekly variability in the selection · {variable.Warehouse} (CV {variable.CV:.1%}).")
         data_download(stats, "warehouse_demand_statistics")
-
-        with monthly_panel, panel("warehouse_months", "Monthly demand pattern", "Mean observed demand per week; partial January coverage"):
-            monthly = seasonal_profile(actual)
-            values = monthly.pivot(index="Series", columns="Month", values="Mean_Weekly_Demand").reindex(columns=range(1, 13))
-            counts = monthly.pivot(index="Series", columns="Month", values="Observed_Weeks").reindex(index=values.index, columns=range(1, 13))
-            figure = go.Figure(go.Heatmap(x=list(calendar.month_abbr)[1:], y=values.index, z=values.to_numpy(),
-                                         customdata=counts.to_numpy(), colorscale="Teal", colorbar=dict(title="Mean units/week"), hoverongaps=False,
-                                         hovertemplate="%{y} · %{x}<br>Mean weekly actual: %{z:,.0f} units<br>%{customdata} observed weeks<extra></extra>"))
-            comparison_chart(figure, "warehouse_monthly_patterns", height=350)
-            st.caption("Mean weekly actual demand by recorded month. Hover for observation counts. One partial historical year supports descriptive patterns, not a claim of stable recurring seasonality or a validated capacity/staffing requirement.")
-            source_detail("Source for all demand panels: " + ACTUAL_SOURCE)
-            data_download(monthly, "warehouse_monthly_patterns")
+        source_detail("Source for all demand panels: " + ACTUAL_SOURCE)
+        data_download(monthly, "warehouse_monthly_patterns")
 
     with performance_tab:
         st.subheader("Which model had the lowest error at each warehouse?")

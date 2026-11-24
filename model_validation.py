@@ -296,18 +296,7 @@ def _sync_evidence_section():
 
 def render_validation():
     directory = source_directory()
-    try:
-        annual = evidence(directory, "timesfm_historical_yearly_results")
-        external = evidence(directory, "m5_external_validation")
-        mini_cards([
-            ("Annual model-year results", len(annual), "Reported results, not independent experiments"),
-            ("Historical annual origins", annual.Year.nunique(), "2014 / 2015 / 2016 · kept separate"),
-            ("Validation areas", len(SECTIONS), "Historical, external & supplementary evidence"),
-            ("External dataset", "M5", f"{external.Model.nunique()} model summaries · dates unverified"),
-        ])
-    except (DataIssue, OSError, ValueError, KeyError):
-        pass  # The selected panel reports its specific missing-data condition.
-    boundary("Exploratory evidence: ETS reused its selection folds, the 2016 holdout was revisited, and supplementary protocols are incomplete. No independent post-selection validation is claimed.")
+    boundary("ETS reused its selection folds, the 2016 holdout was revisited, and supplementary protocols are incomplete. Interpret the results as exploratory.")
     current = st.session_state.get("validation_section", SECTIONS[0])
     tabs = st.tabs(EVIDENCE_GROUPS, default=EVIDENCE_CATEGORY[current], key="validation_tabs", on_change=_sync_evidence_section)
     panels = [historical_panel, temporal_panel, external_panel, robustness_panel, uncertainty_panel, diagnostics_panel, recursive_panel]

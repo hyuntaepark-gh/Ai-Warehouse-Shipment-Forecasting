@@ -6,4 +6,7 @@ textColor = "#172b4d"
 font = "sans serif"
 
 [server]
+address = "127.0.0.1"
+port = 8507
 headless = true
+enableStaticServing = false

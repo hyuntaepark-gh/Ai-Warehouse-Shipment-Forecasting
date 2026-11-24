@@ -1,11 +1,10 @@
-from navigation import ROUTES, LABELS
+from navigation import WAREHOUSE_ROUTES, LABELS
 """Product workspace interactions and exact correspondence to archived source records."""
-import hashlib
 import json
 import unittest
 
 import pandas as pd
-from streamlit.testing.v1 import AppTest
+from app_test_support import calculation_digest, summary_cards, warehouse_app
 
 from bi_components import CSS
 from data_loading import ROOT, source_directory
@@ -23,7 +22,7 @@ class OperationalProductTests(unittest.TestCase):
         cls.archive = load_planning(source_directory())
 
     def app(self):
-        app = AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
+        app = warehouse_app()
         return app.sidebar.button(key="nav_" + "Operational Insights").click().run(timeout=30)
 
     def test_heatmap_cells_and_hover_data_match_every_source_record(self):
@@ -80,21 +79,21 @@ class OperationalProductTests(unittest.TestCase):
     def test_four_kpis_and_warehouse_horizon_detail_interactions(self):
         app = self.app()
         self.assertFalse(app.exception)
-        self.assertEqual({e.label:e.value for e in app.metric}, {"Forecast demand":"223.72M", "Weeks above historical P90":"0", "Warehouse coverage":"4 / 4", "Forecast horizon":"12 weeks"})
+        self.assertEqual(summary_cards(app), {"Forecast demand":"223.72M", "Weeks above historical P90":"0", "Warehouse coverage":"4 / 4", "Forecast horizon":"12 weeks"})
         for horizon in [4, 8, 12]:
             group(app, "ops_horizon").set_value(horizon).run(timeout=30)
             self.assertFalse(app.exception)
-            self.assertTrue(any(e.label=="Forecast horizon" and e.value==f"{horizon} weeks" for e in app.metric))
+            self.assertEqual(summary_cards(app)["Forecast horizon"], f"{horizon} weeks")
         group(app, "ops_warehouses").set_value(["Whse_A", "Whse_J"]).run(timeout=30)
         next(e for e in app.selectbox if e.label=="Warehouse detail").set_value("Whse_J").run(timeout=30)
         self.assertFalse(app.exception)
-        self.assertTrue(any(e.label=="Warehouse coverage" and e.value=="2 / 4" for e in app.metric))
+        self.assertEqual(summary_cards(app)["Warehouse coverage"], "2 / 4")
         group(app, "ops_warehouses").set_value(["Whse_C"]).run(timeout=30)
         self.assertFalse(app.exception)
         self.assertEqual(next(e for e in app.selectbox if e.label=="Warehouse detail").value, "Whse_C")
         group(app, "ops_horizon").set_value(None).run(timeout=30)
         self.assertFalse(app.exception)
-        self.assertEqual(len(app.metric), 0)
+        self.assertFalse(summary_cards(app))
         self.assertTrue(any("Select a forecast horizon" in e.value for e in app.info))
 
     def test_downloads_and_evidence_boundaries_remain_accessible(self):
@@ -103,8 +102,8 @@ class OperationalProductTests(unittest.TestCase):
         self.assertTrue({"download_operations_selected_planning", "download_operations_selected_weekly_risk",
             "download_operations_observed_reference_comparison", "download_operations_recent_actual_reference",
             "download_operations_summary_checks", "download_operations_warehouse_detail"}.issubset(keys))
-        self.assertTrue(any("December 25, 2016" in e.value and "No complete 2017 evaluation" in e.value for e in app.markdown))
-        self.assertTrue(any("not physical capacity" in e.value for e in app.markdown))
+        self.assertTrue(any("25 December 2016" in e.value and "2017 outcomes are unavailable" in e.value for e in app.markdown))
+        self.assertTrue(any("P90 measures historical demand. Physical capacity and forecast bounds are unavailable" in e.value for e in app.markdown))
         cards = next(e.value for e in app.markdown if '<div class="ops-insight-grid">' in e.value)
         for text in ["Observed fact", "Archived projection", "Illustrative implication"]:
             self.assertIn(text, cards)
@@ -114,8 +113,8 @@ class OperationalProductTests(unittest.TestCase):
 
     def test_navigation_and_scoped_css_do_not_refactor_other_pages(self):
         app = self.app()
-        self.assertEqual([e.label for e in app.sidebar.button], list(LABELS.values()))
-        for page in [r for r in ROUTES if r != "Operational Insights"]:
+        self.assertEqual([e.label for e in app.sidebar.button], ["Final Research", *(LABELS[r] for r in WAREHOUSE_ROUTES)])
+        for page in [r for r in WAREHOUSE_ROUTES if r != "Operational Insights"]:
             app.sidebar.button(key="nav_" + page).click().run(timeout=30)
             self.assertFalse(app.exception)
             self.assertEqual(app.session_state["navigation"],page)
@@ -123,8 +122,8 @@ class OperationalProductTests(unittest.TestCase):
             app.sidebar.button(key="nav_" + "Operational Insights").click().run(timeout=30)
         expected = json.loads((ROOT/'docs/navigation_calculation_baseline.json').read_text())
         for name, digest in expected.items():
-            self.assertEqual(hashlib.sha256((ROOT/name).read_bytes()).hexdigest(),digest,name)
-        self.assertIn('max-width:1440px', CSS)
+            self.assertEqual(calculation_digest(ROOT / name), digest, name)
+        self.assertIn('max-width:100%', CSS)
         self.assertIn('@media(max-width:600px)',CSS)
 
 

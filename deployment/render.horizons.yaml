@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: warehouse-iq-forecast-horizons
+    runtime: python
+    buildCommand: python -m pip install -r requirements.txt -c deployment/linux-constraints.txt && python -m pip check
+    startCommand: python run_dashboard.py horizons-release
+    healthCheckPath: /_stcore/health
+    autoDeployTrigger: "off"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.10

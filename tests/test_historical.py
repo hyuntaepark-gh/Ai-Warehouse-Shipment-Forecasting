@@ -4,7 +4,7 @@ import unittest
 from unittest.mock import patch
 
 import pandas as pd
-from streamlit.testing.v1 import AppTest
+from app_test_support import warehouse_app
 
 from data_loading import DataIssue, ROOT, read_csv, source_directory
 from historical_data import (LEVELS, SOURCES, aggregate_history, coverage, load_history,
@@ -103,7 +103,7 @@ class HistoricalDataTests(unittest.TestCase):
 
 class HistoricalAppTests(unittest.TestCase):
     def test_actual_page_filters_scopes_and_all_aggregation_levels(self):
-        app = AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
+        app = warehouse_app()
         app.sidebar.button(key="nav_" + "Historical Demand").click().run(timeout=30)
         self.assertFalse(app.exception)
         self.assertFalse(app.error)
@@ -126,7 +126,7 @@ class HistoricalAppTests(unittest.TestCase):
         app.multiselect[1].set_value(["Whse_J"]).run(timeout=30)
         self.assertFalse(app.exception)
         self.assertFalse(app.error)
-        self.assertTrue(any("51-week common-period sample" in w.value for w in app.warning))
+        self.assertTrue(any("51-week sample from 10 Jan–25 Dec 2016" in w.value for w in app.markdown))
         app.multiselect[1].set_value([]).run(timeout=30)
         self.assertFalse(app.exception)
         self.assertTrue(any("Select at least one" in i.value for i in app.info))

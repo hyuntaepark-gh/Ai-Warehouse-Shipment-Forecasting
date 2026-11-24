@@ -5,7 +5,7 @@ import unittest
 from unittest.mock import patch
 
 import pandas as pd
-from streamlit.testing.v1 import AppTest
+from app_test_support import warehouse_app
 
 from comparison_data import METRICS, reconciliation_predictions
 from data_loading import DataIssue, ROOT, read_csv, source_directory
@@ -104,13 +104,17 @@ class WarehouseDataTests(unittest.TestCase):
 
 class WarehouseAppTests(unittest.TestCase):
     def test_page_and_filters_keep_demand_and_performance_samples_separate(self):
-        app = AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
+        app = warehouse_app()
         app.sidebar.button(key="nav_" + "Warehouse Analytics").click().run(timeout=30)
         self.assertFalse(app.exception)
         self.assertFalse(app.error)
         self.assertEqual(app.title[0].value, "Warehouse Explorer")
-        self.assertEqual(len(app.sidebar.button), 8)
-        self.assertEqual(len(app.get("plotly_chart")), 6)
+        self.assertEqual(len(app.sidebar.button), 9)
+        self.assertEqual(len(app.get("plotly_chart")), 4)
+        self.assertTrue(any(chart.proto.id.endswith("-warehouse_cv") for chart in app.get("plotly_chart")))
+        app.selectbox(key="warehouse_profile_view").select("Monthly profile").run(timeout=30)
+        self.assertTrue(any(chart.proto.id.endswith("-warehouse_monthly_patterns") for chart in app.get("plotly_chart")))
+        self.assertFalse(any(chart.proto.id.endswith("-warehouse_cv") for chart in app.get("plotly_chart")))
         self.assertTrue(any(m.label == "Observed warehouse-weeks" and m.value == "204" for m in app.metric))
         for level in ["Monthly", "Quarterly"]:
             next(s for s in app.selectbox if s.label == "Warehouse trend aggregation").set_value(level).run(timeout=30)

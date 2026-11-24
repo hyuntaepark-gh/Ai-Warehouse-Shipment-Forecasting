@@ -7,7 +7,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 import pandas as pd
-from streamlit.testing.v1 import AppTest
+from app_test_support import summary_cards, warehouse_app
 
 from data_loading import DataIssue, ROOT, read_csv, source_directory
 from future_data import HORIZONS, WAREHOUSES, WEEKLY_SOURCE
@@ -133,22 +133,22 @@ class OperationalDataTests(unittest.TestCase):
 
 class OperationalAppTests(unittest.TestCase):
     def app(self):
-        app = AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
+        app = warehouse_app()
         return app.sidebar.button(key="nav_" + "Operational Insights").click().run(timeout=30)
 
     def test_planning_horizons_warehouses_empty_selection_and_charts(self):
         app = self.app()
         self.assertFalse(app.exception)
         self.assertFalse(app.error)
-        self.assertEqual(len(app.sidebar.button), 8)
+        self.assertEqual(len(app.sidebar.button), 9)
         self.assertEqual(len(app.get("plotly_chart")), 2)
         self.assertFalse(any("unavailable:" in w.value for w in app.warning))
-        self.assertEqual(len(app.metric), 4)
+        self.assertEqual(len(summary_cards(app)), 4)
         self.assertTrue(any("ops-label" in m.value and "Watch" in m.value for m in app.markdown))
         for horizon in HORIZONS:
             next(r for r in app.get("button_group") if r.key == "ops_horizon").set_value(horizon).run(timeout=30)
             self.assertFalse(app.exception)
-            self.assertTrue(any(m.label == "Weeks above historical P90" and m.value == "0" for m in app.metric))
+            self.assertEqual(summary_cards(app)["Weeks above historical P90"], "0")
         next(r for r in app.get("button_group") if r.key == "ops_warehouses").set_value(["Whse_A"]).run(timeout=30)
         for chart in app.get("plotly_chart"):
             spec = json.loads(chart.proto.spec)
@@ -156,7 +156,7 @@ class OperationalAppTests(unittest.TestCase):
             self.assertIn(len(spec["data"]), [1, 2])
         next(r for r in app.get("button_group") if r.key == "ops_warehouses").set_value([]).run(timeout=30)
         self.assertFalse(app.exception)
-        self.assertEqual(len(app.metric), 0)
+        self.assertFalse(summary_cards(app))
         self.assertTrue(any("Select at least one warehouse" in i.value for i in app.info))
 
     def test_historical_bias_filters_and_archived_monitoring(self):

@@ -1,6 +1,6 @@
 """Insight-led Overview pilot; all figures remain scoped to their source cohorts."""
 from ui_controls import choice
-from product_layout import chips, insights, mini_cards, panel, apply_product_theme
+from product_layout import insights, panel, scope
 from html import escape
 from navigation import navigate, LABELS
 import json
@@ -9,7 +9,8 @@ import plotly.express as px
 import streamlit as st
 from chart_access import chart_header, chart_options, chart_view, data_section, filters, download_frame, source_detail
 
-from data_loading import DataIssue, inventory, source_directory
+from data_loading import DataIssue, source_directory
+from presentation_data import cached_inventory
 from display_formatting import compact_units, readable_table
 from future_data import forecast_views, load_archive, select_records
 from overview import data_download, demand_plot, source_note
@@ -184,7 +185,7 @@ def evidence_details(data, directory):
         st.dataframe(data["limitations"], hide_index=True, width="stretch")
         source_note("conclusions", "limitations")
         with data_section("Source inventory, schemas & evaluation families", 'Data Sources'):
-            records = inventory(directory)
+            records = cached_inventory(directory)
             csv_records = [r for r in records if r["type"] == ".csv"]
             st.caption(f"{len(csv_records)} CSV tables · {len(records)} original source files · {sum('error' in r for r in csv_records)} CSV read errors. Undated supplementary evaluations remain unverified.")
             st.dataframe([{"File": r["file"], "Rows": r.get("rows"), "Evaluation family": r["evaluation_context"]["family"], "Period": r["evaluation_context"]["period"], "Read error": r.get("error", "")} for r in csv_records], hide_index=True, width="stretch")
@@ -196,11 +197,8 @@ def evidence_details(data, directory):
 
 def render_overview():
     apply_design()
-    apply_product_theme()
     st.markdown('<style>.exec-summary{padding:0!important;background:none!important;border:0!important;margin:0!important;}.exec-summary strong{font-size:18px!important;}.exec-summary p{font-size:13px!important;margin:3px 0 0!important;}.st-key-executive_pilot [class*="st-key-exec_kpi_"]{padding:13px 16px!important;min-height:0!important;}.st-key-executive_pilot [data-testid="stMetric"]{padding:0!important;min-height:0!important;}.exec-warehouse-grid{margin:0!important;}.exec-warehouse-grid article{padding:12px 15px!important;}.exec-warehouse-grid strong{font-size:23px!important;}.exec-note{margin:0!important;font-size:11px!important;}</style>', unsafe_allow_html=True)
     with st.container(key="executive_pilot"):
-        st.markdown('<p class="wiq-eyebrow">Workspace / Research overview</p>', unsafe_allow_html=True)
-        st.title("Overview")
         directory = source_directory()
         if not directory.is_dir() or not any(directory.iterdir()):
             st.warning("Capstone data unavailable. The capstone_final_outputs directory is missing or empty.")
@@ -213,8 +211,7 @@ def render_overview():
             st.error(f"Cannot load Executive Overview: {exc}")
             return
         st.markdown(f'<div class="exec-summary"><strong>{escape(kpi["best_model"])} led the 2016 aggregate comparison with {kpi["best_wape"]:.2f}% WAPE.</strong><p>Warehouse results varied; validate locally before interpreting aggregate gains.</p></div>', unsafe_allow_html=True)
-        chips("Archived study", "2016 aggregate holdout", "52 observed weeks", "Order demand · not shipments")
-        st.markdown('<p class="exec-note"><strong>Research boundary:</strong> the holdout was revisited; results are exploratory, not independent post-selection validation.</p>', unsafe_allow_html=True)
+        scope("2016 aggregate order-demand holdout · The evaluation was revisited for exploratory framework selection.")
         kpi_cards([
             ("Lowest holdout WAPE", f"{kpi['best_wape']:.2f}%", f"{kpi['best_model']} · 2016 error"),
             ("Error reduction vs baseline", f"{kpi['relative_reduction']:.1f}%", f"Vs Seasonal Naive · {kpi['baseline_wape']:.2f}% WAPE"),

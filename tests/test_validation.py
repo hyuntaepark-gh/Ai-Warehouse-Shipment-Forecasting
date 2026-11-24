@@ -5,7 +5,7 @@ import unittest
 from unittest.mock import patch
 
 import pandas as pd
-from streamlit.testing.v1 import AppTest
+from app_test_support import warehouse_app
 
 from data_loading import DataIssue, ROOT, read_csv, source_directory
 from source_catalog import evaluation_context
@@ -140,7 +140,7 @@ class ValidationDataTests(unittest.TestCase):
 
 class ValidationAppTests(unittest.TestCase):
     def test_all_evidence_areas_and_nested_filters_render(self):
-        app = AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
+        app = warehouse_app()
         app.sidebar.button(key="nav_" + "Model Validation").click().run(timeout=30)
         self.assertFalse(app.exception)
         self.assertEqual(app.title[0].value, "Forecast Reliability")

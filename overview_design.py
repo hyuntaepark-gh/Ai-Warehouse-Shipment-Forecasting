@@ -57,8 +57,8 @@ CSS = """
  .exec-warehouse-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
 }
 @container executive (max-width:520px) {
- .st-key-executive_pilot [data-testid="stHorizontalBlock"]:has(.exec-kpi-marker) {grid-template-columns:1fr;}
- .exec-warehouse-grid {grid-template-columns:1fr;}
+ .st-key-executive_pilot [data-testid="stHorizontalBlock"]:has(.exec-kpi-marker) {grid-template-columns:repeat(2,minmax(0,1fr));}
+ .exec-warehouse-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
  .st-key-executive_pilot [data-testid="stHorizontalBlock"] {flex-direction:column;}
  .st-key-executive_pilot [data-testid="stColumn"] {min-width:0; width:100%!important;}
 }
@@ -67,9 +67,9 @@ CSS = """
  .st-key-executive_pilot h1 {font-size:1.9rem;}
  .st-key-executive_pilot [data-testid="stHorizontalBlock"] {flex-direction:column;}
  .st-key-executive_pilot [data-testid="stColumn"] {min-width:0; width:100%!important;}
- .st-key-executive_pilot [data-testid="stHorizontalBlock"]:has(.exec-kpi-marker) {grid-template-columns:1fr;}
+ .st-key-executive_pilot [data-testid="stHorizontalBlock"]:has(.exec-kpi-marker) {grid-template-columns:repeat(2,minmax(0,1fr));}
  .exec-summary {padding:16px;}
- .exec-warehouse-grid {grid-template-columns:1fr;}
+ .exec-warehouse-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
 }
 </style>
 """

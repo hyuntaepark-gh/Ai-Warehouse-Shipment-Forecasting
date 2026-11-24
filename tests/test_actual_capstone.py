@@ -5,7 +5,7 @@ import json
 import unittest
 
 import pandas as pd
-from streamlit.testing.v1 import AppTest
+from app_test_support import warehouse_app
 
 from data_loading import ROOT, inventory, source_directory
 from overview import demand_plot
@@ -82,11 +82,11 @@ class ActualCapstoneTests(unittest.TestCase):
             self.assertAlmostEqual(frame.Predicted_Demand.sum(), row["Projected_Total_Demand"], places=5)
 
     def test_live_app_renders_actual_results_and_all_filters(self):
-        app = AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
+        app = warehouse_app()
         self.assertFalse(app.exception)
         self.assertFalse(app.error)
         self.assertEqual(len(app.get("plotly_chart")), 9)
-        self.assertEqual(len(app.sidebar.button), 8)
+        self.assertEqual(len(app.sidebar.button), 9)
         self.assertTrue(any(m.value == f"{holdout_kpis(self.data)['best_wape']:.2f}%" for m in app.metric))
         for box in list(app.selectbox):
             if box.label == "Comparison metric":
