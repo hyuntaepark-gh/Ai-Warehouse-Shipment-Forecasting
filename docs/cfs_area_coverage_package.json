@@ -1,0 +1,17 @@
+{
+  "page": "Data Foundation",
+  "profile": "cfs_area_coverage",
+  "display_scope": "Data Foundation/CFS Area Record Coverage/v1/source-precision-chart",
+  "attribution_revision": "bts-census-cfs-area-j246-y2rf-v2",
+  "files": {
+    "bts_cfs_area_record_coverage.csv": {
+      "sha256": "7f6d7913f51542f1c6c1b5e76219c13c60448d024834ef9d650c57364614531d",
+      "bytes": 1507
+    },
+    "candidate-cfs-area-coverage-registry.json": {
+      "sha256": "ac89b0c71db2ee062824c79c5fac5a8fbb603f7e0671a6449f2d754fb4777ec4",
+      "bytes": 1194
+    }
+  },
+  "download_scopes": {}
+}
