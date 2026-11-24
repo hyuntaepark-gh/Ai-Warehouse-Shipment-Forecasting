@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import re
 from pathlib import Path
 
 from deployment.page_publication import cfs_area_plan
@@ -19,14 +20,26 @@ def check_host_authorization(record, service_id):
 
 
 def load_approved_cfs(env, secret_file=None):
+    commit = env.get("RENDER_GIT_COMMIT", "")
+    if not re.fullmatch("[a-f0-9]{40}", commit):
+        return None
+
+    def authorize(record, service_id):
+        plan = check_host_authorization(record, service_id)
+        if record.get("deployed_commit") != commit:
+            raise ValueError("CFS approval does not cover this deployed commit.")
+        return plan
+
     return load_render_payload(env, SECRET_FILE if secret_file is None else secret_file,
-                               check_host_authorization, modes={"public"})
+                               authorize, modes={"public"})
 
 
 def prepare_cfs_envelope(authorization, destination, *, package=LOCAL_PACKAGE):
     record = json.loads(authorization.read_bytes())
     service_id = record.get("render_service_id") if isinstance(record, dict) else None
     plan = check_host_authorization(record, service_id)
+    if not re.fullmatch("[a-f0-9]{40}", record.get("deployed_commit", "")):
+        raise ValueError("The CFS decision must identify the verified deployment SHA.")
     write_render_payload(destination, record, validate_package(package, {"files": plan.files}))
 
 

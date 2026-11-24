@@ -1,6 +1,6 @@
 # Warehouse IQ
 
-Warehouse IQ retains the study navigation in a publication-gated release. The Data Foundation page can display CFS Area Record Coverage after the exact deployment and publication decisions have been verified. All other routes show an availability notice. The full research application and datasets are maintained separately.
+Warehouse IQ retains the study navigation in a publication-gated release. The Data Foundation page can display CFS Area Record Coverage after the exact deployment and publication decisions have been verified. The original analytical renderers are included. Routes without verified data and independent release decisions show an availability notice. Original datasets and approvals are maintained privately.
 
 ## Deployable source
 

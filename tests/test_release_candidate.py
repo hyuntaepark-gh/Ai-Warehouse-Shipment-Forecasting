@@ -42,6 +42,7 @@ class ReleaseCandidateTests(unittest.TestCase):
     def assert_held(self, app, route):
         self.assertFalse(app.exception)
         self.assertEqual(app.title[0].value, LABELS[route])
+        self.assertTrue(app.subheader)
         self.assertEqual(app.info[0].value, PUBLIC_HOLD)
         for kind in ("plotly_chart", "download_button", "dataframe", "table", "metric"):
             self.assertFalse(app.get(kind))
@@ -57,7 +58,8 @@ class ReleaseCandidateTests(unittest.TestCase):
             self.assertFalse(app.exception)
             parse.assert_called_once_with(fixture)
             render.assert_called_once_with({}, ())
-            self.assertEqual(app.info[0].value, PUBLIC_HOLD)
+            self.assertFalse(app.info)
+            self.assertIn("own publication clearance", app.caption[-1].value)
             app.sidebar.button(key="nav_Historical Demand").click().run(timeout=20)
             self.assert_held(app, "Historical Demand")
             gate.assert_called_once()

@@ -1,0 +1,629 @@
+{
+  "Research Overview": {
+    "profile": "research-overview",
+    "display_scope": "Research Overview/v1/original-charts-and-tables",
+    "attribution_revision": "warehouse-iq-research-overview-v1",
+    "files": {
+      "final_research_exports/tables/component_ablations.csv": {
+        "sha256": "fc28b7f4dbebbe4cb9bae8c778d496306088038646d0bf32349596cd2c0c0279",
+        "bytes": 12622
+      },
+      "final_research_exports/tables/horizon_scores.csv": {
+        "sha256": "35c92a6e58c7070297b07cd09f161ef52b4a68b93f29ae8bfa147431cf941e21",
+        "bytes": 27189
+      },
+      "final_research_exports/tables/matched_stability.csv": {
+        "sha256": "956f4d3e512e3c0d73fcfe0788195a476454873464c0351ca616ba5333e7072b",
+        "bytes": 10927
+      },
+      "final_research_exports/tables/meta_coverage.csv": {
+        "sha256": "aec8c93bd910152e55f01afefb20484c56d384973584296c1f7311632dcb1d68",
+        "bytes": 701
+      },
+      "final_research_exports/tables/meta_scores.csv": {
+        "sha256": "aa6dbb4b4eb9e15452fe99ec45d61b208917458277f8641d0727a4533401a970",
+        "bytes": 4234
+      },
+      "final_research_exports/tables/model_strategies.csv": {
+        "sha256": "9a11e3dcf45bcd3dc91ceab727922b9de014deb092c40556e567673e8e665c11",
+        "bytes": 1027
+      },
+      "final_research_exports/tables/origin_counts.csv": {
+        "sha256": "7ba1157efa483597fcce0a159cc19d6be2875badb417abccbedafb9f89170173",
+        "bytes": 209
+      },
+      "research_overview_sources.json": {
+        "sha256": "0f22cd49671b4036a1eeae2af2f4a6d9eefeaed2d39c44bbcafb5350fc955dbf",
+        "bytes": 4125
+      }
+    }
+  },
+  "Forecast Horizons": {
+    "profile": "forecast-horizons",
+    "display_scope": "Forecast Horizons/v1/original-charts-and-tables",
+    "attribution_revision": "warehouse-iq-forecast-horizons-v1",
+    "files": {
+      "final_research_exports/tables/horizon_scores.csv": {
+        "sha256": "35c92a6e58c7070297b07cd09f161ef52b4a68b93f29ae8bfa147431cf941e21",
+        "bytes": 27189
+      },
+      "final_research_exports/tables/origin_counts.csv": {
+        "sha256": "7ba1157efa483597fcce0a159cc19d6be2875badb417abccbedafb9f89170173",
+        "bytes": 209
+      },
+      "research_overview_sources.json": {
+        "sha256": "14b37d44ac97e4792bd0805ac6543f6afbacd01738d9f4ce2c1c2e678ccbf0d6",
+        "bytes": 1080
+      }
+    }
+  },
+  "Numerical Stability": {
+    "profile": "numerical-stability",
+    "display_scope": "Numerical Stability/v1/original-charts-and-tables",
+    "attribution_revision": "warehouse-iq-numerical-stability-v1",
+    "files": {
+      "final_research_exports/tables/component_ablations.csv": {
+        "sha256": "fc28b7f4dbebbe4cb9bae8c778d496306088038646d0bf32349596cd2c0c0279",
+        "bytes": 12622
+      },
+      "final_research_exports/tables/horizon_scores.csv": {
+        "sha256": "35c92a6e58c7070297b07cd09f161ef52b4a68b93f29ae8bfa147431cf941e21",
+        "bytes": 27189
+      },
+      "final_research_exports/tables/matched_stability.csv": {
+        "sha256": "956f4d3e512e3c0d73fcfe0788195a476454873464c0351ca616ba5333e7072b",
+        "bytes": 10927
+      },
+      "final_research_exports/tables/origin_counts.csv": {
+        "sha256": "7ba1157efa483597fcce0a159cc19d6be2875badb417abccbedafb9f89170173",
+        "bytes": 209
+      },
+      "research_overview_sources.json": {
+        "sha256": "3c9c8a7ed36d2826a5b88137ec7105b37dda2602caed667bc6c244cc2f47ec25",
+        "bytes": 2385
+      }
+    }
+  },
+  "Model Strategies": {
+    "profile": "model-strategies",
+    "display_scope": "Model Strategies/v1/original-charts-and-tables",
+    "attribution_revision": "warehouse-iq-model-strategies-v1",
+    "files": {
+      "final_research_exports/tables/component_ablations.csv": {
+        "sha256": "fc28b7f4dbebbe4cb9bae8c778d496306088038646d0bf32349596cd2c0c0279",
+        "bytes": 12622
+      },
+      "final_research_exports/tables/horizon_scores.csv": {
+        "sha256": "35c92a6e58c7070297b07cd09f161ef52b4a68b93f29ae8bfa147431cf941e21",
+        "bytes": 27189
+      },
+      "final_research_exports/tables/meta_coverage.csv": {
+        "sha256": "aec8c93bd910152e55f01afefb20484c56d384973584296c1f7311632dcb1d68",
+        "bytes": 701
+      },
+      "final_research_exports/tables/meta_scores.csv": {
+        "sha256": "aa6dbb4b4eb9e15452fe99ec45d61b208917458277f8641d0727a4533401a970",
+        "bytes": 4234
+      },
+      "final_research_exports/tables/model_strategies.csv": {
+        "sha256": "9a11e3dcf45bcd3dc91ceab727922b9de014deb092c40556e567673e8e665c11",
+        "bytes": 1027
+      },
+      "final_research_exports/tables/origin_counts.csv": {
+        "sha256": "7ba1157efa483597fcce0a159cc19d6be2875badb417abccbedafb9f89170173",
+        "bytes": 209
+      },
+      "research_overview_sources.json": {
+        "sha256": "f7ec807321e165cff4790650f246cc8f5988863dc9735532cafeb27a7eee8280",
+        "bytes": 3529
+      }
+    }
+  },
+  "Research Validation": {
+    "profile": "research-validation",
+    "display_scope": "Research Validation/v1/original-charts-and-tables",
+    "attribution_revision": "warehouse-iq-research-validation-v1",
+    "files": {
+      "final_research_exports/tables/horizon_scores.csv": {
+        "sha256": "35c92a6e58c7070297b07cd09f161ef52b4a68b93f29ae8bfa147431cf941e21",
+        "bytes": 27189
+      },
+      "final_research_exports/tables/meta_coverage.csv": {
+        "sha256": "aec8c93bd910152e55f01afefb20484c56d384973584296c1f7311632dcb1d68",
+        "bytes": 701
+      },
+      "final_research_exports/tables/meta_scores.csv": {
+        "sha256": "aa6dbb4b4eb9e15452fe99ec45d61b208917458277f8641d0727a4533401a970",
+        "bytes": 4234
+      },
+      "final_research_exports/tables/origin_counts.csv": {
+        "sha256": "7ba1157efa483597fcce0a159cc19d6be2875badb417abccbedafb9f89170173",
+        "bytes": 209
+      },
+      "final_research_exports/tables/r19_inference.csv": {
+        "sha256": "ab4b6c3e5728afd2d9aa62303a9869c5a5d076f6b63d6507d6b30923bff1233b",
+        "bytes": 25932
+      },
+      "final_research_exports/tables/v3_inference.csv": {
+        "sha256": "66ccb2779b2b3462a3b587cb58161290da4209ec8241e0e243df71dca2dc7637",
+        "bytes": 27194
+      },
+      "final_research_exports/validation_evidence.json": {
+        "sha256": "1604bf1573cb93cc043c58f007f307370662098d5740198efffe2849b2ee1ab0",
+        "bytes": 362
+      },
+      "research_overview_sources.json": {
+        "sha256": "336663d2f3d9f5f92f3c3e5bc8d02de7256b00242e79490f06dc4b58e71f472a",
+        "bytes": 5344
+      }
+    }
+  },
+  "Overview": {
+    "profile": "overview",
+    "display_scope": "Overview/v1/original-charts-and-tables",
+    "attribution_revision": "warehouse-iq-overview-v1",
+    "files": {
+      "capstone_final_outputs/tables/dashboard_performance_summary.csv": {
+        "sha256": "1841210346b2ae2500b7e0197f8b20ab31a54a7dbfff96735befce8a1ca7bb33",
+        "bytes": 1008
+      },
+      "capstone_final_outputs/tables/full_year_model_comparison.csv": {
+        "sha256": "eca2b683f9a632bce96065c790971448a9d2325c2494b9a2bf2527a84ab8b480",
+        "bytes": 556
+      },
+      "capstone_final_outputs/tables/future_4_8_12_week_summary.csv": {
+        "sha256": "850a3c0b63036073ea03f19fe574b85a8b8f96d391bac65bddc01aeaea6ab7a5",
+        "bytes": 658
+      },
+      "capstone_final_outputs/tables/future_operational_decision_summary.csv": {
+        "sha256": "9f523b31ed5a58b59833bf9ff3b87bd3329d78f85786a0664a75f202ddba688d",
+        "bytes": 2262
+      },
+      "capstone_final_outputs/tables/future_warehouse_weekly_forecasts.csv": {
+        "sha256": "2bd90fff0305bb63deb1ab8fd6ab529f985ceef1f3b7e8eb4ab7d33b95df0bb0",
+        "bytes": 4216
+      },
+      "capstone_final_outputs/tables/quarterly_forecast_performance.csv": {
+        "sha256": "fe03c05b1915bb24a56ed2fe715c6a31c5aa1c2e60ab5ec116c2773be306f788",
+        "bytes": 918
+      },
+      "capstone_final_outputs/tables/recursive_12_week_backtest_predictions.csv": {
+        "sha256": "b9f091a122fb9a8f817e3ef78e673be88a593e1854572cb5a6afb95d448e640e",
+        "bytes": 1916
+      },
+      "capstone_final_outputs/tables/recursive_12_week_backtest_summary.csv": {
+        "sha256": "7e9b2beddbd4b009a8e463c5057d336bf673bd38cf85dfdcf82c573f5f90055f",
+        "bytes": 514
+      },
+      "capstone_final_outputs/tables/recursive_12_week_warehouse_results.csv": {
+        "sha256": "dfbaf6242cf9e4fe182b2d69af21f446e077cf27ebc4ea04da1e61b1d695a4d8",
+        "bytes": 524
+      },
+      "capstone_final_outputs/tables/research_conclusions.csv": {
+        "sha256": "ac72b2838442f0d35441c4c3c00842010857a7c365c47a3215dc20b3e015af90",
+        "bytes": 1702
+      },
+      "capstone_final_outputs/tables/research_limitations.csv": {
+        "sha256": "79fc887f419e2fc4df2e9e0f3c47cdce66f3e835d967763e5d5141e499c9071d",
+        "bytes": 2483
+      },
+      "capstone_final_outputs/tables/timesfm_historical_pooled_summary.csv": {
+        "sha256": "df3aafceaa475989e1e540ac1cc01285e1380ec1542b85886bf628f22d29dcf6",
+        "bytes": 289
+      },
+      "capstone_final_outputs/tables/timesfm_historical_weekly_predictions.csv": {
+        "sha256": "af73f52198dedb8be88cdce31ed8c17ab5aae14310c72db8e1a1afa268cf95ce",
+        "bytes": 43081
+      },
+      "capstone_final_outputs/tables/timesfm_historical_yearly_results.csv": {
+        "sha256": "c166705e0e254e232b7a9e3865bcc844f3c3378747b05414f010d7a50ac10226",
+        "bytes": 1025
+      }
+    }
+  },
+  "Demand Trends": {
+    "profile": "demand-trends",
+    "display_scope": "Demand Trends/v1/original-charts-and-tables",
+    "attribution_revision": "warehouse-iq-demand-trends-v1",
+    "files": {
+      "capstone_final_outputs/tables/hierarchical_warehouse_forecasts.csv": {
+        "sha256": "7ecdc52d6271d471e4ed34cd587e70922fa10fb10bb60e7718353c3452780ef1",
+        "bytes": 18392
+      },
+      "capstone_final_outputs/tables/timesfm_historical_weekly_predictions.csv": {
+        "sha256": "af73f52198dedb8be88cdce31ed8c17ab5aae14310c72db8e1a1afa268cf95ce",
+        "bytes": 43081
+      }
+    }
+  },
+  "Warehouse Explorer": {
+    "profile": "warehouse-explorer",
+    "display_scope": "Warehouse Explorer/v1/original-charts-and-tables",
+    "attribution_revision": "warehouse-iq-warehouse-explorer-v1",
+    "files": {
+      "capstone_final_outputs/tables/dashboard_performance_summary.csv": {
+        "sha256": "1841210346b2ae2500b7e0197f8b20ab31a54a7dbfff96735befce8a1ca7bb33",
+        "bytes": 1008
+      },
+      "capstone_final_outputs/tables/hierarchical_warehouse_forecasts.csv": {
+        "sha256": "7ecdc52d6271d471e4ed34cd587e70922fa10fb10bb60e7718353c3452780ef1",
+        "bytes": 18392
+      }
+    }
+  },
+  "Model Performance": {
+    "profile": "model-performance",
+    "display_scope": "Model Performance/v1/original-charts-and-tables",
+    "attribution_revision": "warehouse-iq-model-performance-v1",
+    "files": {
+      "capstone_final_outputs/tables/automated_model_test.csv": {
+        "sha256": "0ba88315070dcf80d48ed53b13939f26d6adb1269f562c4fc458e746c4341b6c",
+        "bytes": 96
+      },
+      "capstone_final_outputs/tables/automated_model_validation.csv": {
+        "sha256": "245d1a2db06ce171f5efe44902622a6e134d84a90092760188d7fb031862f8ee",
+        "bytes": 223
+      },
+      "capstone_final_outputs/tables/capacity_optimization.csv": {
+        "sha256": "bc8f4037ca3e54c6807d74194cf5e8d298250e9259cd5afd24c2aa79ba451c30",
+        "bytes": 158
+      },
+      "capstone_final_outputs/tables/category_model_comparison.csv": {
+        "sha256": "02bda3d1490e6a5b1ebb158143faa1cb346f0a488d7f71ea61b6816476f75e26",
+        "bytes": 165
+      },
+      "capstone_final_outputs/tables/cold_start_comparison.csv": {
+        "sha256": "5d45f3a3793ec8782b0bfacd090fc72cc2805f3c1aca8730ec1fde0219382b95",
+        "bytes": 767
+      },
+      "capstone_final_outputs/tables/dashboard_performance_summary.csv": {
+        "sha256": "1841210346b2ae2500b7e0197f8b20ab31a54a7dbfff96735befce8a1ca7bb33",
+        "bytes": 1008
+      },
+      "capstone_final_outputs/tables/data_disruption_robustness.csv": {
+        "sha256": "3b6e11dbf43e0468d378bfd5cb8b4f7f364620a11be20d501137a00f931cb688",
+        "bytes": 397
+      },
+      "capstone_final_outputs/tables/data_quality_impact.csv": {
+        "sha256": "084249c9c36e5a8aa04625ea199a33b073175680733a19d3aa5965a6a73cd90a",
+        "bytes": 528
+      },
+      "capstone_final_outputs/tables/demand_level_performance.csv": {
+        "sha256": "bfdefe5234d7f47af5bf1f9294d6ec9bd4f057955c2b1c30f36906a5504a6c2b",
+        "bytes": 718
+      },
+      "capstone_final_outputs/tables/ensemble_comparison.csv": {
+        "sha256": "73a3c85f2d72e4b940d5d89ace84e20b2af7024b56309c47a1fd387b7c465576",
+        "bytes": 230
+      },
+      "capstone_final_outputs/tables/ensemble_validation_weights.csv": {
+        "sha256": "3a6e9e53376f5a6252e2b7768cedc27aede3dfb2c12602b552380ed6e8655d00",
+        "bytes": 452
+      },
+      "capstone_final_outputs/tables/forecast_calibration.csv": {
+        "sha256": "32d6648da17a1716e5212497da3842e9b436f348db0fb6e6a949fd3bf54be67d",
+        "bytes": 336
+      },
+      "capstone_final_outputs/tables/forecast_value_added.csv": {
+        "sha256": "d5ae45c8425178623ea0eebc9cd9f65f69982f7e8f2cb25c9462ae5e21b615a5",
+        "bytes": 543
+      },
+      "capstone_final_outputs/tables/full_year_model_comparison.csv": {
+        "sha256": "eca2b683f9a632bce96065c790971448a9d2325c2494b9a2bf2527a84ab8b480",
+        "bytes": 556
+      },
+      "capstone_final_outputs/tables/hierarchical_warehouse_forecasts.csv": {
+        "sha256": "7ecdc52d6271d471e4ed34cd587e70922fa10fb10bb60e7718353c3452780ef1",
+        "bytes": 18392
+      },
+      "capstone_final_outputs/tables/illustrative_cost_simulation.csv": {
+        "sha256": "b0840c4510d647885fd965bc455863d11935ae2baf0ad41eac81845d2d6f42bb",
+        "bytes": 969
+      },
+      "capstone_final_outputs/tables/lightgbm_comparison.csv": {
+        "sha256": "ae1476c85d2b8ec91155905562488989240380ec06802c6769e7cfd9482f4ddb",
+        "bytes": 263
+      },
+      "capstone_final_outputs/tables/lstm_gru_comparison.csv": {
+        "sha256": "50d50f2a5e1c20ce4789fd3ea6b53ce9578961ace162d02f917b103e7d458ef6",
+        "bytes": 218
+      },
+      "capstone_final_outputs/tables/lstm_gru_training_summary.csv": {
+        "sha256": "017883c9924e0019d060fd1c76966e0508352d79382e678463674c6b78350b99",
+        "bytes": 99
+      },
+      "capstone_final_outputs/tables/m5_external_validation.csv": {
+        "sha256": "4173eaec14d751b175ef0fcd00e32c8a9f7cd8519cb59f4964d1bbf95bc82fc0",
+        "bytes": 164
+      },
+      "capstone_final_outputs/tables/model_complexity_comparison.csv": {
+        "sha256": "c6bec26f89a28f1bde4736305e9f8896ef61fdf2b37ea2de345cc8b49ac104ab",
+        "bytes": 436
+      },
+      "capstone_final_outputs/tables/quantile_comparison.csv": {
+        "sha256": "d8e16ed4ef76012185a9f4327b797baf9eeb2654a000264966afa7e039d0326a",
+        "bytes": 169
+      },
+      "capstone_final_outputs/tables/quantile_warehouse_results.csv": {
+        "sha256": "fbef3bf23ff02de4b0e6e216a68dee47f32108d29f6b66aa99e31db1bf1cc972",
+        "bytes": 301
+      },
+      "capstone_final_outputs/tables/random_seed_stability.csv": {
+        "sha256": "941b7ab8009977be403e81a98df5a002c56cf5386a71a34867a3d84547c00ec5",
+        "bytes": 731
+      },
+      "capstone_final_outputs/tables/random_seed_stability_summary.csv": {
+        "sha256": "43b203bc90bdc0da4ac0cfa1f990a2a1f5a138e0c92d1c92ffe4f686670a71b9",
+        "bytes": 310
+      },
+      "capstone_final_outputs/tables/recursive_12_week_backtest_predictions.csv": {
+        "sha256": "b9f091a122fb9a8f817e3ef78e673be88a593e1854572cb5a6afb95d448e640e",
+        "bytes": 1916
+      },
+      "capstone_final_outputs/tables/recursive_12_week_backtest_summary.csv": {
+        "sha256": "7e9b2beddbd4b009a8e463c5057d336bf673bd38cf85dfdcf82c573f5f90055f",
+        "bytes": 514
+      },
+      "capstone_final_outputs/tables/recursive_12_week_warehouse_results.csv": {
+        "sha256": "dfbaf6242cf9e4fe182b2d69af21f446e077cf27ebc4ea04da1e61b1d695a4d8",
+        "bytes": 524
+      },
+      "capstone_final_outputs/tables/scenario_summary.csv": {
+        "sha256": "026660a42eb6115ef31f920b55bc73b8f2507c814da3ba9dc0eca20ae5ab1dc7",
+        "bytes": 231
+      },
+      "capstone_final_outputs/tables/timesfm_historical_pooled_summary.csv": {
+        "sha256": "df3aafceaa475989e1e540ac1cc01285e1380ec1542b85886bf628f22d29dcf6",
+        "bytes": 289
+      },
+      "capstone_final_outputs/tables/timesfm_historical_weekly_predictions.csv": {
+        "sha256": "af73f52198dedb8be88cdce31ed8c17ab5aae14310c72db8e1a1afa268cf95ce",
+        "bytes": 43081
+      },
+      "capstone_final_outputs/tables/timesfm_historical_yearly_results.csv": {
+        "sha256": "c166705e0e254e232b7a9e3865bcc844f3c3378747b05414f010d7a50ac10226",
+        "bytes": 1025
+      },
+      "capstone_final_outputs/tables/week7_uncertainty.csv": {
+        "sha256": "b5f8068c4b743948b6723c976c780c109b0c374fbf64cf8eed6fd1a30177f7ff",
+        "bytes": 174
+      }
+    }
+  },
+  "Forecast Reliability": {
+    "profile": "forecast-reliability",
+    "display_scope": "Forecast Reliability/v1/original-charts-and-tables",
+    "attribution_revision": "warehouse-iq-forecast-reliability-v1",
+    "files": {
+      "capstone_final_outputs/tables/data_disruption_robustness.csv": {
+        "sha256": "3b6e11dbf43e0468d378bfd5cb8b4f7f364620a11be20d501137a00f931cb688",
+        "bytes": 397
+      },
+      "capstone_final_outputs/tables/data_leakage_audit.csv": {
+        "sha256": "ebe9b5d8c5a32e6c33a3081166fa11f7f9bf87163bfd15e5866cfca8084e54f9",
+        "bytes": 314
+      },
+      "capstone_final_outputs/tables/data_quality_impact.csv": {
+        "sha256": "084249c9c36e5a8aa04625ea199a33b073175680733a19d3aa5965a6a73cd90a",
+        "bytes": 528
+      },
+      "capstone_final_outputs/tables/forecast_bias_quarterly.csv": {
+        "sha256": "6371bf9acbc99c75d9cd946e75abaa29f10a75bd57b9e018a227ef080e8880e7",
+        "bytes": 893
+      },
+      "capstone_final_outputs/tables/forecast_bias_summary.csv": {
+        "sha256": "bd153966d8aab0e193359ab4a3766eb2f0e902a3e5804ab812abe9a76da771e1",
+        "bytes": 687
+      },
+      "capstone_final_outputs/tables/forecast_calibration.csv": {
+        "sha256": "32d6648da17a1716e5212497da3842e9b436f348db0fb6e6a949fd3bf54be67d",
+        "bytes": 336
+      },
+      "capstone_final_outputs/tables/forecast_significance_test.csv": {
+        "sha256": "f52994873d69660dcbe5ca03c98774e3c52ecd7154358b89ce6c5f6a4ae5ec31",
+        "bytes": 169
+      },
+      "capstone_final_outputs/tables/m5_external_validation.csv": {
+        "sha256": "4173eaec14d751b175ef0fcd00e32c8a9f7cd8519cb59f4964d1bbf95bc82fc0",
+        "bytes": 164
+      },
+      "capstone_final_outputs/tables/model_monitoring_2016.csv": {
+        "sha256": "78dff51fd02ff70455f483049f95b3c210c5c91a1588e4f74d80d203eb9502e8",
+        "bytes": 3885
+      },
+      "capstone_final_outputs/tables/quantile_comparison.csv": {
+        "sha256": "d8e16ed4ef76012185a9f4327b797baf9eeb2654a000264966afa7e039d0326a",
+        "bytes": 169
+      },
+      "capstone_final_outputs/tables/quantile_warehouse_results.csv": {
+        "sha256": "fbef3bf23ff02de4b0e6e216a68dee47f32108d29f6b66aa99e31db1bf1cc972",
+        "bytes": 301
+      },
+      "capstone_final_outputs/tables/random_seed_stability.csv": {
+        "sha256": "941b7ab8009977be403e81a98df5a002c56cf5386a71a34867a3d84547c00ec5",
+        "bytes": 731
+      },
+      "capstone_final_outputs/tables/random_seed_stability_summary.csv": {
+        "sha256": "43b203bc90bdc0da4ac0cfa1f990a2a1f5a138e0c92d1c92ffe4f686670a71b9",
+        "bytes": 310
+      },
+      "capstone_final_outputs/tables/recursive_12_week_backtest_predictions.csv": {
+        "sha256": "b9f091a122fb9a8f817e3ef78e673be88a593e1854572cb5a6afb95d448e640e",
+        "bytes": 1916
+      },
+      "capstone_final_outputs/tables/recursive_12_week_backtest_summary.csv": {
+        "sha256": "7e9b2beddbd4b009a8e463c5057d336bf673bd38cf85dfdcf82c573f5f90055f",
+        "bytes": 514
+      },
+      "capstone_final_outputs/tables/recursive_12_week_warehouse_results.csv": {
+        "sha256": "dfbaf6242cf9e4fe182b2d69af21f446e077cf27ebc4ea04da1e61b1d695a4d8",
+        "bytes": 524
+      },
+      "capstone_final_outputs/tables/timesfm_historical_monthly_pooled.csv": {
+        "sha256": "3abcd9cf53318cc1148425b49c5eb55a63a69b982a57eabb30816deec7e26b55",
+        "bytes": 3553
+      },
+      "capstone_final_outputs/tables/timesfm_historical_monthly_results.csv": {
+        "sha256": "21c4becf82e7c0bfad074050654267b586018b90651725e13aa285e97408e11a",
+        "bytes": 17206
+      },
+      "capstone_final_outputs/tables/timesfm_historical_quarterly_pooled.csv": {
+        "sha256": "c031113ef48f54562894a76cc0ba88945bf4e74d5079fad63d0e3dfb27fd82ae",
+        "bytes": 1051
+      },
+      "capstone_final_outputs/tables/timesfm_historical_quarterly_results.csv": {
+        "sha256": "33250d5428b677087e804aa091ec098b45cbe19f3b5a7d80343669337b1093ce",
+        "bytes": 3817
+      },
+      "capstone_final_outputs/tables/timesfm_historical_weekly_predictions.csv": {
+        "sha256": "af73f52198dedb8be88cdce31ed8c17ab5aae14310c72db8e1a1afa268cf95ce",
+        "bytes": 43081
+      },
+      "capstone_final_outputs/tables/timesfm_historical_yearly_results.csv": {
+        "sha256": "c166705e0e254e232b7a9e3865bcc844f3c3378747b05414f010d7a50ac10226",
+        "bytes": 1025
+      },
+      "capstone_final_outputs/tables/timesfm_monthly_stability_summary.csv": {
+        "sha256": "072ca0b061819f9a9d360fea0543fbc88bd46b369005e3977e8a2d43b974bcb1",
+        "bytes": 421
+      },
+      "capstone_final_outputs/tables/timesfm_quarterly_stability_summary.csv": {
+        "sha256": "c5407c5df30423ed7add9ec20ea89c2ee45869e39146cbb9d64c700efe769d94",
+        "bytes": 384
+      },
+      "capstone_final_outputs/tables/week7_uncertainty.csv": {
+        "sha256": "b5f8068c4b743948b6723c976c780c109b0c374fbf64cf8eed6fd1a30177f7ff",
+        "bytes": 174
+      }
+    }
+  },
+  "Demand Outlook": {
+    "profile": "demand-outlook",
+    "display_scope": "Demand Outlook/v1/original-charts-and-tables",
+    "attribution_revision": "warehouse-iq-demand-outlook-v1",
+    "files": {
+      "capstone_final_outputs/tables/future_4_8_12_week_summary.csv": {
+        "sha256": "850a3c0b63036073ea03f19fe574b85a8b8f96d391bac65bddc01aeaea6ab7a5",
+        "bytes": 658
+      },
+      "capstone_final_outputs/tables/future_warehouse_weekly_forecasts.csv": {
+        "sha256": "2bd90fff0305bb63deb1ab8fd6ab529f985ceef1f3b7e8eb4ab7d33b95df0bb0",
+        "bytes": 4216
+      },
+      "capstone_final_outputs/tables/recursive_12_week_backtest_predictions.csv": {
+        "sha256": "b9f091a122fb9a8f817e3ef78e673be88a593e1854572cb5a6afb95d448e640e",
+        "bytes": 1916
+      },
+      "capstone_final_outputs/tables/recursive_12_week_backtest_summary.csv": {
+        "sha256": "7e9b2beddbd4b009a8e463c5057d336bf673bd38cf85dfdcf82c573f5f90055f",
+        "bytes": 514
+      },
+      "capstone_final_outputs/tables/recursive_12_week_warehouse_results.csv": {
+        "sha256": "dfbaf6242cf9e4fe182b2d69af21f446e077cf27ebc4ea04da1e61b1d695a4d8",
+        "bytes": 524
+      }
+    }
+  },
+  "Planning Insights": {
+    "profile": "planning-insights",
+    "display_scope": "Planning Insights/v1/original-charts-and-tables",
+    "attribution_revision": "warehouse-iq-planning-insights-v1",
+    "files": {
+      "capstone_final_outputs/tables/capacity_optimization.csv": {
+        "sha256": "bc8f4037ca3e54c6807d74194cf5e8d298250e9259cd5afd24c2aa79ba451c30",
+        "bytes": 158
+      },
+      "capstone_final_outputs/tables/forecast_bias_summary.csv": {
+        "sha256": "bd153966d8aab0e193359ab4a3766eb2f0e902a3e5804ab812abe9a76da771e1",
+        "bytes": 687
+      },
+      "capstone_final_outputs/tables/forecast_value_added.csv": {
+        "sha256": "d5ae45c8425178623ea0eebc9cd9f65f69982f7e8f2cb25c9462ae5e21b615a5",
+        "bytes": 543
+      },
+      "capstone_final_outputs/tables/future_4_8_12_week_summary.csv": {
+        "sha256": "850a3c0b63036073ea03f19fe574b85a8b8f96d391bac65bddc01aeaea6ab7a5",
+        "bytes": 658
+      },
+      "capstone_final_outputs/tables/future_operational_decision_summary.csv": {
+        "sha256": "9f523b31ed5a58b59833bf9ff3b87bd3329d78f85786a0664a75f202ddba688d",
+        "bytes": 2262
+      },
+      "capstone_final_outputs/tables/future_warehouse_weekly_forecasts.csv": {
+        "sha256": "2bd90fff0305bb63deb1ab8fd6ab529f985ceef1f3b7e8eb4ab7d33b95df0bb0",
+        "bytes": 4216
+      },
+      "capstone_final_outputs/tables/hierarchical_warehouse_forecasts.csv": {
+        "sha256": "7ecdc52d6271d471e4ed34cd587e70922fa10fb10bb60e7718353c3452780ef1",
+        "bytes": 18392
+      },
+      "capstone_final_outputs/tables/illustrative_cost_simulation.csv": {
+        "sha256": "b0840c4510d647885fd965bc455863d11935ae2baf0ad41eac81845d2d6f42bb",
+        "bytes": 969
+      },
+      "capstone_final_outputs/tables/model_monitoring_2016.csv": {
+        "sha256": "78dff51fd02ff70455f483049f95b3c210c5c91a1588e4f74d80d203eb9502e8",
+        "bytes": 3885
+      },
+      "capstone_final_outputs/tables/scenario_summary.csv": {
+        "sha256": "026660a42eb6115ef31f920b55bc73b8f2507c814da3ba9dc0eca20ae5ab1dc7",
+        "bytes": 231
+      }
+    }
+  },
+  "Data Foundation": {
+    "profile": "data-foundation",
+    "display_scope": "Data Foundation/v1/original-charts-and-tables",
+    "attribution_revision": "warehouse-iq-data-foundation-v1",
+    "files": {
+      "foundation_summaries/annual.csv": {
+        "sha256": "f157fd5f7bcd5362f823574fe799b6fe492d0af346617497cf8f878b4a9ded98",
+        "bytes": 461
+      },
+      "foundation_summaries/categories.csv": {
+        "sha256": "e7b081ac1d4e2c716c422096751987b909679b97812c357dc33271b83ace71fb",
+        "bytes": 1009
+      },
+      "foundation_summaries/daily.csv": {
+        "sha256": "a76711137e351a87b5bacf0d76127777797d0f8062d73a0f02e7008c74ba83a8",
+        "bytes": 49589
+      },
+      "foundation_summaries/m5_composition.csv": {
+        "sha256": "4287ae952f3df33298fd0f93b4b97cf67792d4bfd9b41d44dc17bf70eea9987f",
+        "bytes": 683
+      },
+      "foundation_summaries/manifest.json": {
+        "sha256": "168570fd55cb1294597e84584835de285a0c2d8fe721267fcd9b45bc6949c1e7",
+        "bytes": 3541
+      },
+      "foundation_summaries/missingness.csv": {
+        "sha256": "2512d4224ee262a353c4eeea0c4ca9a2699008ece0d2a0c54947fc0ffa29b9f2",
+        "bytes": 136
+      },
+      "foundation_summaries/monthly.csv": {
+        "sha256": "381b352d176d8ab129764b1a8cb8731ae179f1298d33ac866a404f89fdbf3cd2",
+        "bytes": 2058
+      },
+      "foundation_summaries/observations_2017.csv": {
+        "sha256": "3aa441d4e5c2e2b742b05f3c420a38ec1722b887f9dbd49dd630148289e41471",
+        "bytes": 247
+      },
+      "foundation_summaries/products.csv": {
+        "sha256": "e729ac60036b8aef04560822848cdbaa77cbf7cce81413b8234332b2708a0ef5",
+        "bytes": 79630
+      },
+      "foundation_summaries/warehouse_categories.csv": {
+        "sha256": "7d64ae11c361b3dff08d8ef2b75d0fdbcc309217deac90f460c38c0f1ac6f29b",
+        "bytes": 3120
+      },
+      "foundation_summaries/warehouses.csv": {
+        "sha256": "2ceafa27f0418b7fd8d14dcb13310403fe2942991fa91888749574dc1015e537",
+        "bytes": 158
+      },
+      "foundation_summaries/weekly.csv": {
+        "sha256": "637aadb5a5f8f8459d20d9fb15d3cee32c4e7a6b844fdf1925f6ad83fd2a326b",
+        "bytes": 5472
+      }
+    }
+  }
+}

@@ -1,6 +1,16 @@
-"""Theme and the publication hold message for public navigation."""
+"""Shared presentation components for both Warehouse IQ research tracks.
+
+These components display supplied values only. Data contracts and calculations
+remain in the existing *_data modules.
+"""
+from contextlib import contextmanager
+from html import escape
 import streamlit as st
+
 from release_policy import PUBLIC_HOLD
+
+PLOT_CONFIG = {"displaylogo": False, "responsive": True, "scrollZoom": False,
+               "modeBarButtonsToRemove": ["lasso2d", "select2d", "autoScale2d"]}
 
 CSS = """<style>
 [data-testid="stElementContainer"]:has([data-testid="stMarkdownContainer"]>style:only-child){display:none;}
@@ -69,8 +79,71 @@ h3{font-size:17px!important;line-height:1.35!important;margin:0!important;paddin
 @media(prefers-reduced-motion:reduce){[data-testid="stPlotlyChart"] .modebar{transition:none;}}
 </style>"""
 
+
 def apply_product_theme():
     st.markdown(CSS, unsafe_allow_html=True)
+
+
+def chips(*items):
+    st.markdown('<div class="wiq-chips">' + ''.join(
+        f'<span class="wiq-chip">{escape(str(item))}</span>' for item in items) + '</div>', unsafe_allow_html=True)
+
+
+def workspace_header(title, track, *, include_downloads=True):
+    from chart_access import start_data_center
+    with st.container(key="workspace_header", gap="xsmall"):
+        st.markdown(f'<div class="wiq-eyebrow">{escape(track)}</div>', unsafe_allow_html=True)
+        with st.container(key="workspace_title", horizontal=True, horizontal_alignment="distribute",
+                          vertical_alignment="center", gap="xsmall"):
+            st.title(title, width="content")
+            start_data_center(title, include_downloads=include_downloads)
+
+
+def header(takeaway, *context):
+    st.markdown(f'<p class="wiq-lead">{escape(takeaway)}</p>', unsafe_allow_html=True)
+    if context:
+        chips(*context)
+
+
+def scope(text):
+    st.markdown(f'<p class="wiq-scope">{escape(str(text))}</p>', unsafe_allow_html=True)
+
+
+def research_unavailable(error):
+    from data_loading import DataIssue
+    message = str(error) if isinstance(error, DataIssue) else "The pinned source files could not be read."
+    st.warning(f"Local research data unavailable. {message} See the local setup notes.")
+
+
+def insights(items):
+    # Keep distinct numerical findings; omit repeated navigation/caveat cards.
+    item = None
+    if items and "lower WAPE vs baseline" in str(items[0][1]):
+        item = items[1]  # The TimesFM/ETS gap adds evidence beyond the KPI row.
+    elif items and items[0][0] == "Selected outlook":
+        item = ("Selected outlook", items[1][1], items[0][2])
+    if item:
+        _, title, body = item
+        st.markdown('<div class="wiq-insight-grid"><p class="wiq-compact-finding"><strong>' + escape(str(title)) + '</strong> · ' + escape(str(body)) + '</p></div>',unsafe_allow_html=True)
+
+
+
+def mini_cards(items):
+    st.markdown('<div class="wiq-mini-grid">' + ''.join(
+        f'<article class="wiq-mini"><small>{escape(str(label))}</small><b>{escape(str(value))}</b><span>{escape(str(context))}</span></article>'
+        for label, value, context in items) + '</div>', unsafe_allow_html=True)
+
+
+@contextmanager
+def panel(key, title, subtitle=''):
+    with st.container(key='wiq_panel_' + key):
+        pass  # The chart toolbar owns its title; the panel provides its surface only.
+        yield
+
+
+def boundary(text):
+    st.markdown(f'<p class="wiq-boundary">{escape(text)}</p>', unsafe_allow_html=True)
+
 
 def publication_hold(title, study):
     """Show a result-free availability state before importing any study loaders."""
