@@ -1,6 +1,6 @@
 # Warehouse IQ navigation
 
-The public branch exposes all 13 route labels in two groups. Data Foundation is the only route with a data renderer in this release. It can show CFS Area Record Coverage after the production service and exact two-file payload are authorized.
+The public branch exposes all 13 route labels in two groups. The original analytical renderers stay behind per-route publication gates. Data Foundation has a separate CFS Area Record Coverage gate for its exact two-file payload.
 
 | Original Warehouse Operations | Final Research |
 | --- | --- |

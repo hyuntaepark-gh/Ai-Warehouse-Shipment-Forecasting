@@ -1,0 +1,878 @@
+{
+  "Research Overview / M5": {
+    "page": "Research Overview",
+    "label": "M5",
+    "profile": "research-overview-m5",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Research Overview / M5/v1/original-evidence-display-only",
+    "selection": {
+      "dataset": "M5"
+    },
+    "files": {
+      "final_research_exports/tables/component_ablations.csv": {
+        "bytes": 6165,
+        "sha256": "d8b9c37669421c398de7f3582ae76238363a52cc4f5ff9fd207e349330489300"
+      },
+      "final_research_exports/tables/horizon_scores.csv": {
+        "bytes": 12955,
+        "sha256": "41a54437dcaaaadccb7b2859c14699922d2d8ab5d61ef72547f9955edb2e68a4"
+      },
+      "final_research_exports/tables/matched_stability.csv": {
+        "bytes": 5123,
+        "sha256": "9fba038b7c580344b9598c651f3195ffb3c71ba459cac8e3238ccbcacab1e791"
+      },
+      "final_research_exports/tables/meta_coverage.csv": {
+        "bytes": 406,
+        "sha256": "79240ea1888799a7aa73c24e297f1d047af6390a8eff039f1ed70bf2182ebac3"
+      },
+      "final_research_exports/tables/meta_scores.csv": {
+        "bytes": 1977,
+        "sha256": "38c6385f3e9008917c01477d89b16b875db34c4e8d98f599689a4fb7709c5c51"
+      },
+      "final_research_exports/tables/model_strategies.csv": {
+        "bytes": 544,
+        "sha256": "7982b032f5e70f523541fda481c0ed7317c3e83fc852179623b48d23c46518b2"
+      },
+      "final_research_exports/tables/origin_counts.csv": {
+        "bytes": 114,
+        "sha256": "f6e0b4117e98c7963f6708bf7f6379e7c27f70c254fe7d6a5734d9159b6aee16"
+      },
+      "research_overview_sources.json": {
+        "bytes": 4120,
+        "sha256": "41e77614143b1151b0c1e2b9ca9d07d5b06358f5fb2969f471ff3236949275ba"
+      }
+    }
+  },
+  "Research Overview / Favorita": {
+    "page": "Research Overview",
+    "label": "Favorita",
+    "profile": "research-overview-favorita",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Research Overview / Favorita/v1/original-evidence-display-only",
+    "selection": {
+      "dataset": "Favorita"
+    },
+    "files": {
+      "final_research_exports/tables/component_ablations.csv": {
+        "bytes": 6546,
+        "sha256": "86ca26eddc4047c18dae59a1e40bed22eae3943ec56a6661a63b1269a71e3c13"
+      },
+      "final_research_exports/tables/horizon_scores.csv": {
+        "bytes": 13981,
+        "sha256": "fc8e69bb9892ffe7da5d29ff87314399f3056d8ca96e9c6c2caf6966505c6f2b"
+      },
+      "final_research_exports/tables/matched_stability.csv": {
+        "bytes": 5779,
+        "sha256": "f17c51db81cf13a1523f3ccf802ba606653a4370a1a5ad9a8451dc27ea980ba3"
+      },
+      "final_research_exports/tables/meta_coverage.csv": {
+        "bytes": 481,
+        "sha256": "04147df5a2539eb2d3355309611e1a83e879b92d0abbd392166aeee5f1e0dd4a"
+      },
+      "final_research_exports/tables/meta_scores.csv": {
+        "bytes": 2254,
+        "sha256": "26fa0f5e991ebfb36fc493f576a2a7e08241bdb74f69fb5493f9c38da24fb5fe"
+      },
+      "final_research_exports/tables/model_strategies.csv": {
+        "bytes": 571,
+        "sha256": "87cf6a8176ccb270d5edab6e03d5cb119d82f834a774bf9f40ebfe3f800b676c"
+      },
+      "final_research_exports/tables/origin_counts.csv": {
+        "bytes": 143,
+        "sha256": "16cd9f901f4b9b104a6ed34116507063f3640f3ce1156b9995610bb82a46825a"
+      },
+      "research_overview_sources.json": {
+        "bytes": 4120,
+        "sha256": "81eab1b5c9db885b431929b8dd60e63564f8d2842def3eefbb94c9601bdf86e4"
+      }
+    }
+  },
+  "Forecast Horizons / M5": {
+    "page": "Forecast Horizons",
+    "label": "M5",
+    "profile": "forecast-horizons-m5",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Forecast Horizons / M5/v1/original-evidence-display-only",
+    "selection": {
+      "dataset": "M5"
+    },
+    "files": {
+      "final_research_exports/tables/horizon_scores.csv": {
+        "bytes": 12955,
+        "sha256": "41a54437dcaaaadccb7b2859c14699922d2d8ab5d61ef72547f9955edb2e68a4"
+      },
+      "final_research_exports/tables/origin_counts.csv": {
+        "bytes": 114,
+        "sha256": "f6e0b4117e98c7963f6708bf7f6379e7c27f70c254fe7d6a5734d9159b6aee16"
+      },
+      "research_overview_sources.json": {
+        "bytes": 1079,
+        "sha256": "9a19d171d6ab539b327d494af54387241c7b5eaa08c83e38534d738e71bac9a6"
+      }
+    }
+  },
+  "Forecast Horizons / Favorita": {
+    "page": "Forecast Horizons",
+    "label": "Favorita",
+    "profile": "forecast-horizons-favorita",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Forecast Horizons / Favorita/v1/original-evidence-display-only",
+    "selection": {
+      "dataset": "Favorita"
+    },
+    "files": {
+      "final_research_exports/tables/horizon_scores.csv": {
+        "bytes": 13981,
+        "sha256": "fc8e69bb9892ffe7da5d29ff87314399f3056d8ca96e9c6c2caf6966505c6f2b"
+      },
+      "final_research_exports/tables/origin_counts.csv": {
+        "bytes": 143,
+        "sha256": "16cd9f901f4b9b104a6ed34116507063f3640f3ce1156b9995610bb82a46825a"
+      },
+      "research_overview_sources.json": {
+        "bytes": 1079,
+        "sha256": "1526b8fe86dce1bebc6bf215805c16958d6c0cca2a437bba17a0c8d71d7be6e2"
+      }
+    }
+  },
+  "Numerical Stability / M5": {
+    "page": "Numerical Stability",
+    "label": "M5",
+    "profile": "numerical-stability-m5",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Numerical Stability / M5/v1/original-evidence-display-only",
+    "selection": {
+      "dataset": "M5"
+    },
+    "files": {
+      "final_research_exports/tables/component_ablations.csv": {
+        "bytes": 6165,
+        "sha256": "d8b9c37669421c398de7f3582ae76238363a52cc4f5ff9fd207e349330489300"
+      },
+      "final_research_exports/tables/horizon_scores.csv": {
+        "bytes": 12955,
+        "sha256": "41a54437dcaaaadccb7b2859c14699922d2d8ab5d61ef72547f9955edb2e68a4"
+      },
+      "final_research_exports/tables/matched_stability.csv": {
+        "bytes": 5123,
+        "sha256": "9fba038b7c580344b9598c651f3195ffb3c71ba459cac8e3238ccbcacab1e791"
+      },
+      "final_research_exports/tables/origin_counts.csv": {
+        "bytes": 114,
+        "sha256": "f6e0b4117e98c7963f6708bf7f6379e7c27f70c254fe7d6a5734d9159b6aee16"
+      },
+      "research_overview_sources.json": {
+        "bytes": 2382,
+        "sha256": "f06b308964281f952f905fddce65567022639be65e58c186566673d10dcd14c8"
+      }
+    }
+  },
+  "Numerical Stability / Favorita": {
+    "page": "Numerical Stability",
+    "label": "Favorita",
+    "profile": "numerical-stability-favorita",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Numerical Stability / Favorita/v1/original-evidence-display-only",
+    "selection": {
+      "dataset": "Favorita"
+    },
+    "files": {
+      "final_research_exports/tables/component_ablations.csv": {
+        "bytes": 6546,
+        "sha256": "86ca26eddc4047c18dae59a1e40bed22eae3943ec56a6661a63b1269a71e3c13"
+      },
+      "final_research_exports/tables/horizon_scores.csv": {
+        "bytes": 13981,
+        "sha256": "fc8e69bb9892ffe7da5d29ff87314399f3056d8ca96e9c6c2caf6966505c6f2b"
+      },
+      "final_research_exports/tables/matched_stability.csv": {
+        "bytes": 5779,
+        "sha256": "f17c51db81cf13a1523f3ccf802ba606653a4370a1a5ad9a8451dc27ea980ba3"
+      },
+      "final_research_exports/tables/origin_counts.csv": {
+        "bytes": 143,
+        "sha256": "16cd9f901f4b9b104a6ed34116507063f3640f3ce1156b9995610bb82a46825a"
+      },
+      "research_overview_sources.json": {
+        "bytes": 2382,
+        "sha256": "bfd77c62228ee3753132fb2d0732c8f09d31f4b370da93ed103732ef0964b5e4"
+      }
+    }
+  },
+  "Model Strategies / M5": {
+    "page": "Model Strategies",
+    "label": "M5",
+    "profile": "model-strategies-m5",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Model Strategies / M5/v1/original-evidence-display-only",
+    "selection": {
+      "dataset": "M5"
+    },
+    "files": {
+      "final_research_exports/tables/component_ablations.csv": {
+        "bytes": 6165,
+        "sha256": "d8b9c37669421c398de7f3582ae76238363a52cc4f5ff9fd207e349330489300"
+      },
+      "final_research_exports/tables/horizon_scores.csv": {
+        "bytes": 12955,
+        "sha256": "41a54437dcaaaadccb7b2859c14699922d2d8ab5d61ef72547f9955edb2e68a4"
+      },
+      "final_research_exports/tables/meta_coverage.csv": {
+        "bytes": 406,
+        "sha256": "79240ea1888799a7aa73c24e297f1d047af6390a8eff039f1ed70bf2182ebac3"
+      },
+      "final_research_exports/tables/meta_scores.csv": {
+        "bytes": 1977,
+        "sha256": "38c6385f3e9008917c01477d89b16b875db34c4e8d98f599689a4fb7709c5c51"
+      },
+      "final_research_exports/tables/model_strategies.csv": {
+        "bytes": 544,
+        "sha256": "7982b032f5e70f523541fda481c0ed7317c3e83fc852179623b48d23c46518b2"
+      },
+      "final_research_exports/tables/origin_counts.csv": {
+        "bytes": 114,
+        "sha256": "f6e0b4117e98c7963f6708bf7f6379e7c27f70c254fe7d6a5734d9159b6aee16"
+      },
+      "research_overview_sources.json": {
+        "bytes": 3525,
+        "sha256": "f24a90fae28d81f0247daf006d78ea9ddb32e9e49b144876a4b1e3b863179643"
+      }
+    }
+  },
+  "Model Strategies / Favorita": {
+    "page": "Model Strategies",
+    "label": "Favorita",
+    "profile": "model-strategies-favorita",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Model Strategies / Favorita/v1/original-evidence-display-only",
+    "selection": {
+      "dataset": "Favorita"
+    },
+    "files": {
+      "final_research_exports/tables/component_ablations.csv": {
+        "bytes": 6546,
+        "sha256": "86ca26eddc4047c18dae59a1e40bed22eae3943ec56a6661a63b1269a71e3c13"
+      },
+      "final_research_exports/tables/horizon_scores.csv": {
+        "bytes": 13981,
+        "sha256": "fc8e69bb9892ffe7da5d29ff87314399f3056d8ca96e9c6c2caf6966505c6f2b"
+      },
+      "final_research_exports/tables/meta_coverage.csv": {
+        "bytes": 481,
+        "sha256": "04147df5a2539eb2d3355309611e1a83e879b92d0abbd392166aeee5f1e0dd4a"
+      },
+      "final_research_exports/tables/meta_scores.csv": {
+        "bytes": 2254,
+        "sha256": "26fa0f5e991ebfb36fc493f576a2a7e08241bdb74f69fb5493f9c38da24fb5fe"
+      },
+      "final_research_exports/tables/model_strategies.csv": {
+        "bytes": 571,
+        "sha256": "87cf6a8176ccb270d5edab6e03d5cb119d82f834a774bf9f40ebfe3f800b676c"
+      },
+      "final_research_exports/tables/origin_counts.csv": {
+        "bytes": 143,
+        "sha256": "16cd9f901f4b9b104a6ed34116507063f3640f3ce1156b9995610bb82a46825a"
+      },
+      "research_overview_sources.json": {
+        "bytes": 3525,
+        "sha256": "f59200d88b6103951edb389099ec37c05e4298a9c3603f2b8a015e5f29dbfcca"
+      }
+    }
+  },
+  "Research Validation / M5": {
+    "page": "Research Validation",
+    "label": "M5",
+    "profile": "research-validation-m5",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Research Validation / M5/v1/original-evidence-display-only",
+    "selection": {
+      "dataset": "M5"
+    },
+    "files": {
+      "final_research_exports/tables/horizon_scores.csv": {
+        "bytes": 12955,
+        "sha256": "41a54437dcaaaadccb7b2859c14699922d2d8ab5d61ef72547f9955edb2e68a4"
+      },
+      "final_research_exports/tables/origin_counts.csv": {
+        "bytes": 114,
+        "sha256": "f6e0b4117e98c7963f6708bf7f6379e7c27f70c254fe7d6a5734d9159b6aee16"
+      },
+      "final_research_exports/tables/r19_inference.csv": {
+        "bytes": 13458,
+        "sha256": "136ab15fa1429294a01246531c32f8b6ab9ab2142cbf8f42ab0bfa79124337a5"
+      },
+      "final_research_exports/tables/v3_inference.csv": {
+        "bytes": 13507,
+        "sha256": "5138741171a127971c03a41e8d28ed92b70251427375e4a573299ca90c54fa6a"
+      },
+      "research_overview_sources.json": {
+        "bytes": 2645,
+        "sha256": "d6fd2e193234bad06170ff41fc21b01b945fbc483f9d33a83cb734628a4a10d3"
+      }
+    }
+  },
+  "Research Validation / Favorita": {
+    "page": "Research Validation",
+    "label": "Favorita",
+    "profile": "research-validation-favorita",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Research Validation / Favorita/v1/original-evidence-display-only",
+    "selection": {
+      "dataset": "Favorita"
+    },
+    "files": {
+      "final_research_exports/tables/horizon_scores.csv": {
+        "bytes": 13981,
+        "sha256": "fc8e69bb9892ffe7da5d29ff87314399f3056d8ca96e9c6c2caf6966505c6f2b"
+      },
+      "final_research_exports/tables/origin_counts.csv": {
+        "bytes": 143,
+        "sha256": "16cd9f901f4b9b104a6ed34116507063f3640f3ce1156b9995610bb82a46825a"
+      },
+      "final_research_exports/tables/r19_inference.csv": {
+        "bytes": 12379,
+        "sha256": "fc5f3498b6b56cc094d0910f74921c0fd3e73f44b3a917f48d5290c6057fe76f"
+      },
+      "final_research_exports/tables/v3_inference.csv": {
+        "bytes": 13564,
+        "sha256": "7acaa65012cfde707cd4339ee68e32efae7886778534a03771f0639a2d4b8b5c"
+      },
+      "research_overview_sources.json": {
+        "bytes": 2645,
+        "sha256": "8b7dd90af565862c4ef3e4eec8bfd0d489f885f236b3a28ec9e4bfae8882826e"
+      }
+    }
+  },
+  "Overview / 2016 aggregate holdout": {
+    "page": "Overview",
+    "label": "2016 aggregate holdout",
+    "profile": "overview-2016-aggregate-holdout",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Overview / 2016 aggregate holdout/v1/original-evidence-display-only",
+    "selection": {
+      "holdout": true
+    },
+    "files": {
+      "capstone_final_outputs/tables/full_year_model_comparison.csv": {
+        "bytes": 556,
+        "sha256": "eca2b683f9a632bce96065c790971448a9d2325c2494b9a2bf2527a84ab8b480"
+      },
+      "capstone_final_outputs/tables/quarterly_forecast_performance.csv": {
+        "bytes": 918,
+        "sha256": "fe03c05b1915bb24a56ed2fe715c6a31c5aa1c2e60ab5ec116c2773be306f788"
+      },
+      "capstone_final_outputs/tables/timesfm_historical_weekly_predictions.csv": {
+        "bytes": 43081,
+        "sha256": "af73f52198dedb8be88cdce31ed8c17ab5aae14310c72db8e1a1afa268cf95ce"
+      }
+    }
+  },
+  "Demand Trends / Aggregate demand": {
+    "page": "Demand Trends",
+    "label": "Aggregate demand",
+    "profile": "demand-trends-aggregate-demand",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Demand Trends / Aggregate demand/v1/original-evidence-display-only",
+    "selection": {
+      "history": "Aggregate demand"
+    },
+    "files": {
+      "capstone_final_outputs/tables/timesfm_historical_weekly_predictions.csv": {
+        "bytes": 43081,
+        "sha256": "af73f52198dedb8be88cdce31ed8c17ab5aae14310c72db8e1a1afa268cf95ce"
+      }
+    }
+  },
+  "Demand Trends / Warehouse sample": {
+    "page": "Demand Trends",
+    "label": "Warehouse sample",
+    "profile": "demand-trends-warehouse-sample",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Demand Trends / Warehouse sample/v1/original-evidence-display-only",
+    "selection": {
+      "history": "Warehouse sample"
+    },
+    "files": {
+      "capstone_final_outputs/tables/hierarchical_warehouse_forecasts.csv": {
+        "bytes": 18392,
+        "sha256": "7ecdc52d6271d471e4ed34cd587e70922fa10fb10bb60e7718353c3452780ef1"
+      }
+    }
+  },
+  "Model Performance / 2016 full-year aggregate holdout": {
+    "page": "Model Performance",
+    "label": "2016 full-year aggregate holdout",
+    "profile": "model-performance-2016-full-year-aggregate-holdout",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Model Performance / 2016 full-year aggregate holdout/v1/original-evidence-display-only",
+    "selection": {
+      "comparison": "2016 full-year aggregate holdout"
+    },
+    "files": {
+      "capstone_final_outputs/tables/full_year_model_comparison.csv": {
+        "bytes": 556,
+        "sha256": "eca2b683f9a632bce96065c790971448a9d2325c2494b9a2bf2527a84ab8b480"
+      },
+      "capstone_final_outputs/tables/timesfm_historical_weekly_predictions.csv": {
+        "bytes": 43081,
+        "sha256": "af73f52198dedb8be88cdce31ed8c17ab5aae14310c72db8e1a1afa268cf95ce"
+      }
+    }
+  },
+  "Model Performance / 2014–2015 retrospective backtesting": {
+    "page": "Model Performance",
+    "label": "2014–2015 retrospective backtesting",
+    "profile": "model-performance-2014-2015-retrospective-backtesting",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Model Performance / 2014–2015 retrospective backtesting/v1/original-evidence-display-only",
+    "selection": {
+      "comparison": "2014–2015 retrospective backtesting"
+    },
+    "files": {
+      "capstone_final_outputs/tables/timesfm_historical_pooled_summary.csv": {
+        "bytes": 289,
+        "sha256": "df3aafceaa475989e1e540ac1cc01285e1380ec1542b85886bf628f22d29dcf6"
+      },
+      "capstone_final_outputs/tables/timesfm_historical_weekly_predictions.csv": {
+        "bytes": 43081,
+        "sha256": "af73f52198dedb8be88cdce31ed8c17ab5aae14310c72db8e1a1afa268cf95ce"
+      },
+      "capstone_final_outputs/tables/timesfm_historical_yearly_results.csv": {
+        "bytes": 1025,
+        "sha256": "c166705e0e254e232b7a9e3865bcc844f3c3378747b05414f010d7a50ac10226"
+      }
+    }
+  },
+  "Model Performance / Warehouse-level forecasting": {
+    "page": "Model Performance",
+    "label": "Warehouse-level forecasting",
+    "profile": "model-performance-warehouse-level-forecasting",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Model Performance / Warehouse-level forecasting/v1/original-evidence-display-only",
+    "selection": {
+      "comparison": "Warehouse-level forecasting"
+    },
+    "files": {
+      "capstone_final_outputs/tables/dashboard_performance_summary.csv": {
+        "bytes": 1008,
+        "sha256": "1841210346b2ae2500b7e0197f8b20ab31a54a7dbfff96735befce8a1ca7bb33"
+      },
+      "capstone_final_outputs/tables/hierarchical_warehouse_forecasts.csv": {
+        "bytes": 18392,
+        "sha256": "7ecdc52d6271d471e4ed34cd587e70922fa10fb10bb60e7718353c3452780ef1"
+      }
+    }
+  },
+  "Model Performance / Historical recursive validation": {
+    "page": "Model Performance",
+    "label": "Historical recursive validation",
+    "profile": "model-performance-historical-recursive-validation",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Model Performance / Historical recursive validation/v1/original-evidence-display-only",
+    "selection": {
+      "comparison": "Historical recursive validation"
+    },
+    "files": {
+      "capstone_final_outputs/tables/recursive_12_week_backtest_predictions.csv": {
+        "bytes": 1916,
+        "sha256": "b9f091a122fb9a8f817e3ef78e673be88a593e1854572cb5a6afb95d448e640e"
+      },
+      "capstone_final_outputs/tables/recursive_12_week_backtest_summary.csv": {
+        "bytes": 514,
+        "sha256": "7e9b2beddbd4b009a8e463c5057d336bf673bd38cf85dfdcf82c573f5f90055f"
+      },
+      "capstone_final_outputs/tables/recursive_12_week_warehouse_results.csv": {
+        "bytes": 524,
+        "sha256": "dfbaf6242cf9e4fe182b2d69af21f446e077cf27ebc4ea04da1e61b1d695a4d8"
+      }
+    }
+  },
+  "Forecast Reliability / Historical backtesting": {
+    "page": "Forecast Reliability",
+    "label": "Historical backtesting",
+    "profile": "forecast-reliability-historical-backtesting",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Forecast Reliability / Historical backtesting/v1/original-evidence-display-only",
+    "selection": {
+      "reliability": 0
+    },
+    "files": {
+      "capstone_final_outputs/tables/timesfm_historical_weekly_predictions.csv": {
+        "bytes": 43081,
+        "sha256": "af73f52198dedb8be88cdce31ed8c17ab5aae14310c72db8e1a1afa268cf95ce"
+      },
+      "capstone_final_outputs/tables/timesfm_historical_yearly_results.csv": {
+        "bytes": 1025,
+        "sha256": "c166705e0e254e232b7a9e3865bcc844f3c3378747b05414f010d7a50ac10226"
+      }
+    },
+    "renderer": "render_validation_evidence"
+  },
+  "Forecast Reliability / Temporal stability": {
+    "page": "Forecast Reliability",
+    "label": "Temporal stability",
+    "profile": "forecast-reliability-temporal-stability",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Forecast Reliability / Temporal stability/v1/original-evidence-display-only",
+    "selection": {
+      "reliability": 1
+    },
+    "files": {
+      "capstone_final_outputs/tables/timesfm_historical_monthly_pooled.csv": {
+        "bytes": 3553,
+        "sha256": "3abcd9cf53318cc1148425b49c5eb55a63a69b982a57eabb30816deec7e26b55"
+      },
+      "capstone_final_outputs/tables/timesfm_historical_monthly_results.csv": {
+        "bytes": 17206,
+        "sha256": "21c4becf82e7c0bfad074050654267b586018b90651725e13aa285e97408e11a"
+      },
+      "capstone_final_outputs/tables/timesfm_historical_quarterly_pooled.csv": {
+        "bytes": 1051,
+        "sha256": "c031113ef48f54562894a76cc0ba88945bf4e74d5079fad63d0e3dfb27fd82ae"
+      },
+      "capstone_final_outputs/tables/timesfm_historical_quarterly_results.csv": {
+        "bytes": 3817,
+        "sha256": "33250d5428b677087e804aa091ec098b45cbe19f3b5a7d80343669337b1093ce"
+      },
+      "capstone_final_outputs/tables/timesfm_monthly_stability_summary.csv": {
+        "bytes": 421,
+        "sha256": "072ca0b061819f9a9d360fea0543fbc88bd46b369005e3977e8a2d43b974bcb1"
+      },
+      "capstone_final_outputs/tables/timesfm_quarterly_stability_summary.csv": {
+        "bytes": 384,
+        "sha256": "c5407c5df30423ed7add9ec20ea89c2ee45869e39146cbb9d64c700efe769d94"
+      }
+    },
+    "renderer": "render_validation_evidence"
+  },
+  "Forecast Reliability / External M5 validation": {
+    "page": "Forecast Reliability",
+    "label": "External M5 validation",
+    "profile": "forecast-reliability-external-m5-validation",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Forecast Reliability / External M5 validation/v1/original-evidence-display-only",
+    "selection": {
+      "reliability": 2
+    },
+    "files": {
+      "capstone_final_outputs/tables/m5_external_validation.csv": {
+        "bytes": 164,
+        "sha256": "4173eaec14d751b175ef0fcd00e32c8a9f7cd8519cb59f4964d1bbf95bc82fc0"
+      }
+    },
+    "renderer": "render_validation_evidence"
+  },
+  "Forecast Reliability / Data quality & robustness": {
+    "page": "Forecast Reliability",
+    "label": "Data quality & robustness",
+    "profile": "forecast-reliability-data-quality-robustness",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Forecast Reliability / Data quality & robustness/v1/original-evidence-display-only",
+    "selection": {
+      "reliability": 3
+    },
+    "files": {
+      "capstone_final_outputs/tables/data_disruption_robustness.csv": {
+        "bytes": 397,
+        "sha256": "3b6e11dbf43e0468d378bfd5cb8b4f7f364620a11be20d501137a00f931cb688"
+      },
+      "capstone_final_outputs/tables/data_quality_impact.csv": {
+        "bytes": 528,
+        "sha256": "084249c9c36e5a8aa04625ea199a33b073175680733a19d3aa5965a6a73cd90a"
+      },
+      "capstone_final_outputs/tables/random_seed_stability.csv": {
+        "bytes": 731,
+        "sha256": "941b7ab8009977be403e81a98df5a002c56cf5386a71a34867a3d84547c00ec5"
+      },
+      "capstone_final_outputs/tables/random_seed_stability_summary.csv": {
+        "bytes": 310,
+        "sha256": "43b203bc90bdc0da4ac0cfa1f990a2a1f5a138e0c92d1c92ffe4f686670a71b9"
+      }
+    },
+    "renderer": "render_validation_evidence"
+  },
+  "Forecast Reliability / Uncertainty & bias": {
+    "page": "Forecast Reliability",
+    "label": "Uncertainty & bias",
+    "profile": "forecast-reliability-uncertainty-bias",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Forecast Reliability / Uncertainty & bias/v1/original-evidence-display-only",
+    "selection": {
+      "reliability": 4
+    },
+    "files": {
+      "capstone_final_outputs/tables/forecast_bias_quarterly.csv": {
+        "bytes": 893,
+        "sha256": "6371bf9acbc99c75d9cd946e75abaa29f10a75bd57b9e018a227ef080e8880e7"
+      },
+      "capstone_final_outputs/tables/forecast_bias_summary.csv": {
+        "bytes": 687,
+        "sha256": "bd153966d8aab0e193359ab4a3766eb2f0e902a3e5804ab812abe9a76da771e1"
+      },
+      "capstone_final_outputs/tables/forecast_calibration.csv": {
+        "bytes": 336,
+        "sha256": "32d6648da17a1716e5212497da3842e9b436f348db0fb6e6a949fd3bf54be67d"
+      },
+      "capstone_final_outputs/tables/quantile_comparison.csv": {
+        "bytes": 169,
+        "sha256": "d8e16ed4ef76012185a9f4327b797baf9eeb2654a000264966afa7e039d0326a"
+      },
+      "capstone_final_outputs/tables/quantile_warehouse_results.csv": {
+        "bytes": 301,
+        "sha256": "fbef3bf23ff02de4b0e6e216a68dee47f32108d29f6b66aa99e31db1bf1cc972"
+      },
+      "capstone_final_outputs/tables/week7_uncertainty.csv": {
+        "bytes": 174,
+        "sha256": "b5f8068c4b743948b6723c976c780c109b0c374fbf64cf8eed6fd1a30177f7ff"
+      }
+    },
+    "renderer": "render_validation_evidence"
+  },
+  "Forecast Reliability / Statistical, leakage & monitoring": {
+    "page": "Forecast Reliability",
+    "label": "Statistical, leakage & monitoring",
+    "profile": "forecast-reliability-statistical-leakage-monitoring",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Forecast Reliability / Statistical, leakage & monitoring/v1/original-evidence-display-only",
+    "selection": {
+      "reliability": 5
+    },
+    "files": {
+      "capstone_final_outputs/tables/data_leakage_audit.csv": {
+        "bytes": 314,
+        "sha256": "ebe9b5d8c5a32e6c33a3081166fa11f7f9bf87163bfd15e5866cfca8084e54f9"
+      },
+      "capstone_final_outputs/tables/forecast_significance_test.csv": {
+        "bytes": 169,
+        "sha256": "f52994873d69660dcbe5ca03c98774e3c52ecd7154358b89ce6c5f6a4ae5ec31"
+      },
+      "capstone_final_outputs/tables/model_monitoring_2016.csv": {
+        "bytes": 3885,
+        "sha256": "78dff51fd02ff70455f483049f95b3c210c5c91a1588e4f74d80d203eb9502e8"
+      }
+    },
+    "renderer": "render_validation_evidence"
+  },
+  "Forecast Reliability / Recursive validation": {
+    "page": "Forecast Reliability",
+    "label": "Recursive validation",
+    "profile": "forecast-reliability-recursive-validation",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Forecast Reliability / Recursive validation/v1/original-evidence-display-only",
+    "selection": {
+      "reliability": 6
+    },
+    "files": {
+      "capstone_final_outputs/tables/recursive_12_week_backtest_predictions.csv": {
+        "bytes": 1916,
+        "sha256": "b9f091a122fb9a8f817e3ef78e673be88a593e1854572cb5a6afb95d448e640e"
+      },
+      "capstone_final_outputs/tables/recursive_12_week_backtest_summary.csv": {
+        "bytes": 514,
+        "sha256": "7e9b2beddbd4b009a8e463c5057d336bf673bd38cf85dfdcf82c573f5f90055f"
+      },
+      "capstone_final_outputs/tables/recursive_12_week_warehouse_results.csv": {
+        "bytes": 524,
+        "sha256": "dfbaf6242cf9e4fe182b2d69af21f446e077cf27ebc4ea04da1e61b1d695a4d8"
+      }
+    },
+    "renderer": "render_validation_evidence"
+  },
+  "Demand Outlook / Archived projections": {
+    "page": "Demand Outlook",
+    "label": "Archived projections",
+    "profile": "demand-outlook-archived-projections",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Demand Outlook / Archived projections/v1/original-evidence-display-only",
+    "selection": {
+      "outlook": "forecast"
+    },
+    "files": {
+      "capstone_final_outputs/tables/future_4_8_12_week_summary.csv": {
+        "bytes": 658,
+        "sha256": "850a3c0b63036073ea03f19fe574b85a8b8f96d391bac65bddc01aeaea6ab7a5"
+      },
+      "capstone_final_outputs/tables/future_warehouse_weekly_forecasts.csv": {
+        "bytes": 4216,
+        "sha256": "2bd90fff0305bb63deb1ab8fd6ab529f985ceef1f3b7e8eb4ab7d33b95df0bb0"
+      }
+    }
+  },
+  "Demand Outlook / Historical recursive backtest": {
+    "page": "Demand Outlook",
+    "label": "Historical recursive backtest",
+    "profile": "demand-outlook-historical-recursive-backtest",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Demand Outlook / Historical recursive backtest/v1/original-evidence-display-only",
+    "selection": {
+      "outlook": "backtest"
+    },
+    "files": {
+      "capstone_final_outputs/tables/recursive_12_week_backtest_predictions.csv": {
+        "bytes": 1916,
+        "sha256": "b9f091a122fb9a8f817e3ef78e673be88a593e1854572cb5a6afb95d448e640e"
+      },
+      "capstone_final_outputs/tables/recursive_12_week_backtest_summary.csv": {
+        "bytes": 514,
+        "sha256": "7e9b2beddbd4b009a8e463c5057d336bf673bd38cf85dfdcf82c573f5f90055f"
+      },
+      "capstone_final_outputs/tables/recursive_12_week_warehouse_results.csv": {
+        "bytes": 524,
+        "sha256": "dfbaf6242cf9e4fe182b2d69af21f446e077cf27ebc4ea04da1e61b1d695a4d8"
+      }
+    }
+  },
+  "Planning Insights / Archived planning indicators": {
+    "page": "Planning Insights",
+    "label": "Archived planning indicators",
+    "profile": "planning-insights-archived-planning-indicators",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Planning Insights / Archived planning indicators/v1/original-evidence-display-only",
+    "selection": {
+      "planning": "Archived planning indicators"
+    },
+    "files": {
+      "capstone_final_outputs/tables/future_4_8_12_week_summary.csv": {
+        "bytes": 658,
+        "sha256": "850a3c0b63036073ea03f19fe574b85a8b8f96d391bac65bddc01aeaea6ab7a5"
+      },
+      "capstone_final_outputs/tables/future_operational_decision_summary.csv": {
+        "bytes": 2262,
+        "sha256": "9f523b31ed5a58b59833bf9ff3b87bd3329d78f85786a0664a75f202ddba688d"
+      },
+      "capstone_final_outputs/tables/future_warehouse_weekly_forecasts.csv": {
+        "bytes": 4216,
+        "sha256": "2bd90fff0305bb63deb1ab8fd6ab529f985ceef1f3b7e8eb4ab7d33b95df0bb0"
+      },
+      "capstone_final_outputs/tables/hierarchical_warehouse_forecasts.csv": {
+        "bytes": 18392,
+        "sha256": "7ecdc52d6271d471e4ed34cd587e70922fa10fb10bb60e7718353c3452780ef1"
+      }
+    }
+  },
+  "Planning Insights / Historical bias & monitoring": {
+    "page": "Planning Insights",
+    "label": "Historical bias & monitoring",
+    "profile": "planning-insights-historical-bias-monitoring",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Planning Insights / Historical bias & monitoring/v1/original-evidence-display-only",
+    "selection": {
+      "planning": "Historical bias & monitoring"
+    },
+    "files": {
+      "capstone_final_outputs/tables/forecast_bias_summary.csv": {
+        "bytes": 687,
+        "sha256": "bd153966d8aab0e193359ab4a3766eb2f0e902a3e5804ab812abe9a76da771e1"
+      },
+      "capstone_final_outputs/tables/model_monitoring_2016.csv": {
+        "bytes": 3885,
+        "sha256": "78dff51fd02ff70455f483049f95b3c210c5c91a1588e4f74d80d203eb9502e8"
+      }
+    }
+  },
+  "Planning Insights / Illustrative scenarios & capacity": {
+    "page": "Planning Insights",
+    "label": "Illustrative scenarios & capacity",
+    "profile": "planning-insights-illustrative-scenarios-capacity",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Planning Insights / Illustrative scenarios & capacity/v1/original-evidence-display-only",
+    "selection": {
+      "planning": "Illustrative scenarios & capacity"
+    },
+    "files": {
+      "capstone_final_outputs/tables/capacity_optimization.csv": {
+        "bytes": 158,
+        "sha256": "bc8f4037ca3e54c6807d74194cf5e8d298250e9259cd5afd24c2aa79ba451c30"
+      },
+      "capstone_final_outputs/tables/forecast_value_added.csv": {
+        "bytes": 543,
+        "sha256": "d5ae45c8425178623ea0eebc9cd9f65f69982f7e8f2cb25c9462ae5e21b615a5"
+      },
+      "capstone_final_outputs/tables/illustrative_cost_simulation.csv": {
+        "bytes": 969,
+        "sha256": "b0840c4510d647885fd965bc455863d11935ae2baf0ad41eac81845d2d6f42bb"
+      },
+      "capstone_final_outputs/tables/scenario_summary.csv": {
+        "bytes": 231,
+        "sha256": "026660a42eb6115ef31f920b55bc73b8f2507c814da3ba9dc0eca20ae5ab1dc7"
+      }
+    }
+  },
+  "Data Foundation / Warehouse source coverage": {
+    "page": "Data Foundation",
+    "label": "Warehouse source coverage",
+    "profile": "data-foundation-warehouse-source-coverage",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Data Foundation / Warehouse source coverage/v1/original-evidence-display-only",
+    "selection": {
+      "foundation": "warehouse"
+    },
+    "files": {
+      "foundation_summaries/annual.csv": {
+        "bytes": 461,
+        "sha256": "f157fd5f7bcd5362f823574fe799b6fe492d0af346617497cf8f878b4a9ded98"
+      },
+      "foundation_summaries/categories.csv": {
+        "bytes": 1009,
+        "sha256": "e7b081ac1d4e2c716c422096751987b909679b97812c357dc33271b83ace71fb"
+      },
+      "foundation_summaries/daily.csv": {
+        "bytes": 49589,
+        "sha256": "a76711137e351a87b5bacf0d76127777797d0f8062d73a0f02e7008c74ba83a8"
+      },
+      "foundation_summaries/manifest.json": {
+        "bytes": 2029,
+        "sha256": "6224b4dcaa0b3db976343b25594dc1bd8185157f3e9744036d31271e854d289e"
+      },
+      "foundation_summaries/missingness.csv": {
+        "bytes": 136,
+        "sha256": "2512d4224ee262a353c4eeea0c4ca9a2699008ece0d2a0c54947fc0ffa29b9f2"
+      },
+      "foundation_summaries/monthly.csv": {
+        "bytes": 2058,
+        "sha256": "381b352d176d8ab129764b1a8cb8731ae179f1298d33ac866a404f89fdbf3cd2"
+      },
+      "foundation_summaries/observations_2017.csv": {
+        "bytes": 247,
+        "sha256": "3aa441d4e5c2e2b742b05f3c420a38ec1722b887f9dbd49dd630148289e41471"
+      },
+      "foundation_summaries/products.csv": {
+        "bytes": 79630,
+        "sha256": "e729ac60036b8aef04560822848cdbaa77cbf7cce81413b8234332b2708a0ef5"
+      },
+      "foundation_summaries/warehouse_categories.csv": {
+        "bytes": 3120,
+        "sha256": "7d64ae11c361b3dff08d8ef2b75d0fdbcc309217deac90f460c38c0f1ac6f29b"
+      },
+      "foundation_summaries/warehouses.csv": {
+        "bytes": 158,
+        "sha256": "2ceafa27f0418b7fd8d14dcb13310403fe2942991fa91888749574dc1015e537"
+      },
+      "foundation_summaries/weekly.csv": {
+        "bytes": 5472,
+        "sha256": "637aadb5a5f8f8459d20d9fb15d3cee32c4e7a6b844fdf1925f6ad83fd2a326b"
+      }
+    }
+  },
+  "Data Foundation / M5 retail panel composition": {
+    "page": "Data Foundation",
+    "label": "M5 retail panel composition",
+    "profile": "data-foundation-m5-retail-panel-composition",
+    "attribution_revision": "reviewed-original-source-attribution-v1",
+    "display_scope": "Data Foundation / M5 retail panel composition/v1/original-evidence-display-only",
+    "selection": {
+      "foundation": "retail"
+    },
+    "files": {
+      "foundation_summaries/m5_composition.csv": {
+        "bytes": 683,
+        "sha256": "4287ae952f3df33298fd0f93b4b97cf67792d4bfd9b41d44dc17bf70eea9987f"
+      },
+      "foundation_summaries/manifest.json": {
+        "bytes": 1563,
+        "sha256": "6e21d76c62329d787a5a5c93a381066d7c0601e841dd3b605efe435a7784ddf0"
+      }
+    },
+    "renderer": "render_foundation_retail"
+  }
+}

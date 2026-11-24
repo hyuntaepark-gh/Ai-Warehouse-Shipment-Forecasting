@@ -8,6 +8,5 @@ sidebar maintains the most recent route for each research track and rejects
 invalid route names. The active-page label, visible keyboard focus, and native
 mobile drawer remain available independently of the visual styling.
 
-The guarded build keeps all route labels available. Data Foundation contains the
-CFS renderer. Display of its exact data depends on the
+The guarded build keeps all route labels and original renderers available. Data Foundation also contains the independently gated CFS renderer. Display of its exact data depends on the
 [publication gate](CFS_AREA_COVERAGE_RELEASE.md).
