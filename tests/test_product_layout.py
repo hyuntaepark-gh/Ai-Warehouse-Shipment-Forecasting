@@ -1,9 +1,9 @@
 """Product-layout regressions; existing numerical and source tests stay unchanged."""
 import json
 import unittest
-from streamlit.testing.v1 import AppTest
+from app_test_support import warehouse_app
 from data_loading import ROOT
-from navigation import ROUTES, LABELS
+from navigation import WAREHOUSE_ROUTES, LABELS
 from future_data import combined_summaries, load_archive
 from display_formatting import compact_units
 from data_loading import source_directory
@@ -11,27 +11,20 @@ from data_loading import source_directory
 
 class ProductLayoutTests(unittest.TestCase):
     def app(self):
-        return AppTest.from_file(str(ROOT / 'app.py')).run(timeout=30)
+        return warehouse_app()
 
-    def test_all_seven_pages_have_context_insights_and_existing_downloads(self):
+    def test_warehouse_pages_have_shared_heading_and_existing_downloads(self):
         app = self.app()
-        for route in ROUTES:
+        for route in WAREHOUSE_ROUTES:
             with self.subTest(route=route):
                 app.sidebar.button(key='nav_' + route).click().run(timeout=30)
                 self.assertFalse(app.exception)
                 self.assertFalse(app.error)
+                self.assertEqual([title.value for title in app.title], [LABELS[route]])
                 content = '\n'.join(x.value for x in app.markdown)
-                if route == 'Operational Insights':
-                    self.assertIn('ops-insight-grid', content)
-                    self.assertIn('December 25, 2016', content)
-                elif route == 'Data Foundation':
-                    self.assertIn('wiq-mini-grid', content)
-                    self.assertIn('wiq-chips', content)
-                else:
-                    self.assertIn('wiq-insight-grid', content)
-                    self.assertIn('wiq-chips', content)
+                self.assertIn('Original Warehouse Operations · Archived study', content)
                 self.assertTrue(app.get('download_button'))
-                self.assertEqual([x.label for x in app.sidebar.button], list(LABELS.values()))
+                self.assertEqual([x.label for x in app.sidebar.button], ["Final Research", *(LABELS[r] for r in WAREHOUSE_ROUTES)])
                 self.assertFalse(app.sidebar.radio)
 
     def test_demand_exploration_tabs_and_filter_survive_page_navigation(self):
@@ -54,8 +47,11 @@ class ProductLayoutTests(unittest.TestCase):
         next(s for s in app.selectbox if s.label == 'Forecast horizon (weeks)').set_value(4).run(timeout=30)
         totals = combined_summaries(load_archive(source_directory())['weekly'], ['Whse_A','Whse_J'])
         for row in totals.itertuples():
-            metric = next(m for m in app.metric if m.label == f'Projected total · {row.Horizon_Weeks} weeks')
-            self.assertEqual(metric.value, compact_units(row.Projected_Total_Demand))
+            app.selectbox(key='future_horizon').set_value(row.Horizon_Weeks).run(timeout=30)
+            cards = next(m.value for m in app.markdown if 'Selected forecast coverage' in m.value)
+            self.assertIn(f'Projected total · {row.Horizon_Weeks} weeks', cards)
+            self.assertIn(compact_units(row.Projected_Total_Demand), cards)
+        app.selectbox(key='future_horizon').set_value(4).run(timeout=30)
         app.sidebar.button(key='nav_Executive Overview').click().run(timeout=30)
         app.sidebar.button(key='nav_Future Forecasting').click().run(timeout=30)
         self.assertEqual(next(s for s in app.selectbox if s.label == 'Forecast horizon (weeks)').value, 4)
@@ -80,7 +76,7 @@ class ProductLayoutTests(unittest.TestCase):
         app = self.app()
         expected = {
             'Executive Overview': ('wiq_panel_overview_trend','wiq_panel_overview_ranking',9),
-            'Warehouse Analytics': ('wiq_panel_warehouse_trends','wiq_panel_warehouse_scale',6),
+            'Warehouse Analytics': ('wiq_panel_warehouse_trends','wiq_panel_warehouse_profile',4),
             'Future Forecasting': ('wiq_panel_outlook_projection','wiq_panel_outlook_contribution',2),
         }
         for route, (left, right, chart_count) in expected.items():

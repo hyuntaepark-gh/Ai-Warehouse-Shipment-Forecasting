@@ -4,15 +4,14 @@ from contextlib import contextmanager
 
 import streamlit as st
 from chart_access import chart_header, chart_options, chart_view, data_section, filters, download_frame, source_detail
+from product_layout import mini_cards
 
 BLUE = "#2866c9"
 INK = "#192b44"
 CSS = """<style>
-body:has(.st-key-ops_product) [data-testid="stMainBlockContainer"] {max-width:1440px!important;padding:1.1rem 2rem 3rem!important;}
-body:has(.st-key-ops_product) [data-testid="stAppHeader"] {background:transparent;}
-.st-key-ops_product {font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#192b44;container-type:inline-size;}
+.st-key-ops_product {color:#192b44;container-type:inline-size;min-width:0;}
 .st-key-ops_product p {line-height:1.5;}
-.st-key-ops_product [data-testid="stVerticalBlock"] {gap:14px;}
+.st-key-ops_product [data-testid="stVerticalBlock"] {gap:9px;}
 .ops-brand {display:flex;gap:10px;align-items:center;font-size:13px;font-weight:750;letter-spacing:.015em;color:#192b44;}
 .ops-brand b {background:#192b44;color:#fff;padding:5px 9px;border-radius:7px;font-size:19px;}
 .ops-brand span {color:#68768a;font-size:12px;font-weight:500;margin-left:12px;}
@@ -22,15 +21,15 @@ body:has(.st-key-ops_product) [data-testid="stAppHeader"] {background:transparen
 .ops-lead {font-size:16px;color:#34465f;margin:0;line-height:1.55;}
 .ops-lead strong {color:#192b44;font-weight:700;}
 .ops-boundary {font-size:12px;color:#526278;line-height:1.55;margin:0;}
-.st-key-ops_filters {background:#eaf0f8;border-radius:10px;padding:8px 14px;}
+.st-key-ops_filters {min-width:0;}
 .st-key-ops_product [data-testid="stWidgetLabel"] p {font-size:12px!important;color:#526278;font-weight:600;}
 .st-key-ops_product [data-testid="stButtonGroup"] button {font-size:13px!important;border-radius:7px!important;min-height:34px;}
 .st-key-ops_product [data-testid="stButtonGroup"] button[aria-pressed="true"] {background:#192b44!important;color:#fff!important;border-color:#192b44!important;}
 .st-key-ops_product [data-testid="stButtonGroup"] button[aria-checked="true"] {background:#192b44!important;color:#fff!important;border-color:#192b44!important;}
 .st-key-ops_topbar [data-testid="stHorizontalBlock"] {flex-wrap:nowrap;align-items:center;}
 .st-key-ops_topbar [data-testid="stColumn"] {min-width:0!important;}
-.st-key-ops_product [class*="st-key-ops_kpi_"] {background:#fff;padding:17px 20px;border-radius:12px;border:1px solid #e3e9f2;height:100%;}
-.st-key-ops_product .st-key-ops_kpi_0 {background:#192b44;border-color:#192b44;}
+.st-key-ops_product .wiq-mini:first-child {background:#192b44;border-color:#192b44;}
+.st-key-ops_product .wiq-mini:first-child :is(b,small,span) {color:#fff;}
 .st-key-ops_product [data-testid="stMetric"] {padding:0!important;min-height:0!important;background:none!important;border:none!important;}
 .st-key-ops_product [data-testid="stMetricLabel"] p {font-size:13px!important;white-space:normal;color:#526278!important;}
 .st-key-ops_product [data-testid="stMetricValue"] {font-size:32px!important;line-height:1.3;font-weight:650;letter-spacing:-.04em;color:#192b44!important;}
@@ -67,13 +66,13 @@ body:has(.st-key-ops_product) [data-testid="stAppHeader"] {background:transparen
 .st-key-ops_product [data-testid="stExpander"] {border:1px solid #e3e9f2;border-radius:10px;}
 .st-key-ops_product button:focus-visible {outline:3px solid #2866c9!important;outline-offset:3px;}
 @media(max-width:900px) {
- .st-key-ops_product [data-testid="stHorizontalBlock"]:has(.ops-kpi-marker) {grid-template-columns:repeat(2,minmax(0,1fr));}
- .st-key-ops_primary_row [data-testid="stHorizontalBlock"],.st-key-ops_panel_detail [data-testid="stHorizontalBlock"] {flex-direction:column!important;}
- .st-key-ops_primary_row [data-testid="stColumn"],.st-key-ops_panel_detail [data-testid="stColumn"] {width:100%!important;min-width:0;flex:1 1 100%!important;}
+ .st-key-ops_product .wiq-mini-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+ .st-key-ops_primary_row [data-testid="stHorizontalBlock"],.st-key-ops_panel_detail [data-testid="stHorizontalBlock"] {
+   display:grid!important;grid-template-columns:minmax(0,1fr)!important;}
+ .st-key-ops_product [data-testid="stColumn"] {width:100%!important;min-width:0;}
  .ops-insight-grid {grid-template-columns:1fr;}
 }
 @media(max-width:600px) {
- body:has(.st-key-ops_product) [data-testid="stMainBlockContainer"] {padding:1rem .9rem 2rem!important;}
  .ops-heading {align-items:flex-start;flex-direction:column;gap:7px;}
  .ops-heading h1 {font-size:26px!important;}
  .ops-brand span {display:none;}
@@ -86,8 +85,8 @@ body:has(.st-key-ops_product) [data-testid="stAppHeader"] {background:transparen
  .st-key-ops_product [class*="st-key-ops_panel_"] {padding:16px 12px;}
  .st-key-ops_filters [data-testid="stHorizontalBlock"] {flex-direction:column;}
  .st-key-ops_filters [data-testid="stColumn"] {width:100%!important;min-width:0;}
- .st-key-ops_warehouses [role="toolbar"] {display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;overflow:visible!important;}
- .st-key-ops_warehouses [data-testid="stButtonGroup"] {overflow:visible!important;}
+ .st-key-ops_warehouses [role="toolbar"] {display:flex!important;flex-wrap:wrap;gap:4px;}
+ .st-key-ops_product [data-testid="stButtonGroup"] {max-width:100%;overflow-x:auto;}
  .ops-compare-head,.ops-compare-row {grid-template-columns:78px 1fr 46px 50px;gap:7px;}
  .ops-ratio {font-size:13px;}
  .ops-wh {font-size:13px;}
@@ -102,17 +101,8 @@ def apply_workspace():
     st.markdown(CSS, unsafe_allow_html=True)
 
 
-def workspace_header():
-    st.markdown('<div class="ops-brand">FORECAST &amp; PLANNING <span>Archived research / Decision support</span></div>', unsafe_allow_html=True)
-    st.markdown('<header class="ops-heading"><h1>Planning Insights</h1><span class="ops-archive">ARCHIVED · 25 DEC 2016 ORIGIN</span></header>', unsafe_allow_html=True)
-
-
 def kpis(items):
-    for index, (column, item) in enumerate(zip(st.columns(4), items)):
-        with column, st.container(key=f"ops_kpi_{index}"):
-            st.markdown('<i class="ops-kpi-marker"></i>', unsafe_allow_html=True)
-            st.metric(item[0], item[1])
-            st.caption(item[2])
+    mini_cards(items)
 
 
 @contextmanager

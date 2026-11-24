@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: warehouse-iq
+    runtime: python
+    buildCommand: python -m pip install -r requirements.txt
+    startCommand: python run_dashboard.py render
+    healthCheckPath: /_stcore/health
+    autoDeployTrigger: "off"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.10
+      - key: WIQ_RELEASE_MODE
+        value: public

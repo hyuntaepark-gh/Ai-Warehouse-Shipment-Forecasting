@@ -112,9 +112,8 @@ def apply_global_theme():
 
 
 def page_intro(page):
-    """Native Streamlit heading retained for keyboard semantics and existing UI tests."""
+    """Lead with the question answered by the selected archive page."""
     from product_layout import header
-    eyebrow, title, question, description, first, second = STORIES[page]
     leads = {
         "Historical Demand": "Explore the recorded demand pattern before interpreting a forecast.",
         "Model Comparison": "Compare forecast errors within one compatible evaluation group.",
@@ -122,7 +121,7 @@ def page_intro(page):
         "Model Validation": "Historical evidence is useful; reused evaluations limit confidence in generalization.",
         "Future Forecasting": "Explore the saved outlook from December 2016, with no complete 2017 evaluation outcomes.",
     }
-    header(LABELS[page], leads[page], "Archived study", first, second)
+    header(leads[page])
 
 
 
@@ -135,17 +134,17 @@ def style_plot(figure, height=390):
     """Apply consistent styling without changing any traces, values or axes meanings."""
     figure.update_layout(
         template="plotly_white", height=height,
-        margin=dict(l=20, r=48, t=18, b=75),
-        font=dict(family='Arial, sans-serif', size=14, color=INK),
+        margin=dict(l=12, r=31, t=12, b=54),
+        font=dict(family='system-ui, sans-serif', size=12, color=INK),
         paper_bgcolor='#ffffff', plot_bgcolor='#ffffff',
-        legend=dict(orientation='h', y=-.30, x=0, title_text='', font=dict(size=13)),
-        hoverlabel=dict(font_size=14),
+        legend=dict(orientation='h', y=-.23, x=0, title_text='', font=dict(size=12)),
+        hoverlabel=dict(font_size=12),
         hovermode=figure.layout.hovermode or 'closest',
     )
     figure.update_xaxes(rangeslider_visible=False, automargin=True,
-                        tickfont=dict(size=13, color=MUTED),
-                        title_font=dict(size=13, color=INK), zeroline=False)
+                        tickfont=dict(size=12, color=MUTED),
+                        title_font=dict(size=12, color=INK), zeroline=False)
     figure.update_yaxes(automargin=True, gridcolor=GRID,
-                        tickfont=dict(size=13, color=MUTED),
-                        title_font=dict(size=13, color=INK), zeroline=False)
+                        tickfont=dict(size=12, color=MUTED),
+                        title_font=dict(size=12, color=INK), zeroline=False)
     return figure

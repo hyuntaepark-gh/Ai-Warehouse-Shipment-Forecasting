@@ -44,21 +44,17 @@ def pipeline(p):
 def render_foundation():
     try: info,t=load_foundation()
     except (OSError,ValueError,KeyError) as error:
-        header('Data Foundation','Verified dataset summaries are currently unavailable.','Source integrity')
+        header('Verified dataset summaries are currently unavailable.')
         st.warning('Data Foundation summaries unavailable: '+str(error))
         return
     p,m=info['primary'],info['m5']
-    header('Data Foundation','A million demand records become 260 weekly observations. Coverage limits matter before model scores.',
-           'Primary source · 2011–2017','Modeling window · 2012–2016','Order demand · not shipments')
-    mini_cards([('Raw records',f"{p['records']:,}",'Includes undated records'),
-                ('Warehouses',str(p['warehouses']),'Recorded source locations'),
-                ('Products',f"{p['products']:,}",'Unique product codes'),
-                ('Product categories',str(p['categories']),'Recorded category codes')])
+    header('Over a million order-demand records support 260 modeled weeks. The source spans 2011–2017 and modeling uses 2012–2016.')
+    st.caption(f"{p['records']:,} records · {p['warehouses']} warehouses · {p['products']:,} products · {p['categories']} categories")
     st.caption(f"Dated source: {p['date_start']} to {p['date_end']} · {p['dated_records']:,} usable-date records · {p['missing_dates']/p['records']:.2%} missing dates.")
-    boundary('Source completeness is unverified: 1,048,575 data rows plus a header exactly match Excel’s 1,048,576-row worksheet limit. This is a truncation warning, not proof of truncation. The final row is dated June 2016; the file is not chronologically ordered.')
+    boundary(f"{p['records']:,} data rows plus the header reach Excel’s 1,048,576-row limit, suggesting possible "
+             "truncation. The file is unordered and the final row is dated June 2016.")
     tabs=st.tabs(['Coverage','Warehouse & products','Data quality','Research pipeline','M5 external data'])
     with tabs[0]:
-        st.subheader('Dense modeling years, sparse edges')
         st.caption('Record counts use actual raw rows with usable dates. No-record dates mean no supplied records; they do not prove zero demand or lost transactions.')
         left,right=st.columns([1,1.5])
         with left:

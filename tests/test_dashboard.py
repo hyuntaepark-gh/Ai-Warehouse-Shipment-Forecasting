@@ -1,4 +1,4 @@
-from navigation import ROUTES, LABELS
+from navigation import WAREHOUSE_ROUTES, LABELS
 import os
 from pathlib import Path
 import tempfile
@@ -66,14 +66,14 @@ class SourceTests(unittest.TestCase):
 
 class AppTests(unittest.TestCase):
     def test_missing_sources_and_all_navigation_destinations(self):
-        from streamlit.testing.v1 import AppTest
+        from app_test_support import warehouse_app
         with tempfile.TemporaryDirectory() as temp:
             with patch.dict(os.environ, {"CAPSTONE_DATA_DIR": str(Path(temp) / "missing")}):
-                app = AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
+                app = warehouse_app()
                 self.assertEqual(len(app.exception), 0)
                 self.assertTrue(any("Capstone data unavailable" in item.value for item in app.warning))
-                self.assertEqual(len(app.sidebar.button), 8)
-                for page in [r for r in ROUTES if r != "Executive Overview"]:
+                self.assertEqual(len(app.sidebar.button), 9)
+                for page in [r for r in WAREHOUSE_ROUTES if r != "Executive Overview"]:
                     app.sidebar.button(key="nav_" + page).click().run()
                     self.assertEqual(len(app.exception), 0)
                     if page == "Historical Demand":

@@ -1,24 +1,14 @@
-# Python / environments
-__pycache__/
-*.py[cod]
 .venv/
-venv/
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-*.egg-info/
-
-# Local settings / credentials
-.env
-.env.*
-!.env.example
+__pycache__/
+*.pyc
 .streamlit/secrets.toml
-*.pem
-*.key
+runtime/
 
-# Local research inputs (not required to run the dashboard)
+# Private raw research inputs: regenerate only the lightweight foundation_summaries.
 raw_data/
 private_data/
+/local_research_sources/
+/final_research_exports/
 calendar.zip
 Historical Product Demand.csv
 sales_train_evaluation.csv
@@ -26,12 +16,28 @@ calendar.csv
 sell_prices.csv
 MITA_Capstone_Week_15.ipynb
 
-# Local work products
-.ui_backup/
-runtime/
+# Local settings, credentials, and release QA
+.env
+.env.*
+!.env.example
+*.pem
+*.key
 *.log
-*.zip
-.DS_Store
-Thumbs.db
-.idea/
-.vscode/
+.ui_backup/
+/docs/final_research_audit/phase_7b_local/
+
+# Additional private inputs used by the Favorita notebook
+/train.csv
+/Favorita/
+/favorita/
+/store-sales-time-series-forecasting/
+/Favorita.zip
+/favorita.zip
+/store-sales-time-series-forecasting.zip
+
+# Pending data rights. Ignore rules do not affect files already tracked upstream.
+/capstone_final_outputs/
+/foundation_summaries/
+/docs/final_research_audit/phase_7c_1_local/
+/docs/final_research_audit/phase_7c_2_local/
+/docs/final_research_audit/pilot_private/

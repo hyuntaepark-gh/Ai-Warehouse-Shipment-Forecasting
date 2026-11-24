@@ -2,14 +2,14 @@
 import plotly.express as px
 import streamlit as st
 from chart_access import chart_header, chart_options, chart_view, data_section, filters, download_frame, source_detail
-from product_layout import apply_product_theme, chips
+from product_layout import boundary, scope
 
 from data_loading import DataIssue, source_directory
 from display_formatting import compact_units, readable_table
 from future_data import HORIZONS, WAREHOUSES, WEEKLY_SOURCE
 from model_comparison import comparison_chart
 from html import escape
-from bi_components import apply_workspace, workspace_header, kpis, panel, chart as product_chart, insight_cards
+from bi_components import apply_workspace, kpis, panel, chart as product_chart, insight_cards
 from operational_charts import comparison_markup, detail_figure, warehouse_name, weekly_heatmap
 from operational_data import (PLANNING_SOURCE, load_planning, recent_observed_context,
                               selected_planning, supplementary)
@@ -30,14 +30,11 @@ def table(frame, name, *sources):
 def planning_panel(directory):
     archive = load_planning(directory)
     summary_slot = st.container()
-    with st.container(key="ops_filters"):
-        left, right = st.columns([2, 1], vertical_alignment="center")
-        with left:
-            warehouses = st.pills("Planning warehouses", WAREHOUSES, selection_mode="multi", default=WAREHOUSES,
-                                  format_func=lambda name: "Warehouse " + name[-1], key="ops_warehouses", persist_state="session")
-        with right:
-            horizon = st.segmented_control("Planning horizon (weeks)", HORIZONS, default=12,
-                                           format_func=lambda h: f"{h} weeks", key="ops_horizon", persist_state="session")
+    with st.container(key="ops_filters", horizontal=True, gap="xsmall", vertical_alignment="bottom"):
+        warehouses = st.pills("Planning warehouses", WAREHOUSES, selection_mode="multi", default=WAREHOUSES,
+                              format_func=lambda name: "Whse " + name[-1], key="ops_warehouses", persist_state="session")
+        horizon = st.segmented_control("Planning horizon", HORIZONS, default=12,
+                                       format_func=lambda h: f"{h} wk", key="ops_horizon", persist_state="session")
     if not warehouses:
         st.info("Select at least one warehouse for archived planning indicators.")
         return
@@ -60,13 +57,13 @@ def planning_panel(directory):
             ("Forecast horizon", f"{horizon} weeks", f"{weekly.Week.min():%d %b} – {weekly.Week.max():%d %b %Y}"),
         ])
     with st.container(key="ops_primary_row"):
-        left, right = st.columns([1, 1.6], gap="medium")
-        with left, panel("compare", "Which warehouses are closest to P90?", "Peak projected demand as a share of each warehouse’s historical reference"):
-            st.markdown(comparison_markup(summary), unsafe_allow_html=True)
-        with right, panel("heatmap", "When is projected demand closest to P90?", "Warehouse × projected week · darker blue = higher demand / P90, not greater risk severity"):
+        left, right = st.columns([1.6, 1], gap="medium")
+        with left, panel("heatmap", "When is projected demand closest to P90?", "Warehouse by projected week"):
             figure, _ = weekly_heatmap(weekly)
             product_chart(figure, "ops_weekly_heatmap", height=270)
-    st.markdown('<p class="ops-boundary">P90 is a historical demand reference, not physical capacity or a forecast interval. Normal / Watch labels are source-reported and illustrative; their rules are undocumented. A Watch label does not mean P90 was exceeded.</p>', unsafe_allow_html=True)
+        with right, panel("compare", "Which warehouses are closest to P90?", "Peak projected demand as a share of each warehouse’s historical reference"):
+            st.markdown(comparison_markup(summary), unsafe_allow_html=True)
+    scope("Normal and Watch are illustrative source labels with undocumented rules. The heatmap shows demand divided by historical P90.")
     detail_left, implication_right = st.columns([1.8, 1], gap="medium")
     with detail_left, panel("detail", "Investigate one warehouse", "Compare the saved weekly projection with its historical P90 reference"):
         selected = st.selectbox("Warehouse detail", warehouses, format_func=warehouse_name, key="ops_detail", persist_state="session")
@@ -217,12 +214,10 @@ def research_boundaries():
 
 def render_operational():
     apply_workspace()
-    apply_product_theme()
     st.markdown('<style>.ops-insight-grid{grid-template-columns:1fr!important;gap:10px!important;}.ops-insight{padding:13px 16px!important;}.ops-insight strong{font-size:15px!important;}.ops-insight p{font-size:12px!important;}.st-key-ops_product [class*="st-key-ops_panel_"]{padding:17px 18px!important;}.st-key-ops_product [class*="st-key-ops_kpi_"]{padding:13px 17px!important;}.st-key-ops_product [data-testid="stMetric"]{padding:0!important;}</style>', unsafe_allow_html=True)
     with st.container(key="ops_product"):
-        workspace_header()
-        chips("Archived study", "25 Dec 2016 origin", "Illustrative planning")
-        st.markdown('<p class="ops-boundary">Historical projections, not live operations. Origin: December 25, 2016. No complete 2017 evaluation outcomes; planning implications are illustrative.</p>', unsafe_allow_html=True)
+        boundary("Illustrative projections from 25 December 2016. Complete 2017 outcomes are unavailable. "
+                 "P90 measures historical demand. Physical capacity and forecast bounds are unavailable.")
         view = st.segmented_control("Operational evidence", VIEWS, default=VIEWS[0],
             format_func=lambda v: {VIEWS[0]: "Planning outlook", VIEWS[1]: "Historical", VIEWS[2]: "Scenarios"}[v],
             key="ops_view", label_visibility="collapsed", persist_state="session")

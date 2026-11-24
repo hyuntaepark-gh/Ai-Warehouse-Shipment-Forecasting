@@ -3,7 +3,7 @@ from navigation import ROUTES, LABELS
 import unittest
 
 import pandas as pd
-from streamlit.testing.v1 import AppTest
+from app_test_support import warehouse_app
 
 from comparison_data import (COHORT_FIELDS, FILES, GROUPS, METRICS, available_metrics,
                              load_comparison, rank_models, reconciliation_predictions,
@@ -148,7 +148,7 @@ class ComparisonDataTests(unittest.TestCase):
 
 class ComparisonAppTests(unittest.TestCase):
     def test_all_groups_metrics_filters_and_prediction_views(self):
-        app = AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
+        app = warehouse_app()
         app.sidebar.button(key="nav_" + "Model Comparison").click().run(timeout=30)
         self.assertFalse(app.exception)
         self.assertEqual(len(app.get("plotly_chart")), 2)

@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 import pandas as pd
-from streamlit.testing.v1 import AppTest
+from app_test_support import warehouse_app
 from build_foundation import SCHEMA, prepare_primary, weekly_sample, primary_summaries, complete_m5_weeks
 from foundation_data import load_foundation, SUMMARY_DIR
 from data_loading import ROOT, source_directory
@@ -109,18 +109,18 @@ class FoundationCalculationTests(unittest.TestCase):
 
 class FoundationPageTests(unittest.TestCase):
     def app(self):
-        app=AppTest.from_file(str(ROOT/'app.py')).run(timeout=30)
+        app=warehouse_app()
         return app.sidebar.button(key='nav_Data Foundation').click().run(timeout=30)
 
     def test_page_coverage_charts_data_center_and_research_disclosures(self):
         app=self.app()
         self.assertFalse(app.exception)
-        self.assertEqual(len(app.sidebar.button),8)
+        self.assertEqual(len(app.sidebar.button),9)
         self.assertEqual(len(app.get('expander')),0)
         self.assertGreaterEqual(len(app.get('plotly_chart')),10)
         text='\n'.join(e.value for e in app.markdown)
         self.assertIn('1,048,575',text)
-        self.assertIn('truncation warning, not proof',text)
+        self.assertIn('possible truncation',text)
         self.assertIn('blanket statement is incorrect',text)
         self.assertTrue(any('53 records' in x.value for x in app.info))
         self.assertTrue(app.get('download_button'))

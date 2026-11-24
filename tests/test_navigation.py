@@ -4,38 +4,37 @@ import json
 import unittest
 
 from streamlit.testing.v1 import AppTest
+from app_test_support import calculation_digest, warehouse_app
 
 from data_loading import ROOT
-from navigation import CSS, DESTINATIONS, LABELS, ROUTES, navigate
+from navigation import CSS, DESTINATIONS, LABELS, ROUTES, WAREHOUSE_ROUTES, navigate
 
 
 class NavigationTests(unittest.TestCase):
     def app(self):
-        return AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
+        return warehouse_app()
 
     def test_group_order_and_unique_route_identity(self):
-        self.assertEqual(len(set(ROUTES)), 8)
-        self.assertEqual(list(LABELS.values()), ["Overview", "Demand Trends", "Warehouse Explorer",
+        self.assertEqual(len(set(ROUTES)), 13)
+        self.assertEqual(len(WAREHOUSE_ROUTES), 8)
+        self.assertEqual(list(LABELS.values()), ["Research Overview", "Forecast Horizons", "Numerical Stability", "Model Strategies", "Research Validation", "Overview", "Demand Trends", "Warehouse Explorer",
             "Model Performance", "Demand Outlook", "Planning Insights", "Forecast Reliability", "Data Foundation"])
         self.assertEqual(list(dict.fromkeys(d.group for d in DESTINATIONS)),
-            ["WORKSPACE", "ANALYTICS", "FORECAST & PLANNING", "RESEARCH"])
-        self.assertEqual(len({d.icon for d in DESTINATIONS}), 8)
+            ["FINAL RESEARCH", "WORKSPACE", "ANALYTICS", "FORECAST & PLANNING", "RESEARCH"])
+        self.assertEqual(len({d.icon for d in DESTINATIONS}), 13)
 
     def test_all_native_destinations_and_single_selected_state(self):
         app = self.app()
-        for route in ROUTES:
+        for route in WAREHOUSE_ROUTES:
             app.sidebar.button(key="nav_" + route).click().run(timeout=30)
             self.assertFalse(app.exception, route)
             self.assertFalse(app.error, route)
             self.assertEqual(app.session_state["navigation"], route)
-            self.assertEqual([b.label for b in app.sidebar.button], list(LABELS.values()))
+            self.assertEqual([b.label for b in app.sidebar.button], ["Final Research", *(LABELS[r] for r in WAREHOUSE_ROUTES)])
             self.assertFalse(app.sidebar.radio)
             self.assertEqual(len([b for b in app.sidebar if getattr(b, "key", None) == "wiq_active"]), 1)
             self.assertTrue(any("Current page: " + LABELS[route] in m.value for m in app.sidebar.markdown))
-            if route != "Operational Insights":
-                self.assertEqual(app.title[0].value, LABELS[route])
-            else:
-                self.assertTrue(any("<h1>Planning Insights</h1>" in m.value for m in app.markdown))
+            self.assertEqual(app.title[0].value, LABELS[route])
             self.assertTrue(app.get("download_button"), route)
 
     def test_sidebar_is_compact_archived_and_free_of_source_controls(self):
@@ -71,13 +70,13 @@ class NavigationTests(unittest.TestCase):
         app.session_state["navigation"] = "Removed page"
         app.run(timeout=30)
         self.assertFalse(app.exception)
-        self.assertEqual(app.session_state["navigation"], "Executive Overview")
+        self.assertEqual(app.session_state["navigation"], "Research Overview")
 
     def test_all_calculation_modules_and_87_original_files_unchanged(self):
         baseline = json.loads((ROOT / "docs/navigation_calculation_baseline.json").read_text())
         self.assertGreaterEqual(len(baseline), 7)
         for name, digest in baseline.items():
-            self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), digest, name)
+            self.assertEqual(calculation_digest(ROOT / name), digest, name)
         original = json.loads((ROOT / "docs/source_hashes_before.json").read_text())
         self.assertEqual(len(original), 87)
         for name, digest in original.items():

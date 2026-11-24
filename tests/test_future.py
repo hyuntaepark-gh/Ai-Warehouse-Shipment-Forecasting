@@ -5,7 +5,7 @@ import unittest
 from unittest.mock import patch
 
 import pandas as pd
-from streamlit.testing.v1 import AppTest
+from app_test_support import warehouse_app
 
 from data_loading import DataIssue, ROOT, read_csv, source_directory
 from future_data import (HORIZONS, ORIGIN, SUMMARY_SOURCE, TOLERANCE_UNITS, WAREHOUSES, WEEKLY_SOURCE,
@@ -122,19 +122,19 @@ class FutureDataTests(unittest.TestCase):
 
 class FutureAppTests(unittest.TestCase):
     def test_horizon_warehouse_cumulative_and_empty_selection_filters(self):
-        app = AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
+        app = warehouse_app()
         app.sidebar.button(key="nav_" + "Future Forecasting").click().run(timeout=30)
         self.assertFalse(app.exception)
         self.assertFalse(app.error)
-        self.assertEqual(len(app.sidebar.button), 8)
+        self.assertEqual(len(app.sidebar.button), 9)
         self.assertEqual(len(app.get("plotly_chart")), 2)
         self.assertFalse(any("unavailable:" in w.value for w in app.warning))
-        self.assertTrue(any("not current forecasts" in w.value for w in app.warning))
-        self.assertTrue(any(m.label == "Selected forecast coverage" and m.value == "48 records" for m in app.metric))
+        self.assertTrue(any("Archived projections from 25 December 2016" in w.value for w in app.markdown))
+        self.assertTrue(any("Selected forecast coverage" in m.value and "48 records" in m.value for m in app.markdown))
         for horizon in HORIZONS:
             next(r for r in app.selectbox if r.label == "Forecast horizon (weeks)").set_value(horizon).run(timeout=30)
             self.assertFalse(app.exception)
-            self.assertTrue(any(m.label == "Selected forecast coverage" and m.value == f"{4 * horizon} records" for m in app.metric))
+            self.assertTrue(any("Selected forecast coverage" in m.value and f"{4 * horizon} records" in m.value for m in app.markdown))
         next(r for r in app.selectbox if r.label == "Projection view").set_value("Cumulative").run(timeout=30)
         app.multiselect[0].set_value(["Whse_A", "Whse_J"]).run(timeout=30)
         app.checkbox[0].set_value(False).run(timeout=30)
@@ -152,7 +152,7 @@ class FutureAppTests(unittest.TestCase):
         original_reader = read_csv
         def reader(directory, name):
             return weekly.copy() if name == WEEKLY_SOURCE else original_reader(directory, name)
-        app = AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
+        app = warehouse_app()
         with patch("future_data.read_csv", side_effect=reader):
             app.sidebar.button(key="nav_" + "Future Forecasting").click().run(timeout=30)
         self.assertFalse(app.exception)
@@ -161,13 +161,13 @@ class FutureAppTests(unittest.TestCase):
         self.assertEqual(len(app.get("plotly_chart")), 0)
 
     def test_missing_backtest_evidence_does_not_disable_valid_forecast_archive(self):
-        app = AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
+        app = warehouse_app()
         with patch("future_forecasting.evidence", side_effect=DataIssue("Missing backtest source")):
             app.sidebar.button(key="nav_" + "Future Forecasting").click().run(timeout=30)
         self.assertFalse(app.exception)
         self.assertEqual(len(app.get("plotly_chart")), 2)
         self.assertTrue(any("Historical reliability evidence unavailable" in w.value for w in app.warning))
-        self.assertTrue(any(m.label == "Selected forecast coverage" and m.value == "48 records" for m in app.metric))
+        self.assertTrue(any("Selected forecast coverage" in m.value and "48 records" in m.value for m in app.markdown))
 
 
 if __name__ == "__main__":

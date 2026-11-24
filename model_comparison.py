@@ -1,6 +1,6 @@
 """Interactive comparison page; rankings never cross evaluation boundaries."""
 from ui_controls import choice
-from product_layout import insights, chips, panel
+from product_layout import boundary, panel, scope
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
@@ -10,7 +10,8 @@ from product_layout import PLOT_CONFIG
 
 from comparison_data import (FILES, GROUPS, available_metrics, load_comparison,
                              rank_models, reconciliation_predictions, table)
-from data_loading import DataIssue, inventory, read_csv, source_directory
+from data_loading import DataIssue, read_csv, source_directory
+from source_catalog import evaluation_context
 from display_formatting import compact_units, readable_table
 from overview import COLORS, data_download
 from design_system import style_plot, finding
@@ -50,32 +51,30 @@ def prediction_panel(predictions, selected, key, label):
 
 def supplementary_panel(directory):
     with data_section("Supplementary exports · unverified evaluation metadata · no rankings", 'Full Data Tables'):
-        records = [r for r in inventory(directory) if r["type"] == ".csv" and
-                   (r["evaluation_context"]["family"].startswith("Supplementary") or
-                    r["evaluation_context"]["family"] == "External M5 validation")]
+        exports = [path.relative_to(directory).as_posix() for path in sorted(directory.rglob("*.csv")) if path.is_file()]
+        records = {file: evaluation_context(file) for file in exports}
+        records = {file: context for file, context in records.items()
+                   if context["family"].startswith("Supplementary") or context["family"] == "External M5 validation"}
         st.caption("These exports lack verified exact evaluation dates or use an external dataset. They are excluded from primary-data rankings. Original rows are displayed without model ranks; similar scores do not establish compatible tasks.")
         if not records:
             st.info("No supplementary CSV metadata available.")
             return
-        selected = st.selectbox("Supplementary CSV", [r["file"] for r in records], key="comparison_supplementary", persist_state="session")
-        record = next(r for r in records if r["file"] == selected)
-        context = record["evaluation_context"]
+        selected = st.selectbox("Supplementary CSV", list(records), key="comparison_supplementary", persist_state="session")
+        context = records[selected]
         st.warning(f"Evaluation metadata: UNVERIFIED · {context['period']}")
         source_detail(f"Source: {selected} · {context['caution']}")
         frame = read_csv(directory, selected)
-        st.dataframe(readable_table(frame), width="stretch", hide_index=True)
         download_frame(frame,"supplementary",key="comparison_supplementary_download",label="Download supplementary CSV",filename=selected.split("/")[-1])
 
 
 def render_model_comparison():
     directory = source_directory()
-    overview_slot = st.container()
-    with st.container(key="wiq_toolbar_comparison"):
-        group = st.selectbox("Evaluation group", GROUPS, key="comparison_group", persist_state="session")
-    refine_box = chart_options('comparison_ranked')
-    plot_slot = st.container()
-    insight_slot = st.container()
+    with st.container(horizontal=True, gap="xsmall", vertical_alignment="bottom"):
+        group = st.selectbox("Evaluation group", GROUPS, key="comparison_group", persist_state="session", width=232)
+        refine_box = filters("Options", "model_comparison_options")
     details_slot = st.container()
+    overview_slot = st.container()
+    plot_slot = st.container()
     kwargs = {}
     try:
         with refine_box:
@@ -112,7 +111,7 @@ def render_model_comparison():
                     source_detail("Prediction source: " + meta["Prediction_Source"])
         with plot_slot:
             from foundation_data import clarify_2017
-            st.warning(clarify_2017(comparison.limitation))
+            boundary(clarify_2017(comparison.limitation))
         model_options = sorted(scores.Model.unique()) if not scores.empty else sorted(predictions.Model.unique())
         with refine_box:
             selected = st.multiselect("Models in comparison", model_options, default=model_options, key=f"comparison_models_{group}", persist_state="session")
@@ -125,15 +124,11 @@ def render_model_comparison():
                 metric = choice("Ranking metric", metrics, horizontal=True, key=f"comparison_metric_{group}", persist_state="session")
             ranked = rank_models(scores, metric, selected)
             winners = ranked.loc[ranked.Rank.eq(1)]
+            minimum = f"{ranked[metric].min():.2f}%" if metric == "WAPE (%)" else compact_units(ranked[metric].min())
             with overview_slot:
-                st.subheader("Performance within the selected cohort")
-                a, b, c = st.columns(3)
-                a.metric("Lowest selected " + metric, f"{ranked[metric].min():.2f}%" if metric == "WAPE (%)" else compact_units(ranked[metric].min()))
-                b.metric("Selected models", len(ranked))
-                c.metric("Comparable evaluation cohorts", 1)
-                unit = "percent" if metric == "WAPE (%)" else "order-demand units"
-                finding(f"Lowest {metric} in the selected cohort: {', '.join(winners.Model)}",
-                        f"Within this compatible evaluation group only. Lower is better; this descriptive result does not establish statistical superiority.")
+                scope(f"Lowest {metric} in the selected cohort · {', '.join(winners.Model)} · {minimum}. "
+                      "The ranking is descriptive.")
+            unit = "percent" if metric == "WAPE (%)" else "order-demand units"
             plot_frame = ranked.assign(Display_Value=[f"{v:.2f}%" if metric == "WAPE (%)" else compact_units(v) for v in ranked[metric]])
             figure = px.bar(plot_frame, x=metric, y="Model", orientation="h", color="Model", color_discrete_map=COLORS, text="Display_Value")
             figure.update_yaxes(autorange="reversed", title=None, categoryorder="array", categoryarray=ranked.Model.tolist())
@@ -144,16 +139,8 @@ def render_model_comparison():
                 trace.marker.color = "#087f8c" if trace.name in winners.Model.tolist() else "#7b8da4"
             with plot_slot, panel("model_ranking", "Model ranking · comparable cohort only", f"{group} · {metric} · lower is better"):
                 comparison_chart(figure, "comparison_ranked", height=max(300, 36 * len(ranked)))
-            with insight_slot:
-                insights([
-                    ("Key finding", ', '.join(winners.Model), f"Lowest selected {metric} in this cohort; exact ties are retained."),
-                    ("Important caveat", "Comparable cohort only", "Period, target, horizon and methodology stay together. No cross-cohort leaderboard."),
-                    ("Explore next", "Check aligned predictions", "Missing trajectories are disclosed; summary scores do not create missing observations."),
-                ])
-            table_columns = ["Rank", "Model", "Model_Type"] + metrics + ["Evaluation_Period", "Horizon", "Target", "Methodology", "Sample", "Source"]
-            with data_section("Explore complete ranked results & evaluation metadata", 'Full Data Tables'):
-                st.dataframe(readable_table(ranked[table_columns]), width="stretch", hide_index=True)
-            st.caption("Ranks are recalculated within the selected models; exact ties share a rank. WAPE is an error measure, not an accuracy percentage. MAE and RMSE use demand units. CSV downloads retain numerical precision.")
+            with data_section("Ranking method", 'Methodology'):
+                st.caption("Ranks use the selected models, with shared ranks for exact ties. WAPE gives percentage error. MAE and RMSE use order-demand units.")
             download_frame(ranked,"model_comparison",key="comparison_download",label="Download ranked comparison",filename="model_comparison.csv")
         else:
             st.info("Per-warehouse 4/8-week summary scores are not exported. No missing metrics or rankings are manufactured; aligned predictions can still be viewed below. Select the pooled sample or 12 weeks for exported scores.")
