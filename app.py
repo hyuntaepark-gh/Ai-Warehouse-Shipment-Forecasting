@@ -1,17 +1,12 @@
-"""Supply Chain Analytics | historical capstone presentation, version 1."""
-import importlib
-
-# Discover local modules added while the Streamlit server is running.
-importlib.invalidate_caches()
+"""Publication-gated Warehouse IQ application for the CFS Area pilot."""
+import os
 
 import streamlit as st
-from design_system import apply_global_theme, page_intro
-from navigation import (
-    FORECAST_HORIZONS, LABELS, MODEL_STRATEGIES, NUMERICAL_STABILITY, RESEARCH_OVERVIEW, RESEARCH_ROUTES, RESEARCH_VALIDATION,
-    render_navigation,
-)
-from product_layout import apply_product_theme, workspace_header
-from release_policy import PUBLIC_HOLD, public_data_blocked
+
+from design_system import apply_global_theme
+from navigation import LABELS, RESEARCH_ROUTES, render_navigation
+from product_layout import apply_product_theme, publication_hold
+from release_policy import PUBLIC_HOLD
 
 st.set_page_config(page_title="Warehouse IQ · Demand Intelligence", page_icon="📦", layout="wide")
 
@@ -20,54 +15,26 @@ apply_product_theme()
 
 page = render_navigation()
 
-if public_data_blocked(st.get_option("server.address")):
-    st.title(LABELS[page])
-    st.info(PUBLIC_HOLD)
-    st.stop()
+study = ("Final Research · M5 and Corporación Favorita retail forecasting" if page in RESEARCH_ROUTES
+         else "Original Warehouse Operations · Archived order-demand study")
 
-from overview import render_overview
-from historical import render_historical
-from model_comparison import render_model_comparison
-from warehouse import render_warehouse
-from model_validation import render_validation
-from future_forecasting import render_future
-from operational_insights import render_operational
-from data_foundation import render_foundation
-from research_overview import render_research_overview
-from forecast_horizons import render_forecast_horizons
-from numerical_stability import render_numerical_stability
-from model_strategies import render_model_strategies
-from research_validation import render_research_validation
+if page == "Data Foundation":
+    from deployment.cfs_area_gate import load_approved_cfs
 
-workspace_header(LABELS[page], "Final Research · Retail forecasting" if page in RESEARCH_ROUTES
-                 else "Original Warehouse Operations · Archived study")
+    cfs_payload = load_approved_cfs(os.environ)
+    if cfs_payload is not None:
+        from cfs_area_coverage import parse_coverage, render_coverage
 
-if page not in ["Executive Overview", "Operational Insights", "Data Foundation", *RESEARCH_ROUTES]:
-    page_intro(page)
+        try:
+            cfs_source, cfs_rows = parse_coverage(cfs_payload)
+        except (ValueError, TypeError, KeyError):
+            publication_hold(LABELS[page], study)
+        else:
+            st.title(LABELS[page])
+            st.caption("Original Warehouse Operations · Federal data reference")
+            render_coverage(cfs_source, cfs_rows)
+            st.markdown("**Original warehouse and M5 source summaries**")
+            st.info(PUBLIC_HOLD, icon=":material/lock:")
+        st.stop()
 
-if page == "Historical Demand":
-    render_historical()
-elif page == "Executive Overview":
-    render_overview()
-elif page == "Model Comparison":
-    render_model_comparison()
-elif page == "Warehouse Analytics":
-    render_warehouse()
-elif page == "Model Validation":
-    render_validation()
-elif page == "Future Forecasting":
-    render_future()
-elif page == "Data Foundation":
-    render_foundation()
-elif page == RESEARCH_OVERVIEW:
-    render_research_overview()
-elif page == FORECAST_HORIZONS:
-    render_forecast_horizons()
-elif page == NUMERICAL_STABILITY:
-    render_numerical_stability()
-elif page == MODEL_STRATEGIES:
-    render_model_strategies()
-elif page == RESEARCH_VALIDATION:
-    render_research_validation()
-else:
-    render_operational()
+publication_hold(LABELS[page], study)

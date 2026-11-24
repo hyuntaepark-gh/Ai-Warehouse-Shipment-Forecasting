@@ -1,64 +1,5 @@
-"""Shared, presentation-only BI design primitives.
-
-No forecasting, numerical transformations or source-file writes occur here.
-Material caveats remain in their original page views.
-"""
-from html import escape
-from navigation import LABELS
-
+"""Public presentation theme."""
 import streamlit as st
-
-INK = "#172b4d"
-TEAL = "#087f8c"
-MUTED = "#526278"
-GRID = "#e8edf3"
-WAREHOUSE_COLORS = {"Whse_A": "#087f8c", "Whse_C": "#916128", "Whse_J": "#5168ac", "Whse_S": "#9c6389"}
-MODEL_PALETTE = ["#087f8c", "#916128", "#5168ac", "#9c6389", "#7855a3", "#63748b", "#357e72", "#b07348"]
-
-STORIES = {
-    "Historical Demand": (
-        "DEMAND EXPLORER · OBSERVED RECORDS",
-        "Historical Demand Analysis",
-        "How did recorded demand evolve over time?",
-        "Explore observed weekly order demand, compare recorded years and see variation across warehouse samples. This page does not score forecasts.",
-        "2014–2016 aggregate sample", "Warehouse view: 51 weeks in 2016",
-    ),
-    "Model Comparison": (
-        "FORECAST LAB · COMPARABLE EVALUATIONS",
-        "Model Comparison",
-        "Which forecasting approach performed best in each test?",
-        "Explore error rankings within the same evaluation group, then examine aligned predictions. Results from different horizons are deliberately kept separate.",
-        "WAPE · MAE · RMSE", "No cross-cohort rankings",
-    ),
-    "Warehouse Analytics": (
-        "NETWORK EXPLORER · LOCATION DETAIL",
-        "Warehouse Analytics",
-        "What changes from warehouse to warehouse?",
-        "Compare recorded demand, within-warehouse forecast scores and a separate reconciliation diagnostic. A 51-week observation sample is not a full calendar year.",
-        "Four warehouses", "Observed sample: 51 weeks",
-    ),
-    "Model Validation": (
-        "MODEL ASSURANCE · RESEARCH EVIDENCE",
-        "Model Validation",
-        "How much confidence can we place in the results?",
-        "Investigate backtests, time stability, external evidence and diagnostics. Validation limitations are part of the research findings, not fine print.",
-        "Historical experiments", "Exploratory ≠ independent",
-    ),
-    "Future Forecasting": (
-        "PLANNING OUTLOOK · ARCHIVED PROJECTIONS",
-        "Future Forecasting",
-        "What did the model project at the end of 2016?",
-        "Inspect the saved 4-, 8- and 12-week forecast outlook by warehouse. These are historical projections, not current or live demand forecasts.",
-        "Origin: 25 Dec 2016", "No complete 2017 evaluation outcomes",
-    ),
-    "Operational Insights": (
-        "DECISION SUPPORT · ILLUSTRATIVE INDICATORS",
-        "Operational Insights",
-        "Where might a planner want to investigate further?",
-        "Explore source-reported demand risk, historical monitoring and illustrative scenarios. None of these indicators establishes actual constraints or financial savings.",
-        "Archived evidence", "Not a live alert system",
-    ),
-}
 
 GLOBAL_CSS = """
 <style>
@@ -106,45 +47,5 @@ button:focus-visible,[role="radio"]:focus-visible {outline:3px solid #087f8c!imp
 </style>
 """
 
-
 def apply_global_theme():
     st.markdown(GLOBAL_CSS, unsafe_allow_html=True)
-
-
-def page_intro(page):
-    """Lead with the question answered by the selected archive page."""
-    from product_layout import header
-    leads = {
-        "Historical Demand": "Explore the recorded demand pattern before interpreting a forecast.",
-        "Model Comparison": "Compare forecast errors within one compatible evaluation group.",
-        "Warehouse Analytics": "Demand scale and variability differ across the four warehouse samples.",
-        "Model Validation": "Historical evidence is useful; reused evaluations limit confidence in generalization.",
-        "Future Forecasting": "Explore the saved outlook from December 2016, with no complete 2017 evaluation outcomes.",
-    }
-    header(leads[page])
-
-
-
-def finding(title, description):
-    st.markdown(f'<aside class="bi-finding"><strong>{escape(str(title))}</strong>'
-                f'<p>{escape(str(description))}</p></aside>', unsafe_allow_html=True)
-
-
-def style_plot(figure, height=390):
-    """Apply consistent styling without changing any traces, values or axes meanings."""
-    figure.update_layout(
-        template="plotly_white", height=height,
-        margin=dict(l=12, r=31, t=12, b=54),
-        font=dict(family='system-ui, sans-serif', size=12, color=INK),
-        paper_bgcolor='#ffffff', plot_bgcolor='#ffffff',
-        legend=dict(orientation='h', y=-.23, x=0, title_text='', font=dict(size=12)),
-        hoverlabel=dict(font_size=12),
-        hovermode=figure.layout.hovermode or 'closest',
-    )
-    figure.update_xaxes(rangeslider_visible=False, automargin=True,
-                        tickfont=dict(size=12, color=MUTED),
-                        title_font=dict(size=12, color=INK), zeroline=False)
-    figure.update_yaxes(automargin=True, gridcolor=GRID,
-                        tickfont=dict(size=12, color=MUTED),
-                        title_font=dict(size=12, color=INK), zeroline=False)
-    return figure

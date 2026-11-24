@@ -1,4 +1,5 @@
 """Smoke-test the data-free release in Linux without workstation data."""
+import argparse
 from http.cookies import SimpleCookie
 import json
 import os
@@ -9,7 +10,7 @@ import time
 import urllib.error
 import urllib.request
 
-APP = Path(__file__).resolve().parent
+APP = Path(__file__).resolve().parents[1] / ".render-preview"
 PORT = int(os.environ.get("PORT", "18721"))
 PROTECTED = ("capstone_final_outputs", "foundation_summaries", "final_research_exports",
              "local_research_sources", "research_overview_sources.json")
@@ -78,7 +79,7 @@ def live_session_check():
         else:
             raise RuntimeError("The live Streamlit session did not finish.")
     assert found_hold
-    assert not (types & {"arrow_data_frame", "arrow_table", "download_button", "metric", "plotly_chart", "exception"})
+    assert not (types & {"arrow_data_frame", "arrow_table", "table", "download_button", "metric", "plotly_chart", "exception"})
 
 
 def navigation_check():
@@ -99,7 +100,7 @@ def navigation_check():
         assert not app.exception, (route, app.exception)
         assert len(app.title) == 1 and app.title[0].value == LABELS[route], route
         assert len(app.info) == 1 and app.info[0].value == PUBLIC_HOLD, route
-        for element in ("metric", "plotly_chart", "dataframe", "download_button", "selectbox"):
+        for element in ("metric", "plotly_chart", "dataframe", "table", "download_button", "selectbox"):
             assert not app.get(element), (route, element)
 
     for route in RESEARCH_ROUTES:
@@ -115,11 +116,22 @@ def navigation_check():
 
 
 def main():
+    global APP
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--runtime", type=Path, default=APP, help="Freshly staged guarded runtime")
+    APP = parser.parse_args().runtime.resolve(strict=True)
+    sys.path.insert(0, str(APP))
+    os.environ["PORT"] = str(PORT)
     if sys.platform != "linux" or sys.version_info[:3] != (3, 12, 10):
         raise RuntimeError("Use Linux with the planned Python 3.12.10 runtime.")
     for name in PROTECTED:
         if (APP / name).exists():
             raise RuntimeError(f"Private file or folder present: {name}")
+    from deployment.page_publication import cfs_area_plan
+    for filename in cfs_area_plan().files:
+        if (APP / filename).exists():
+            raise RuntimeError("A private CFS file is present in the runtime.")
+
     env = os.environ.copy()
     for name in ("CAPSTONE_DATA_DIR", "FINAL_RESEARCH_DATA_DIR", "PYTHONPATH", "PYTHONHOME"):
         env.pop(name, None)
@@ -132,6 +144,17 @@ def main():
         startup = health_check(server)
         live_session_check()
         names, average, longest = navigation_check()
+        for filename in cfs_area_plan().files:
+            for prefix in ("", "media/", "app/static/"):
+                url = f"http://127.0.0.1:{PORT}/{prefix}{filename}"
+                try:
+                    with urllib.request.urlopen(url, timeout=3) as response:
+                        if response.headers.get_content_type() != "text/html":
+                            raise RuntimeError("Unexpected runtime-file response.")
+                except urllib.error.HTTPError as exc:
+                    if exc.code != 404:
+                        raise
+
         status = Path(f"/proc/{server.pid}/status").read_text(encoding="utf-8")
         peak_rss = int(next(line.split()[1] for line in status.splitlines() if line.startswith("VmHWM:")))
         print(json.dumps({

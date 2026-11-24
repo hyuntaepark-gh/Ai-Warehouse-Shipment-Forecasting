@@ -14,24 +14,22 @@ def launch_settings(mode, env):
     value = env.get("PORT", "8507" if mode == "preview" else "")
     if not value.isascii() or not value.isdigit() or not 1 <= int(value) <= 65535:
         raise ValueError("PORT must be an integer between 1 and 65535.")
-    return ("0.0.0.0" if mode in {"render", "horizons-release"} else "127.0.0.1"), int(value)
+    return ("0.0.0.0" if mode == "render" else "127.0.0.1"), int(value)
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("mode", choices=("local", "preview", "render", "horizons-release"), nargs="?", default="local")
+    parser.add_argument("mode", choices=("local", "preview", "render"), nargs="?", default="local")
     args = parser.parse_args()
     env = os.environ.copy()
     try:
         address, port = launch_settings(args.mode, env)
     except ValueError as exc:
         parser.error(str(exc))
-    if args.mode != "local":
-        env["WIQ_RELEASE_MODE"] = "horizons_display" if args.mode == "horizons-release" else "public"
-        env["STREAMLIT_CLIENT_SHOW_ERROR_DETAILS"] = "none"
-    entry = "deployment/public_horizons_app.py" if args.mode == "horizons-release" else "app.py"
+    env["WIQ_RELEASE_MODE"] = "public" if args.mode == "render" else "preview"
+    env["STREAMLIT_CLIENT_SHOW_ERROR_DETAILS"] = "none"
     command = [
-        sys.executable, "-m", "streamlit", "run", str(ROOT / entry),
+        sys.executable, "-m", "streamlit", "run", str(ROOT / "app.py"),
         "--server.address", address, "--server.port", str(port),
         "--server.headless", "true", "--browser.gatherUsageStats", "false",
     ]

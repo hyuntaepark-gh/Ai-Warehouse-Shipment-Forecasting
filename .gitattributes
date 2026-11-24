@@ -1,0 +1,2 @@
+# The CFS decision pins these exact specification bytes on Windows and Linux.
+/docs/cfs_area_coverage_package.json text eol=lf
